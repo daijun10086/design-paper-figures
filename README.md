@@ -17,6 +17,34 @@ Created and maintained by **Dai Jun**.
 
 The Skill emphasizes compact but readable layouts, coherent typography, complete and intentional borders, disciplined use of grids and transparency, editable vector output, and scientifically fair comparisons.
 
+## Examples
+
+The following figures were produced during the final holdout test of the Skill. They use synthetic data or explicit image placeholders rather than fabricated research results.
+
+### Statistical figure
+
+Full frames, restrained grids, confidence-band transparency, coherent palette use, and a carefully positioned zoomed inset.
+
+<p align="center">
+  <img src="output/final-skill-test/statistical/statistical-holdout-test.png" width="900" alt="Statistical figure holdout test">
+</p>
+
+### Editable pipeline draft
+
+A compact left-to-right method storyboard with replaceable intermediate-result slots, distinct connector semantics, rounded modules, and a closed geometry-update loop.
+
+<p align="center">
+  <img src="output/final-skill-test/pipeline/anyrecon-pipeline-draft.png" width="1000" alt="Editable pipeline figure draft">
+</p>
+
+### Editable teaser concept
+
+An intuition-plus-results teaser layout that reserves real space for future paper assets while keeping the narrative, alignment, hierarchy, and evidence structure visible.
+
+<p align="center">
+  <img src="output/final-skill-test/teaser/anyrecon-teaser-draft.png" width="1000" alt="Editable teaser figure concept">
+</p>
+
 ## Install
 
 Clone this repository and unpack the portable Skill archive:
