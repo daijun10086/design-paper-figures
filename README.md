@@ -22,7 +22,7 @@ The Skill emphasizes compact but readable layouts, coherent typography, complete
 Clone this repository and unpack the portable Skill archive:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/daijun10086/design-paper-figures.git
 cd design-paper-figures
 unzip design-paper-figures.zip
 ```
@@ -92,4 +92,3 @@ Codex can also be prompted explicitly with `$design-paper-figures`. In Claude Co
 ## Notes
 
 The Skill assists with scientific communication and figure construction. Authors remain responsible for checking the correctness of data, labels, comparisons, citations, and claims before publication.
-
