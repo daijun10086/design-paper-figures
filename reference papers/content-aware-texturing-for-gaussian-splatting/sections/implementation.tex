@@ -1,0 +1,106 @@
+\begin{figure*}[!h]
+\centering
+\setlength{\tabcolsep}{1.5pt}
+
+    \newcommand{\resultfigwidth}{.193\textwidth}
+	\begin{tabular}{cc|cccc}
+		& Ground Truth & 2DGS* & BBSplat & GStex & Ours \\
+        \raisebox{0.25\height}{\rotatebox{90}{\small Mip-Nerf360}} &
+        \spyimage{red}{\resultfigwidth}{images/table1/m360_gt.jpg}{0.4, 1.5}{1.1, 0.6} &
+        \spyimage{red}{\resultfigwidth}{images/table1/m360_2dgs_no_regul.jpg}{0.4, 1.5}{1.1, 0.6} &
+        \spyimage{red}{\resultfigwidth}{images/table1/m360_bbsplat_baseline.jpg}{0.4, 1.5}{1.1, 0.6} &
+        \spyimage{red}{\resultfigwidth}{images/table1/m360_gstex_output_1e7.jpg}{0.4, 1.5}{1.1, 0.6} &
+        \spyimage{red}{\resultfigwidth}{images/table1/m360_texture-proj_final_new_downscale_threshold_0.02.jpg}{0.4, 1.5}{1.1, 0.6} \\
+		
+        \raisebox{0.18\height}{\rotatebox{90}{\small Deep Blending}} &
+        \spyimage{red}{\resultfigwidth}{images/table1/db_gt.jpg}{3, 0.3}{3.3, 1.3} &
+        \spyimage{red}{\resultfigwidth}{images/table1/db_2dgs_no_regul.jpg}{3, 0.3}{3.3, 1.3} &
+        \spyimage{red}{\resultfigwidth}{images/table1/db_bbsplat_baseline.jpg}{3, 0.3}{3.3, 1.3} &
+        \spyimage{red}{\resultfigwidth}{images/table1/db_gstex_output_1e7.jpg}{3, 0.3}{3.3, 1.3} &
+        \spyimage{red}{\resultfigwidth}{images/table1/db_texture-proj_final_new_downscale_threshold_0.02.jpg}{3, 0.3}{3.3, 1.3} \\
+
+        \rotatebox{90}{\small Tanks\&Temples} &
+        \spyimage{red}{\resultfigwidth}{images/table1/tnt_gt.jpg}{3.1, 1.65}{3.1, 0.6} &
+        \spyimage{red}{\resultfigwidth}{images/table1/tnt_2dgs_no_regul.jpg}{3.1, 1.65}{3.1, 0.6} &
+        \spyimage{red}{\resultfigwidth}{images/table1/tnt_bbsplat_baseline.jpg}{3.1, 1.65}{3.1, 0.6} &
+        \spyimage{red}{\resultfigwidth}{images/table1/tnt_gstex_output_1e7.jpg}{3.1, 1.65}{3.1, 0.6} &
+        \spyimage{red}{\resultfigwidth}{images/table1/tnt_texture-proj_final_new_downscale_threshold_0.02.jpg}{3.1, 1.65}{3.1, 0.6} \\
+	\end{tabular}
+\caption{
+\label{fig:default-eval}
+We provide renderings from one scene per dataset for every method,
+trained with default settings.
+Our method is able to reconstruct high frequency details on images,
+even while using fewer parameters compared to the other methods.
+}
+\end{figure*}
+
+
+
+\section{Implementation}
+We have implemented our method using the 3DGS codebase, introducing 2D primitives as in 2DGS. 
+%\PP{we used 3dgs and then added bits of 2dgs}.
+Unlike 2DGS,
+we do not use the $\mathbb{R}^2 \rightarrow \mathbb{R}^2$ transformation to find the intersection point using three non-parallel planes.
+Instead, we use Eq.~\ref{eq:intersection_point} directly in camera space.
+We did not observe any instability issues.
+\revision{rev6315 runtime performance}{
+Since our method requires per-ray querying of texture maps,
+ both the forward and backward passes incur additional overhead,
+that is not compensated by the smaller number of primitives rendered.
+In general, compared to 2DGS,
+ training time is 1.5-2 times longer, and rendering is 25\% slower.
+}
+
+As the texture grids can have different resolutions,
+we created custom ``jagged'' tensor data structure to be used for their storage.
+The texture resolution for each primitive gets (de-)allocated dynamically,
+so that it covers the extent of the primitive,
+that is $\pm$3 standard deviations.
+This dynamic memory management happens every 100 iterations.
+A hard limit of 256 texture resolution is enforced to avoid using too much memory.
+When a primitive grows outside of its allocated texture grid,
+either because memory has not been allocated yet or it has surpassed the hard limit,
+zero-padding is used. Since we are storing an offset, zero-padding reduces to the DC color.
+
+We observed that limiting the $t_2p_r$ to be greater or equal to 2 did not have a detrimental effect on the visual quality,
+as subtexel scaled details can be retrieved
+thanks to alpha blending and the overlap of our primitives.
+%So,
+We thus allow upscaling to happen only for primitives with a $t_2p_r$ greater or equal to 2.
+% The error calculation,
+% adaptive texel size determination and resolution-aware primitive management strategies run every 250 iterations,
+% until 25k iterations.
+% The threshold $\tau_{\mathrm{tr}}$ starts at $64$ and is progressively reduced to $32$ within 7000 iterations.
+
+% The texture grids are initialized with a value of $0$ on every channel
+% and start optimizing after 500 iterations.
+% To avoid running out of memory and to avoid early overfitting,
+% at 500 iterations,
+% we set $t_2p_r$ for each primivite so that their smallest axis is 8 texels wide,
+% in practice using the closest power of two value.
+
+% We implement downscaling and upscaling using pytorch's interpolate function,
+% with a scale factor of 2,
+% which translates to reductions or increases of the number of texels by a factor of 4,
+% respectively.
+% Upscale is done using nearest neighbour interpolation,
+% so that we avoid changing the appearance of the texture,
+% that could disrupt that optimizer.
+
+
+
+\revision{rev4160 memory/storage}
+{
+\textbf{Storage and Memory Considerations.}
+The size of our representation is tied to the number of parameters used,
+with each parameter saved as a 4-byte float,
+as in previous Gaussian Splatting implementations.
+However,
+%as our representation constitutes an extension to the original one,
+%we expect 
+most Gaussian Splatting compression techniques (see \cite{3dgszip}) are 
+applicable to our approach either directly or with minor modifications.
+For our newly introduced texture maps,
+our choice to use a sigmoid activation to limit the effective range of the texel values allows for a very efficient application of K-means clustering compression. Please see Tab.~\ref{tab:per-scene} for complete statistics.
+}

@@ -1,0 +1,181 @@
+{
+   "sources" : [
+      {
+         "usage" : "toplevel",
+         "filename" : "ContentAwareTexturedGaussians.tex"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "ContentAwareTexturedGaussians.bbl"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "ContentAwareTexturedGaussians.lbl"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "EG.bbx"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "dfT1pcr.fd"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "dfT1phv.fd"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "dfT1ptm.fd"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "eg-alpha-doi.bst"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "eg-alpha.bst"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "egWebLnk.dtx"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "eg_new.eps"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "eg_new.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "egsr2025.sty"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table1/db_2dgs_no_regul.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table1/db_bbsplat_baseline.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table1/db_gstex_output_1e7.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table1/db_gt.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table1/db_texture-proj_final_new_downscale_threshold_0.02.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table1/m360_2dgs_no_regul.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table1/m360_bbsplat_baseline.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table1/m360_gstex_output_1e7.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table1/m360_gt.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table1/m360_texture-proj_final_new_downscale_threshold_0.02.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table1/tnt_2dgs_no_regul.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table1/tnt_bbsplat_baseline.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table1/tnt_gstex_output_1e7.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table1/tnt_gt.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table1/tnt_texture-proj_final_new_downscale_threshold_0.02.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table2/db_bbsplat_same_params_.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table2/db_gstex_output_same_params.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table2/db_gt.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table2/db_texture-proj_final_new_downscale_threshold_0.02.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table2/m360_bbsplat_same_params_.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table2/m360_gstex_output_same_params.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table2/m360_gt.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table2/m360_texture-proj_final_new_downscale_threshold_0.02.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table2/tnt_bbsplat_same_params_.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table2/tnt_gstex_output_same_params.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table2/tnt_gt.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "images/table2/tnt_texture-proj_final_new_downscale_threshold_0.02.jpg"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "orcid.eps"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "readme.txt"
+      },
+      {
+         "usage" : "ignore",
+         "filename" : "references.bib"
+      }
+   ],
+   "spec_version" : 1,
+   "texlive_version" : "2025",
+   "process" : {
+      "compiler" : "pdflatex"
+   }
+}

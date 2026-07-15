@@ -1,0 +1,98 @@
+\begin{abstract}
+
+% In this paper, we investigate the scaling laws of geometry-free view synthesis transformer models.
+% NEW 2
+Geometry-free view synthesis transformers have recently achieved state-of-the-art performance in Novel View Synthesis (NVS), outperforming traditional approaches that rely on explicit geometry modeling. Yet the factors governing their scaling with compute remain unclear. 
+%
+We present a systematic study of scaling laws for view synthesis transformers and derive design principles for training compute-optimal NVS models. Contrary to prior findings, we show that encoder–decoder architectures can be compute-optimal; we trace earlier negative results to suboptimal architectural choices and comparisons across unequal training compute budgets. Across several compute levels, we demonstrate that our encoder–decoder architecture, which we call the Scalable View Synthesis Model (SVSM), scales as effectively as decoder-only models, achieves a superior performance–compute Pareto frontier, and surpasses the previous state-of-the-art on real-world NVS benchmarks with substantially reduced training compute. 
+\href{https://www.evn.kim/research/svsm}{https://www.evn.kim/research/svsm}
+
+
+% In this work, we conduct a rigorous analysis of the scaling laws for view synthesis transformers and elucidate a series of design choices for training compute-optimal NVS models. Most significantly, we find that an encoder–decoder architecture, which was previously found to be less scalable, can in fact be compute-optimal. We attribute the previously inferior performance of previous encoder–decoder methods to certain architectural choices and inconsistent training compute across comparisons. 
+
+%NEW
+% Geometry-free view synthesis transformers have recently achieved state-of-the-art performance in Novel View Synthesis (NVS), outperforming traditional approaches that rely on explicit geometry modeling. Yet the factors governing their scaling with compute remain unclear. In this work, we conduct a rigorous analysis of the scaling laws for view synthesis transformers and elucidate a series of design choices for training compute-optimal NVS models. Most significantly, we find that an encoder–decoder architecture, which was previously found to be less scalable, can in fact be compute-optimal. We attribute the previously inferior performance of previous encoder–decoder methods to certain architectural choices and inconsistent training compute across comparisons. Across several compute levels, we demonstrate that our encoder–decoder architecture, which we call the Scalable View Synthesis Model (SVSM), scales as effectively as decoder-only models, achieves a superior performance–compute Pareto frontier, and outperforms the previous state-of-the-art on real-world NVS benchmarks with substantially reduced training compute. \href{https://www.evn.kim/research/svsm}{https://www.evn.kim/research/svsm}  %By leveraging these insights, we train a final model which outperforms the previous state-of-the-art on real-world NVS benchmarks with substantially reduced training compute.
+
+%OLD
+% Recently, geometry-free view synthesis transformer models have gained prominence as scalable alternatives to traditional novel view synthesis (NVS) approaches that use explicit geometry modeling. However, the specific factors that govern their performance with respect to their training compute (i.e. their scalability) remain poorly understood. Through rigorous analysis, we identify these factors and propose a compute-optimal design strategy for scalable NVS models. Specifically, we reveal the role of scene representation in a purely geometry-agnostic perspective as an amortization of computation that enables efficient rendering. We show that this explicit scene modeling greatly improves the efficiency both during training and inference without ever hurting the scalability. We attribute the reported inferior performance of previous scene-based models to wrong choice of architecture or training method, and propose a scalable encoder-decoder architecture with corresponding training method that address this issue. We demonstrate that our scene-based approach scales as well as models without scenes, and achieves better Performance-Compute Pareto frontier. By leveraging these insights, we outperform previous state-of-the-art method in real world NVS tasks with substantially reduced computation.
+
+
+
+% and propose a scalable encoder-decoder architecture with corresponding training method that address this issue.
+
+% We demonstrate across several compute scales that our encoder-decoder approach scales as well as decoder-only models, and achieves a better Performance-Compute Pareto frontier.
+% By leveraging these insights, we outperform the previous state-of-the-art method on real world NVS benchmarks with substantially reduced training compute.
+
+
+% % However, there is yet to be a rigorous analysis of their scaling laws across various model and data budgets.
+
+
+
+% Thus, c
+
+
+
+
+
+
+
+
+% We demonstrate that our scene-based approach scales as well as models without scenes, and achieves better Performance-Compute Pareto frontier.
+% By leveraging these insights, we outperform the previous state-of-the-art method on real world NVS benchmarks with substantially reduced training compute.
+
+% Through rigorous analysis, we identify these factors and propose a compute-optimal design strategy for scalable NVS models.
+
+% Specifically, we reveal the role of scene representation in a purely geometry-agnostic perspective as an amortization of computation that enables efficient rendering.
+
+% We show that this explicit scene modeling greatly improves the efficiency both during training and inference without ever hurting the scalability.
+% We attribute the reported inferior performance of previous scene-based models to wrong choice of architecture or training method, 
+% and propose a scalable encoder-decoder architecture with corresponding training method that address this issue.
+% We demonstrate that our scene-based approach scales as well as models without scenes, and achieves better Performance-Compute Pareto frontier.
+% By leveraging these insights, we outperform previous state-of-the-art method in real world NVS tasks with substantially reduced computation.
+
+
+
+
+% By leveraging these insights, we outperform previous state-of-the-art method in real world NVS benchmarks with 2× fewer computation.
+
+
+% Through rigorous analysis, we identify these factors and propose the optimal design strategy for scalable NVS models. Specifically, we reveal the role of scene representation as an amortization of computation that enables efficient rendering. 
+% We show that that this explicit scene modeling greatly improves the efficiency both during training and inference without ever hurting the scalability.
+% We attribute the reported inferior performance of scene-based models in previous works to wrong choice of architecture or training method, 
+% and propose a scalable encoder-decoder architecture with corresponding training method to address this issue.
+% We demonstrate that our scene-based approach can scale as well as previoius state-of-the-art method without scene representation, and achieves significantly optimal performance-flops Pareto frontier than previous state-of-the-art method.
+% By leveraging these insights, we achieve state-of-the-art performance with [TODO]x fewer computation than previous SOTA.
+
+
+
+
+
+
+% We introduce a novel scene-representation-based encoder-decoder architecture that effectively leverages this principle. We demonstrate that our method achieves a substantially improved performance-per-FLOP Pareto frontier, matching the excellent scalability of prior work but with significantly greater efficiency. Leveraging these insights, our final model sets a new state-of-the-art, requiring 2.5x fewer GPU days for training compared to the previous leading method.
+% In this paper, we investigate the scaling laws of geometry-free view synthesis transformer models. 
+% These methods have recently gained prominence as scalable alternatives to traditional novel view synthesis (NVS) approaches that rely on explicit geometric modeling. 
+% However, the specific factors that govern their scalability and performance trade-offs remain poorly understood.
+
+% We reveal these factors via thorough and rigorous analysis... and provide techniques to improve them ...
+% Specifically, we focus on the first principle that 3D scene representation is all about amortization --- precomputing scene and then efficiently 'rendering' the specific view. 
+% We found that by cleverly leveraging this amortization, we show that our scene-representation based encoder-decoder approach achieves effectively identical scalability, but with much tighter performance/flops Pareto frontier.
+% By leveraging these insights, we achieve state-of-the-art performance with 2.5x less gpu days compared to previous SOTA method.
+
+% We elucidate introduce several techniques that impact the scalability, some of which are novel to NVS fields, some of which were implicitly known among researchers but were never outspoken or thorougly investigated, some of which are only recently proposed and less but less is understood about why they works...
+
+
+
+
+
+% \phantom{dasfsadfds}
+
+% \begin{itemize}
+%     \item Unidirectional (ours) and bidirectional (LVSM) NVS models have no difference in terms of scalability when $C=2$ (two context views).
+%     \item For inference, unidirectional model is much faster because they compute scene representation only once.
+%     \item Moreover, by leveraging several tricks, we show that unidirectional models is more compute-optimal for training.
+%     \item However, our model with naive absolute positional embedding does not extrapolate this nice scaling property to $C>2$.
+%     \item We show that relative attention like CaPE/PRoPE enables this scaling trend to extrapolate beyond $C=2$.
+%     \item Combining all these, we show that it is possible to train a model that matches the performance of LVSM with $5\times$ less compute without compromising the scalability.
+% \end{itemize}
+\end{abstract}
+\vspace{-1\baselineskip}

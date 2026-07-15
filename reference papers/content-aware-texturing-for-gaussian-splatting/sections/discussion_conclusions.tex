@@ -1,0 +1,12 @@
+\section{Limitations and Discussion}
+
+Our method presents a good balance of resources used for textured Gaussian Splatting, allowing a smooth variation between number of primitives and number of texels used to represent a scene. However, like all other methods that build on 2DGS, we do not achieve the quality of 3DGS. Using 3D primitives with texture raises interesting questions about how to represent texture: should one use a 2D texture on a plane, or rather a voxel or hash-grid in 3D ? While Textured-GS~\cite{textured3dgs} proposes a first solution using the former approach, the analysis presented in the paper is insufficient to determine how well the choices made perform compared to our solution.
+% ~\footnote{The code for this paper is not available.}.
+
+We do not have any special treatment for anti-aliasing. For NVS, the user can only navigate freely within -- or at least close -- to the convex hull of the input cameras. Since we choose a $t_2p_r$ value that is at least 2, aliasing will rarely by occuring in this range of viewpoints. Nonetheless, a complete solution for anti-aliasing would be an interesting avenue of future work.
+
+We did not investigate the use of dedicated GPU hardware capabilities for texture. Given that our implementation of textured Gaussian Splatting uses a custom CUDA renderer, it is unclear how beneficial this would actually be. However, for the case, e.g., of WebGL renderers~\cite{webglviewer}, this may be a much more interesting direction that could allow accelerated rendering, especially in the case of low-end hardware. 
+
+\section{Conclusion}
+
+We have presented a new representation for textured 2D Gaussian Splatting, that is driven by scene content. By adaptively choosing texel size to fit the content of the scene, and carefully balancing resources used with our resolution-aware spltting approach, we provide a versatile method that allows users to choose between more primitives or more texture while preserving image quality. Our method provides an additional point in the design space of primitive-based NVS algorithms, building on the long tradition of texture mapping in CG rendering.

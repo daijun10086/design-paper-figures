@@ -1,0 +1,5 @@
+method,latency_s,memory_gb,final_error
+Image prior,43,8.0,3.7639890260407918
+Geometry prior,82,12.0,3.336832553814276
+Global memory,116,18.0,2.9715397205626632
+Proposed,64,14.0,2.567091824863191

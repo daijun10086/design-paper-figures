@@ -1,0 +1,50 @@
+\begin{table}[t]
+  \centering
+  \begin{threeparttable}
+    \scriptsize
+    \setlength{\tabcolsep}{3pt} % Kept your spacing
+
+    % Use 'tabular*' to span the full column width
+    % 'l' for model names, 'r' for the three da ta columns
+    % Added @{\extracolsep{\fill}} to distribute the space
+    \begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}} l ccc} 
+      \toprule
+      
+      % --- Supercolumn ---
+      & \multicolumn{3}{c}{\textbf{Recon Quality}} \\
+      
+      % --- Rule for supercolumn ---
+      \cmidrule(lr){2-4} 
+      
+      % --- Subcolumns ---
+      \textbf{Model} 
+      & \textbf{PSNR} (↑) & \textbf{SSIM} (↑) & \textbf{LPIPS} (↓) \\
+      
+      \midrule
+      
+      % --- Data Rows (Filled) ---
+      pixelNeRF~\citep{yu2020pixelnerf} & 20.43 & 0.589 & 0.550 \\
+      % GPNR~\citep{suhail2022generalizable} & 24.11 & 0.793 & 0.255 \\
+      % \citet{du2023learning} & 24.78 & 0.820 & 0.213 \\
+      pixelSplat~\citep{charatan2024pixelsplat} & 26.09 & 0.863 & 0.136 \\
+      MVSplat~\citep{chen2024mvsplat} & 26.39 & 0.869 & 0.128 \\
+      GS-LRM~\citep{zhang2024gs} & 28.10 & 0.892 & 0.114 \\
+      % LVSM Enc-Dec~\citep{jin2024lvsm} & 28.58 & 0.893 & 0.114 \\ 
+      % LVSM Dec-Only~\citep{jin2024lvsm} & 29.67 & 0.906 & 0.098 \\
+      SVSM Enc-Dec \textbf{(ours)} & \textbf{30.01} & \textbf{0.910} & \textbf{0.096} \\
+      
+      \bottomrule
+    \end{tabular*} % <-- Note the 'end' tag is also changed
+    
+    \caption{
+        \textbf{Comparison to Geometry-Aware Methods.}
+        Our method achieves a new state-of-the-art on RealEstate10K~\citep{zhou2018stereo} with the set from~\citet{charatan2024pixelsplat}, outperforming not only LVSM, but also prior work with explicit 3D structure. 
+        % Our encoder-decoder model, despite having the bottleneck of an intermediate scene representation, outperforms the previous SOTA, LVSM~Dec-Only. Among methods which produce an intermediate scene representation, our method exceeds the previous state-of-the-art, LVSM~Enc-Dec, by a significant margin ($\Delta \text{PSNR}=+1.43$, $\Delta \text{LPIPS}=-0.018$), despite being trained with $1/3$ of the compute.
+        % \vspace{-1\baselineskip}
+    }
+    \label{tab:two_view_STOA}
+
+  \end{threeparttable}
+      \vspace{-1\baselineskip}
+
+\end{table}

@@ -1,0 +1,95 @@
+
+\input{tables/1_two_view}
+
+\section{Scaling Laws for Stereo \boldmath\texorpdfstring{$\left(V_C{=}2\right)$}{(Vc=2)} NVS}
+\label{sec:scaling-two-view}
+
+\textbf{Analysis Setup.}
+%
+We first experiment in the most classical setting for feed-forward Novel View Synthesis -- stereo synthesis with two context views. All training and evaluation for the $V_C = 2$ case is done on RealEstate10K~\cite{zhou2018stereo}. As before, we follow the test-train split of pixelSplat~\cite{charatan2024pixelsplat}, along with the same evaluation framework. For training, we use $V_T = 6$ target views per training example, following the setup of~\citep{jin2024lvsm}. We use a batch size of $256$ for all experiments. We use a patch size of $p = 16$ for all experiments, except in the case of table \ref{tab:two_view_STOA}, where we use $p = 8$ to compare against the reported state-of-the-art numbers from LVSM. To ensure stable scaling of both models, we also apply a $1/\sqrt{L}$ multiplier to the residuals, where $L$ is the depth of the transformer, following ideas from depth-$\mu$P~\citep{yang2023tensor,bordelon2023depthwise}. Further training details can be found in the supplementary material. We use the test LPIPS~\citep{zhang2018unreasonable} loss as our primary performance metric, as it produces near linear trends on log-log plots against FLOPs. %However, for completeness we also report the structural similarity index (SSIM)~\citep{wang2004image} and peak signal to noise ratio (PSNR).
+\vspace{-1\baselineskip}
+
+
+
+\label{subsec:scalinglaws}
+\input{figures/optimal_model_scaling}
+\paragraph{Scaling Laws.}
+We now follow the approach in language modeling~\cite{hoffmann2022training} to answer the question: \textit{for a given compute-budget, what is the optimal performance that can be attained?} For both model families, we sweep across a range of models from around 7M to 300M parameters, training each model for 3-4 different sample counts to densely cover the  FLOP range~\citep{hoffmann2022training}. Our training runs span a compute range of $10^3$ magnitudes: 100 petaflops to 100 exaflops. From this data, we are then able to determine a mapping from compute budgets $C$ to minimum test LPIPs -- the Pareto frontier. 
+
+We plot results in~\figref{fig:two-view-scale}, with their Pareto frontiers marked in dark gray. Plotted on a log-log scale, both models exhibit a consistent downward trend on test LPIPS with more compute. More significantly, the Pareto frontiers of both families have approximately the same slope at points of the same performance (see \suppref{supp:fits}), and SVSM's frontier is shifted left by a factor of $3$. Thus, as an initial result, our scaling laws show us that our encoder-decoder architecture \textit{scales exactly the same as the decoder-only LVSM while using $3\times$ less training-compute.} Qualitative results of this scaling are shown in \figref{fig:qualitative-two-view}, and we see that when FLOP-matched, SVSM has better rendering quality.
+
+\vspace{-1\baselineskip}
+
+
+\input{figures/qualitative_two_view}
+\input{tables/2_two_view_SOTA}
+
+\paragraph{Optimal Model Choice.}
+
+\input{tables/coefficients}
+
+From our scaling experiments, we can further extract a compute-optimal training recipe for our view synthesis transformers, as demonstrated by~\citet{hoffmann2022training}. For each compute budget $\compute{}$, we determine the corresponding optimal model size $N$ and the amount of training data $D$ used at that point. Then, plotting $N$ and $D$ against $\compute{}$, we can extract the Chinchilla scaling equations (\eqref{eqn:chinchilla}) by fitting lines onto the log-log plots in Fig. \ref{fig:opt-model-scaling}. The recovered coefficients are shown in \tabref{tab:opt-model-table}, which inform how to train models which end on the frontier.
+
+From these results it follows that for SVSM, if we increase our compute budget by a factor of $k\times$, it should approximately be equally allocated between increasing the model size by $\sqrt k$ and increasing data sample count by $\sqrt k$ as $a_{\text{SVSM}} \approx b_{\text{SVSM}}$, matching the findings of the Chinchilla scaling laws~\citep{hoffmann2022training} for language models. For LVSM this relationship does not seem to hold exactly, but the fit still shows that requires significant scaling of data with respect to compute, though to a smaller power. 
+
+\input{figures/prope}
+\input{figures/mv_scale}
+
+Notably our data sample counts include \emph{repeated scene data}, as we only have access to small, pose-labeled datasets. This differs from standard scaling practice, in which models are typically trained for less than one full epoch~\citep{hoffmann2022training, kaplan2020scaling, zhai2022scaling}. Although we have not yet seen evidence of overfitting in our experiments -- perhaps due to the diversity of view sequences which are sampled during training -- we have shown that increasing scale requires increasing the number data samples. Thus, having access to larger amounts of diverse posed data will be essential for developing large-scale generalizable NVS models.
+\vspace{-1\baselineskip}
+% Two points of note here:
+% \begin{itemize}
+%     \item The data quantity analyzed here was analyzed with repeated data -- proper requires more paired data or self-supervised NVS
+%     \item \textbf{Reference appendix for increased scene quantity giving better test loss.}
+% \end{itemize}
+
+
+
+
+
+% [maybe more discussion here?]
+
+
+
+% To answer this question, for both families of models, we train 
+
+
+
+% \begin{itemize}
+%     \item We sweep across a range of models and data samples (details in appendix)
+%     \item We plot LPIPs loss against FLOPs
+%     \item In linear regions, same slope, but different intercept
+%     \item Compute vs. Data and Compute vs. Model size scaling laws
+%     \item Maybe make a statement about data diversity in NVS
+% \end{itemize}
+
+
+
+% \subsection{Scaling laws for model and data, $C > 2$}
+
+
+% \begin{itemize}
+%     \item PRoPE ?
+%     \item need experiments without PRoPE -- done.
+%     \item need prettier plots for the scaling laws in this case .... 
+% \end{itemize}
+
+
+% \vspace{-1\baselineskip}
+\paragraph{SVSM-420M/740M Results.}
+%
+\looseness=-1
+Finally, combining our scaling law findings, we train two separate models --- SVSM-420M and SVSM-740M, aptly named to denote their parameter counts --- to compare against the original results of LVSM's largest model on RealEstate10K. Due to compute-constraints, we train our models at a lower total budget of around $10^{21}$ FLOPs and a batch size of $256$,  approximately half the FLOPs and exactly half the batch size used by LVSM.  We train two models under this budget: (1) a flop-matched model with the 24 layer LVSM model for a forward pass of a single training sample with $V_C = 2, V_T=  6$ and; (2) A model whose parameter count is given by plugging the budget\footnote{To be more specific, we plug $\compute/4$ into the scaling law, in order to adjust for the scaling law being derived off of $16\times 16$ patch experiments, while this final budget is under $8\times 8$ patches, which requires roughly $4\times$ as much compute.} $\compute$ and the coefficients from \tabref{tab:opt-model-table} to \eqref{eqn:chinchilla}.
+
+While we train with under half the compute, our scaling laws in Sec.~\ref{subsec:scalinglaws} predict equal performance with three times less compute. Thus, as predicted by our scaling laws and validated empirically by the results in \ref{tab:two-view-result} both SVSM models outperform decoder-only LVSM. Notably, SVSM-420M, the model trained in accordance with our scaling laws performs the best. For completeness, we also show reported results from prior work on this benchmark in \tabref{tab:two_view_STOA}. 
+
+Furthermore, we also benchmark the \textit{rendering speed}, which is calculated with $V_T = 1$ to simulate real-time online rendering with respect to a stream of input poses. Additional details can be found in \suppref{supp:rendering}. As seen in \tabref{tab:two-view-result}, SVSM generally renders much faster than decoder-only LVSM, and  is eclipsed only once $V_C$ increases to $8$. 
+
+%While the gap is marginal $\approx 0.3$ PSNR, it was achieved with 45\% of the compute, and half the batch size. If batch size 512 was used, we expect that the gap would be much larger.
+
+% \textbf{Rendering speed.} Thus far, we have only discussed training FLOPs. Now, with our final models, we benchmark rendering speed. All rendering speeds are calculated with $V_T = 1$ to simulate real-time, online rendering with respect to a stream of input poses. 
+
+
+
+
+

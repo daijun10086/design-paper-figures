@@ -1,0 +1,2510 @@
+version: 1
+status: collection-complete
+
+preference_profile:
+  id: graphics-siggraph
+  priority: high
+  source_scope: colors collected from user-approved Graphics and SIGGRAPH paper figures
+  usage_scope: venue-agnostic and research-area-agnostic
+  source_is_not_usage_constraint: true
+  description: >-
+    Treat color families and combinations explicitly approved from Graphics or
+    SIGGRAPH papers as preferred candidates for any academic figure. Graphics or
+    SIGGRAPH identifies provenance and aesthetic taste, not a restriction on where
+    the colors may be used. Preserve figure semantics, contrast, and venue constraints.
+  applies_to:
+    - statistical-plots
+    - pipeline-figures
+    - neural-network-diagrams
+    - teaser-figures
+    - qualitative-results
+
+color_spaces:
+  canonical: srgb
+  perceptual: oklch
+  storage:
+    - hex
+    - rgb
+    - oklch
+    - alpha
+
+evidence_status:
+  candidate: extracted but not yet explicitly approved
+  user-approved: explicitly identified by the user as visually desirable
+  validated: reproduced successfully in a forward test
+  preferred: repeatedly approved and suitable as a default candidate
+
+extraction_policy:
+  source_priority:
+    - editable-vector-source
+    - figure-generation-code
+    - vector-pdf-objects
+    - raster-region-sampling
+  raster_rules:
+    - Crop to intentional graphical marks before sampling.
+    - Exclude photographs, rendered objects, backgrounds, text antialiasing, and shadows unless they are the design target.
+    - Estimate flat-color regions with a robust median or perceptual cluster rather than a single pixel.
+    - Record base color and alpha separately when transparency is used.
+    - Record the composited appearance and background when the base color cannot be recovered reliably.
+    - Visually verify every extracted color against the rendered figure.
+  confidence_levels:
+    exact: recovered from source code or vector object
+    high: stable flat-region estimate from raster content
+    medium: cluster estimate affected by compression or antialiasing
+    low: visual approximation only
+
+selection_policy:
+  - Treat Graphics or SIGGRAPH as provenance metadata, never as a venue eligibility rule.
+  - Consider approved colors for papers in any venue or research area before searching for unrelated new palettes.
+  - Choose a palette combination before choosing isolated colors whenever possible.
+  - When one stored color is selected, inspect its combination memberships and prioritize its approved companion colors.
+  - Preserve the stored role mapping, background, lightness hierarchy, and approximate usage proportions.
+  - If a color belongs to multiple combinations, select the combination by figure type, semantic role, and background.
+  - Do not merge colors from unrelated combinations without a contrast and harmony review.
+  - Treat opacity variants as members of the same color family, not as unrelated new colors.
+  - Recheck legibility, grayscale behavior, and color-vision accessibility at the final paper size.
+
+record_schema:
+  color:
+    required:
+      - id
+      - name
+      - hex
+      - rgb
+      - oklch
+      - alpha
+      - roles
+      - source
+      - confidence
+      - status
+    optional:
+      - composited_hex
+      - background
+      - family
+      - variants
+      - notes
+      - preference_tier
+  combination:
+    required:
+      - id
+      - name
+      - member_color_ids
+      - role_mapping
+      - background
+      - source
+      - suitable_for
+      - pairing_guidance
+      - status
+    optional:
+      - approximate_proportions
+      - opacity_rules
+      - line_styles
+      - avoid
+      - notes
+
+source_registry:
+  prior-p1:
+    description: Previously approved P1 palette from Paper 01/02 and Forward Test 01.
+    evidence: paper-aesthetic-observations.md
+  prior-p1-p3:
+    description: Exact color shared by prior P1 and P3; stored once and referenced by both combinations.
+    evidence: paper-aesthetic-observations.md
+  prior-p2:
+    description: Previously approved Paper 01 Figure 2 comparison palette.
+    evidence: paper-aesthetic-observations.md
+  prior-p3:
+    description: Previously approved and forward-tested Paper 01 Figure 3 status/callout palette.
+    evidence: paper-aesthetic-observations.md
+  prior-p4:
+    description: Previously approved deep semantic-flow and gradient palette from Papers 03/04.
+    evidence: paper-aesthetic-observations.md
+  prior-p4-p5:
+    description: Exact neutral shared by prior P4 and P5; stored once and referenced by both combinations.
+    evidence: paper-aesthetic-observations.md
+  prior-p5:
+    description: Previously approved gray and burnt-orange workflow palette from Paper 04 Figure 2.
+    evidence: paper-aesthetic-observations.md
+  prior-shared:
+    description: Previously approved shared neutral color.
+    evidence: paper-aesthetic-observations.md
+  sewing-f2-f3:
+    paper: Learning Sewing Patterns via Latent Flow Matching of Implicit Fields
+    figures:
+    - Figure 2
+    - Figure 3(a)
+    - Figure 3(b)
+    file:
+    - fig/pipe_p4.pdf
+    - fig/cluster_p.pdf
+    extraction: The field raster was matched against standard diverging maps; canonical RdBu_r stops reproduce the
+      observed JPEG-compressed colors.
+  sewing-supp-f4:
+    paper: Learning Sewing Patterns via Latent Flow Matching of Implicit Fields
+    figures:
+    - Supplementary Figure 4
+    file:
+    - fig/compare_GCD_p.pdf
+    extraction: Robust medians and dominant modes from repeated flat foreground regions using embedded soft masks.
+  sewing-supp-f5:
+    paper: Learning Sewing Patterns via Latent Flow Matching of Implicit Fields
+    figures:
+    - Supplementary Figure 5
+    file:
+    - fig/completion_p.pdf
+    extraction: Dominant flat-region modes from JPEG-compressed embedded images using soft masks.
+  antipodal-main-f3:
+    paper: 'The Antipodal Method: Fast, Accurate, and Robust 3D Generalized Winding Numbers'
+    figures:
+    - Figure 3(a)
+    - Figure 3(b)
+    file:
+    - figures/alexander-numbering_1.pdf
+    - figures/alexander-numbering_2.pdf
+    extraction: Representative anchors from lossless embedded raster regions; the sphere lighting produces local
+      lightness variation, so dominant region modes and stable interior samples were used.
+  antipodal-main-f5:
+    paper: 'The Antipodal Method: Fast, Accurate, and Robust 3D Generalized Winding Numbers'
+    figures:
+    - Figure 5(a)
+    - Figure 5(b)
+    file:
+    - figures/discretization_a.pdf
+    - figures/discretization_b.pdf
+    extraction: Representative color and gray-lighting stops from the lossless embedded sphere render.
+  antipodal-supp-f3:
+    paper: 'The Antipodal Method: Fast, Accurate, and Robust 3D Generalized Winding Numbers'
+    figures:
+    - Supplementary Figure 3
+    file:
+    - figures/aq_accuracy.pdf
+    extraction: Exact evenly spaced samples from the two lossless embedded 257-pixel colorbar rasters.
+  matern-f4-bunnies:
+    paper: Matérn Noise for Triangulation-Agnostic Flow Matching on Meshes
+    figures:
+    - Figure 4, rightmost three Stanford bunnies
+    file:
+    - figs/noise_sample_schemes.jpg
+    extraction: Representative hue clusters from the right-half bunny foreground, excluding white background,
+      black labels, shadows, and specular highlights. JPEG compression and surface lighting remain reflected in
+      the confidence level.
+deduplication_log:
+  policy: Deduplicate exact sRGB hex values globally; preserve near colors when their source combination or role
+    is distinct.
+  prior_unique_colors_migrated: 43
+  new_unique_colors_added: 48
+  total_unique_colors: 91
+  exact_reuse_examples:
+  - '#F5433D is stored once and reused by P1 and P3.'
+  - '#88B06D and #5D8DFD are stored once and reused by P1 and P3.'
+  - '#000000, #666666, #A5A5A5, and #FFFFFF are shared by P4/P5 rather than duplicated.'
+  - '#FFFFFF from the Supplementary Figure 3 evaluation ramp reuses the existing paper-white record.'
+  near_colors_kept_distinct:
+  - '#FB8E89 and #FBA09D remain distinct because they belong to different approved red roles.'
+  - '#B2DEA1 remains distinct from prior soft greens because it is part of a new flesh-gray-green trio.'
+  - '#999999 remains distinct from #939595 and #A5A5A5 because it is the exact repeated pattern gray.'
+  - '#F9856A and #FA7D5E remain distinct because one is a Figure 3 region anchor and the other is an exact
+    Supplementary Figure 3 gradient stop.'
+colors:
+- id: soft-orange-light
+  name: soft orange light
+  hex: '#F9CB8A'
+  rgb:
+  - 249
+  - 203
+  - 138
+  oklch:
+  - 0.8679
+  - 0.0973
+  - 75.5
+  alpha: 1.0
+  roles:
+  - category-fill
+  - family-light
+  source: prior-p1
+  confidence: exact
+  status: preferred
+  family: orange
+  preference_tier: primary
+- id: soft-orange-mid
+  name: soft orange mid
+  hex: '#F7BA64'
+  rgb:
+  - 247
+  - 186
+  - 100
+  oklch:
+  - 0.8281
+  - 0.1249
+  - 74.0
+  alpha: 1.0
+  roles:
+  - category-fill
+  - family-mid
+  source: prior-p1
+  confidence: exact
+  status: preferred
+  family: orange
+  preference_tier: primary
+- id: soft-orange-deep
+  name: soft orange deep
+  hex: '#F5A83D'
+  rgb:
+  - 245
+  - 168
+  - 61
+  oklch:
+  - 0.7888
+  - 0.1479
+  - 70.9
+  alpha: 1.0
+  roles:
+  - category-line
+  - family-deep
+  - emphasis
+  source: prior-p1
+  confidence: exact
+  status: preferred
+  family: orange
+  preference_tier: primary
+- id: soft-coral-light
+  name: soft coral light
+  hex: '#FBA09D'
+  rgb:
+  - 251
+  - 160
+  - 157
+  oklch:
+  - 0.7962
+  - 0.1091
+  - 21.8
+  alpha: 1.0
+  roles:
+  - category-fill
+  - family-light
+  source: prior-p1
+  confidence: exact
+  status: preferred
+  family: coral
+  preference_tier: primary
+- id: soft-coral-mid
+  name: soft coral mid
+  hex: '#F86762'
+  rgb:
+  - 248
+  - 103
+  - 98
+  oklch:
+  - 0.6946
+  - 0.1791
+  - 24.8
+  alpha: 1.0
+  roles:
+  - category-fill
+  - family-mid
+  source: prior-p1
+  confidence: exact
+  status: preferred
+  family: coral
+  preference_tier: primary
+- id: soft-coral-deep
+  name: soft coral deep
+  hex: '#F5433D'
+  rgb:
+  - 245
+  - 67
+  - 61
+  oklch:
+  - 0.6451
+  - 0.2153
+  - 27.1
+  alpha: 1.0
+  roles:
+  - category-line
+  - family-deep
+  - emphasis
+  - status-boundary
+  source: prior-p1-p3
+  confidence: exact
+  status: preferred
+  family: coral
+  preference_tier: primary
+- id: soft-grass-light
+  name: soft grass light
+  hex: '#B3CDA2'
+  rgb:
+  - 179
+  - 205
+  - 162
+  oklch:
+  - 0.8176
+  - 0.0651
+  - 133.2
+  alpha: 1.0
+  roles:
+  - category-fill
+  - family-light
+  source: prior-p1
+  confidence: exact
+  status: preferred
+  family: grass
+  preference_tier: primary
+- id: soft-grass-mid
+  name: soft grass mid
+  hex: '#9EBF88'
+  rgb:
+  - 158
+  - 191
+  - 136
+  oklch:
+  - 0.7661
+  - 0.0838
+  - 133.3
+  alpha: 1.0
+  roles:
+  - category-fill
+  - family-mid
+  source: prior-p1
+  confidence: exact
+  status: preferred
+  family: grass
+  preference_tier: primary
+- id: soft-grass-deep
+  name: soft grass deep
+  hex: '#88B06D'
+  rgb:
+  - 136
+  - 176
+  - 109
+  oklch:
+  - 0.7114
+  - 0.1024
+  - 133.5
+  alpha: 1.0
+  roles:
+  - category-line
+  - family-deep
+  - observation
+  source: prior-p1-p3
+  confidence: exact
+  status: preferred
+  family: grass
+  preference_tier: primary
+- id: soft-purple-light
+  name: soft purple light
+  hex: '#D0B3FF'
+  rgb:
+  - 208
+  - 179
+  - 255
+  oklch:
+  - 0.8184
+  - 0.109
+  - 301.5
+  alpha: 1.0
+  roles:
+  - category-fill
+  - family-light
+  source: prior-p1
+  confidence: exact
+  status: preferred
+  family: purple
+  preference_tier: primary
+- id: soft-purple-mid
+  name: soft purple mid
+  hex: '#A984E6'
+  rgb:
+  - 169
+  - 132
+  - 230
+  oklch:
+  - 0.688
+  - 0.1442
+  - 300.0
+  alpha: 1.0
+  roles:
+  - category-fill
+  - family-mid
+  source: prior-p1
+  confidence: exact
+  status: preferred
+  family: purple
+  preference_tier: primary
+- id: soft-purple-deep
+  name: soft purple deep
+  hex: '#7A5DE1'
+  rgb:
+  - 122
+  - 93
+  - 225
+  oklch:
+  - 0.5765
+  - 0.1921
+  - 289.0
+  alpha: 1.0
+  roles:
+  - category-line
+  - family-deep
+  - emphasis
+  source: prior-p1
+  confidence: exact
+  status: preferred
+  family: purple
+  preference_tier: primary
+- id: soft-blue-light
+  name: soft cornflower blue light
+  hex: '#AEC6FE'
+  rgb:
+  - 174
+  - 198
+  - 254
+  oklch:
+  - 0.8284
+  - 0.0834
+  - 266.6
+  alpha: 1.0
+  roles:
+  - category-fill
+  - family-light
+  source: prior-p1
+  confidence: exact
+  status: preferred
+  family: cornflower-blue
+  preference_tier: primary
+- id: soft-blue-mid
+  name: soft cornflower blue mid
+  hex: '#86AAFE'
+  rgb:
+  - 134
+  - 170
+  - 254
+  oklch:
+  - 0.746
+  - 0.1283
+  - 265.7
+  alpha: 1.0
+  roles:
+  - category-fill
+  - family-mid
+  source: prior-p1
+  confidence: exact
+  status: preferred
+  family: cornflower-blue
+  preference_tier: primary
+- id: soft-blue-deep
+  name: soft cornflower blue deep
+  hex: '#5D8DFD'
+  rgb:
+  - 93
+  - 141
+  - 253
+  oklch:
+  - 0.664
+  - 0.1741
+  - 264.7
+  alpha: 1.0
+  roles:
+  - category-line
+  - family-deep
+  - status-region
+  source: prior-p1-p3
+  confidence: exact
+  status: preferred
+  family: cornflower-blue
+  preference_tier: primary
+- id: baseline-gray-mid
+  name: baseline gray mid
+  hex: '#BFBFC5'
+  rgb:
+  - 191
+  - 191
+  - 197
+  oklch:
+  - 0.8065
+  - 0.0083
+  - 286.2
+  alpha: 1.0
+  roles:
+  - baseline
+  - neutral-data
+  source: prior-p1
+  confidence: exact
+  status: preferred
+  family: neutral
+  preference_tier: primary
+- id: baseline-gray-light
+  name: baseline gray light
+  hex: '#D4D4D8'
+  rgb:
+  - 212
+  - 212
+  - 216
+  oklch:
+  - 0.8711
+  - 0.0055
+  - 286.3
+  alpha: 1.0
+  roles:
+  - baseline
+  - neutral-data-light
+  source: prior-p1
+  confidence: exact
+  status: preferred
+  family: neutral
+  preference_tier: primary
+- id: warm-coral-line
+  name: warm coral comparison line
+  hex: '#FB8E89'
+  rgb:
+  - 251
+  - 142
+  - 137
+  oklch:
+  - 0.7624
+  - 0.1328
+  - 23.4
+  alpha: 1.0
+  roles:
+  - comparison-series
+  - warm-subject
+  source: prior-p2
+  confidence: exact
+  status: user-approved
+  family: coral
+  preference_tier: primary
+- id: cool-blue-line
+  name: cool blue comparison line
+  hex: '#6F9AFE'
+  rgb:
+  - 111
+  - 154
+  - 254
+  oklch:
+  - 0.7002
+  - 0.1545
+  - 265.1
+  alpha: 1.0
+  roles:
+  - comparison-series
+  - cool-subject
+  source: prior-p2
+  confidence: exact
+  status: user-approved
+  family: cornflower-blue
+  preference_tier: primary
+- id: structure-gray
+  name: strong structure gray
+  hex: '#595959'
+  rgb:
+  - 89
+  - 89
+  - 89
+  oklch:
+  - 0.464
+  - 0.0
+  - 89.9
+  alpha: 1.0
+  roles:
+  - border
+  - connector
+  - axis-frame
+  source: prior-p2
+  confidence: exact
+  status: user-approved
+  family: neutral
+  preference_tier: primary
+- id: warm-callout-fill
+  name: warm callout fill
+  hex: '#EF9463'
+  rgb:
+  - 239
+  - 148
+  - 99
+  oklch:
+  - 0.7505
+  - 0.1275
+  - 48.3
+  alpha: 0.6
+  roles:
+  - callout-fill
+  source: prior-p3
+  confidence: exact
+  status: validated
+  composited_hex: '#F5BFA1'
+  background: '#FFFFFF'
+  family: orange
+  preference_tier: primary
+- id: warm-callout-border
+  name: warm callout border
+  hex: '#C46032'
+  rgb:
+  - 196
+  - 96
+  - 50
+  oklch:
+  - 0.6018
+  - 0.1412
+  - 43.6
+  alpha: 1.0
+  roles:
+  - callout-border
+  source: prior-p3
+  confidence: exact
+  status: validated
+  family: orange
+  preference_tier: primary
+- id: cool-callout-fill
+  name: cool callout fill
+  hex: '#002FAB'
+  rgb:
+  - 0
+  - 47
+  - 171
+  oklch:
+  - 0.3829
+  - 0.2003
+  - 263.3
+  alpha: 0.3
+  roles:
+  - callout-fill
+  source: prior-p3
+  confidence: exact
+  status: validated
+  composited_hex: '#B2C1E6'
+  background: '#FFFFFF'
+  family: blue
+  preference_tier: primary
+- id: cool-callout-border
+  name: cool callout border
+  hex: '#496EC8'
+  rgb:
+  - 73
+  - 110
+  - 200
+  oklch:
+  - 0.5564
+  - 0.1458
+  - 265.2
+  alpha: 1.0
+  roles:
+  - callout-border
+  source: prior-p3
+  confidence: exact
+  status: validated
+  family: blue
+  preference_tier: primary
+- id: stat-grid-gray
+  name: statistical grid gray
+  hex: '#D3D3D3'
+  rgb:
+  - 211
+  - 211
+  - 211
+  oklch:
+  - 0.8669
+  - 0.0
+  - 89.9
+  alpha: 1.0
+  roles:
+  - grid
+  source: prior-p3
+  confidence: exact
+  status: validated
+  family: neutral
+  preference_tier: primary
+- id: deep-flow-red
+  name: deep semantic flow red
+  hex: '#B1001C'
+  rgb:
+  - 177
+  - 0
+  - 28
+  oklch:
+  - 0.4791
+  - 0.1941
+  - 24.7
+  alpha: 1.0
+  roles:
+  - semantic-flow
+  - title
+  - arrow
+  source: prior-p4
+  confidence: exact
+  status: user-approved
+  family: red
+  preference_tier: primary
+- id: deep-flow-blue
+  name: deep semantic flow blue
+  hex: '#003776'
+  rgb:
+  - 0
+  - 55
+  - 118
+  oklch:
+  - 0.3465
+  - 0.1202
+  - 256.4
+  alpha: 1.0
+  roles:
+  - semantic-flow
+  - title
+  - arrow
+  source: prior-p4
+  confidence: exact
+  status: user-approved
+  family: blue
+  preference_tier: primary
+- id: deep-flow-purple
+  name: deep semantic flow purple
+  hex: '#310067'
+  rgb:
+  - 49
+  - 0
+  - 103
+  oklch:
+  - 0.2742
+  - 0.1507
+  - 294.9
+  alpha: 1.0
+  roles:
+  - semantic-flow
+  - text-emphasis
+  source: prior-p4
+  confidence: exact
+  status: user-approved
+  family: purple
+  preference_tier: primary
+- id: muted-flow-purple
+  name: muted semantic flow purple
+  hex: '#907CBB'
+  rgb:
+  - 144
+  - 124
+  - 187
+  oklch:
+  - 0.6291
+  - 0.0952
+  - 298.2
+  alpha: 1.0
+  roles:
+  - callout-border
+  - secondary-flow
+  source: prior-p4
+  confidence: exact
+  status: user-approved
+  family: purple
+  preference_tier: primary
+- id: entity-blue-light
+  name: entity gradient blue light
+  hex: '#92BFFF'
+  rgb:
+  - 146
+  - 191
+  - 255
+  oklch:
+  - 0.7968
+  - 0.1035
+  - 257.2
+  alpha: 1.0
+  roles:
+  - gradient-endpoint
+  - entity-fill
+  source: prior-p4
+  confidence: exact
+  status: user-approved
+  family: blue
+  preference_tier: primary
+- id: entity-blue-dark
+  name: entity gradient blue dark
+  hex: '#0C2734'
+  rgb:
+  - 12
+  - 39
+  - 52
+  oklch:
+  - 0.2587
+  - 0.0406
+  - 232.3
+  alpha: 1.0
+  roles:
+  - gradient-endpoint
+  - entity-fill
+  source: prior-p4
+  confidence: exact
+  status: user-approved
+  family: blue
+  preference_tier: primary
+- id: entity-gray-dark
+  name: entity gradient gray dark
+  hex: '#939595'
+  rgb:
+  - 147
+  - 149
+  - 149
+  oklch:
+  - 0.6682
+  - 0.0023
+  - 197.1
+  alpha: 1.0
+  roles:
+  - gradient-endpoint
+  - entity-fill
+  source: prior-p4
+  confidence: exact
+  status: user-approved
+  family: neutral
+  preference_tier: primary
+- id: entity-gray-light
+  name: entity gradient gray light
+  hex: '#DADADA'
+  rgb:
+  - 218
+  - 218
+  - 218
+  oklch:
+  - 0.8884
+  - 0.0
+  - 89.9
+  alpha: 1.0
+  roles:
+  - gradient-endpoint
+  - entity-fill
+  source: prior-p4
+  confidence: exact
+  status: user-approved
+  family: neutral
+  preference_tier: primary
+- id: paper-white
+  name: paper white
+  hex: '#FFFFFF'
+  rgb:
+  - 255
+  - 255
+  - 255
+  oklch:
+  - 1.0
+  - 0.0
+  - 89.9
+  alpha: 1.0
+  roles:
+  - background
+  - reverse-text
+  - dark-image-border
+  source: prior-p4-p5
+  confidence: exact
+  status: user-approved
+  family: neutral
+  preference_tier: primary
+- id: trainable-red-dark
+  name: trainable entity red dark
+  hex: '#901113'
+  rgb:
+  - 144
+  - 17
+  - 19
+  oklch:
+  - 0.4189
+  - 0.1597
+  - 27.2
+  alpha: 1.0
+  roles:
+  - gradient-endpoint
+  - trainable-entity
+  source: prior-p4
+  confidence: exact
+  status: user-approved
+  family: red
+  preference_tier: primary
+- id: trainable-red-light
+  name: trainable entity red light
+  hex: '#DFBCB7'
+  rgb:
+  - 223
+  - 188
+  - 183
+  oklch:
+  - 0.8241
+  - 0.041
+  - 27.6
+  alpha: 1.0
+  roles:
+  - gradient-endpoint
+  - trainable-entity
+  source: prior-p4
+  confidence: exact
+  status: user-approved
+  family: red
+  preference_tier: primary
+- id: ink-black
+  name: ink black
+  hex: '#000000'
+  rgb:
+  - 0
+  - 0
+  - 0
+  oklch:
+  - 0.0
+  - 0.0
+  - 0.0
+  alpha: 1.0
+  roles:
+  - primary-text
+  - primary-flow
+  - frame
+  source: prior-p4-p5
+  confidence: exact
+  status: user-approved
+  family: neutral
+  preference_tier: primary
+- id: group-gray
+  name: group label gray
+  hex: '#666666'
+  rgb:
+  - 102
+  - 102
+  - 102
+  oklch:
+  - 0.5103
+  - 0.0
+  - 89.9
+  alpha: 1.0
+  roles:
+  - secondary-text
+  - group-label
+  - workflow-anchor
+  source: prior-p4-p5
+  confidence: exact
+  status: user-approved
+  family: neutral
+  preference_tier: primary
+- id: aux-gray
+  name: auxiliary gray
+  hex: '#A5A5A5'
+  rgb:
+  - 165
+  - 165
+  - 165
+  oklch:
+  - 0.7219
+  - 0.0
+  - 89.9
+  alpha: 1.0
+  roles:
+  - secondary-border
+  - secondary-arrow
+  - gradient-endpoint
+  source: prior-p4-p5
+  confidence: exact
+  status: user-approved
+  family: neutral
+  preference_tier: primary
+- id: separator-gray
+  name: weak separator gray
+  hex: '#D9D9D9'
+  rgb:
+  - 217
+  - 217
+  - 217
+  oklch:
+  - 0.8853
+  - 0.0
+  - 89.9
+  alpha: 1.0
+  roles:
+  - separator
+  - gradient-endpoint
+  source: prior-p4
+  confidence: exact
+  status: user-approved
+  family: neutral
+  preference_tier: primary
+- id: workflow-orange
+  name: burnt orange workflow anchor
+  hex: '#B34400'
+  rgb:
+  - 179
+  - 68
+  - 0
+  oklch:
+  - 0.5319
+  - 0.1576
+  - 43.0
+  alpha: 1.0
+  roles:
+  - workflow-anchor
+  - group-title
+  - key-border
+  source: prior-p5
+  confidence: exact
+  status: user-approved
+  family: orange
+  preference_tier: primary
+- id: workflow-blush
+  name: workflow blush background
+  hex: '#F3BAB1'
+  rgb:
+  - 243
+  - 186
+  - 177
+  oklch:
+  - 0.8381
+  - 0.0676
+  - 28.8
+  alpha: 1.0
+  roles:
+  - workflow-background
+  - gradient-endpoint
+  source: prior-p5
+  confidence: exact
+  status: user-approved
+  family: coral
+  preference_tier: primary
+- id: table-highlight-gray
+  name: table highlight gray
+  hex: '#E6E6E6'
+  rgb:
+  - 230
+  - 230
+  - 230
+  oklch:
+  - 0.9249
+  - 0.0
+  - 89.9
+  alpha: 1.0
+  roles:
+  - table-highlight
+  - selection-background
+  source: prior-shared
+  confidence: exact
+  status: user-approved
+  family: neutral
+  preference_tier: primary
+- id: rdbu-deep-blue
+  name: RdBu deep blue
+  hex: '#053061'
+  rgb:
+  - 5
+  - 48
+  - 97
+  oklch:
+  - 0.313
+  - 0.0979
+  - 255.5
+  alpha: 1.0
+  roles:
+  - diverging-field
+  - negative-extreme
+  source: sewing-f2-f3
+  confidence: high
+  status: user-approved
+  family: rdbu
+  preference_tier: primary
+  notes: Canonical RdBu_r stop selected after matching the JPEG-compressed field colors in Figures 2 and 3.
+- id: rdbu-strong-blue
+  name: RdBu strong blue
+  hex: '#2166AC'
+  rgb:
+  - 33
+  - 102
+  - 172
+  oklch:
+  - 0.5046
+  - 0.1302
+  - 252.4
+  alpha: 1.0
+  roles:
+  - diverging-field
+  - negative-extreme
+  source: sewing-f2-f3
+  confidence: high
+  status: user-approved
+  family: rdbu
+  preference_tier: primary
+  notes: Canonical RdBu_r stop selected after matching the JPEG-compressed field colors in Figures 2 and 3.
+- id: rdbu-blue
+  name: RdBu blue
+  hex: '#4393C3'
+  rgb:
+  - 67
+  - 147
+  - 195
+  oklch:
+  - 0.6339
+  - 0.1062
+  - 238.0
+  alpha: 1.0
+  roles:
+  - diverging-field
+  - negative-mid
+  source: sewing-f2-f3
+  confidence: high
+  status: user-approved
+  family: rdbu
+  preference_tier: primary
+  notes: Canonical RdBu_r stop selected after matching the JPEG-compressed field colors in Figures 2 and 3.
+- id: rdbu-light-blue
+  name: RdBu light blue
+  hex: '#92C5DE'
+  rgb:
+  - 146
+  - 197
+  - 222
+  oklch:
+  - 0.7964
+  - 0.064
+  - 229.7
+  alpha: 1.0
+  roles:
+  - diverging-field
+  - negative-mid
+  source: sewing-f2-f3
+  confidence: high
+  status: user-approved
+  family: rdbu
+  preference_tier: primary
+  notes: Canonical RdBu_r stop selected after matching the JPEG-compressed field colors in Figures 2 and 3.
+- id: rdbu-pale-blue
+  name: RdBu pale blue
+  hex: '#D1E5F0'
+  rgb:
+  - 209
+  - 229
+  - 240
+  oklch:
+  - 0.9104
+  - 0.0261
+  - 231.6
+  alpha: 1.0
+  roles:
+  - diverging-field
+  - negative-mid
+  source: sewing-f2-f3
+  confidence: high
+  status: user-approved
+  family: rdbu
+  preference_tier: primary
+  notes: Canonical RdBu_r stop selected after matching the JPEG-compressed field colors in Figures 2 and 3.
+- id: rdbu-neutral
+  name: RdBu neutral
+  hex: '#F7F7F7'
+  rgb:
+  - 247
+  - 247
+  - 247
+  oklch:
+  - 0.9761
+  - 0.0
+  - 89.9
+  alpha: 1.0
+  roles:
+  - diverging-field
+  - neutral-midpoint
+  source: sewing-f2-f3
+  confidence: high
+  status: user-approved
+  family: rdbu
+  preference_tier: primary
+  notes: Canonical RdBu_r stop selected after matching the JPEG-compressed field colors in Figures 2 and 3.
+- id: rdbu-pale-coral
+  name: RdBu pale coral
+  hex: '#FDDBC7'
+  rgb:
+  - 253
+  - 219
+  - 199
+  oklch:
+  - 0.9146
+  - 0.0465
+  - 52.3
+  alpha: 1.0
+  roles:
+  - diverging-field
+  - positive-mid
+  source: sewing-f2-f3
+  confidence: high
+  status: user-approved
+  family: rdbu
+  preference_tier: primary
+  notes: Canonical RdBu_r stop selected after matching the JPEG-compressed field colors in Figures 2 and 3.
+- id: rdbu-light-coral
+  name: RdBu light coral
+  hex: '#F4A582'
+  rgb:
+  - 244
+  - 165
+  - 130
+  oklch:
+  - 0.7912
+  - 0.1056
+  - 44.7
+  alpha: 1.0
+  roles:
+  - diverging-field
+  - positive-mid
+  source: sewing-f2-f3
+  confidence: high
+  status: user-approved
+  family: rdbu
+  preference_tier: primary
+  notes: Canonical RdBu_r stop selected after matching the JPEG-compressed field colors in Figures 2 and 3.
+- id: rdbu-coral
+  name: RdBu coral
+  hex: '#D6604D'
+  rgb:
+  - 214
+  - 96
+  - 77
+  oklch:
+  - 0.6316
+  - 0.1528
+  - 31.1
+  alpha: 1.0
+  roles:
+  - diverging-field
+  - positive-mid
+  source: sewing-f2-f3
+  confidence: high
+  status: user-approved
+  family: rdbu
+  preference_tier: primary
+  notes: Canonical RdBu_r stop selected after matching the JPEG-compressed field colors in Figures 2 and 3.
+- id: rdbu-strong-red
+  name: RdBu strong red
+  hex: '#B2182B'
+  rgb:
+  - 178
+  - 24
+  - 43
+  oklch:
+  - 0.4915
+  - 0.185
+  - 22.4
+  alpha: 1.0
+  roles:
+  - diverging-field
+  - positive-extreme
+  source: sewing-f2-f3
+  confidence: high
+  status: user-approved
+  family: rdbu
+  preference_tier: primary
+  notes: Canonical RdBu_r stop selected after matching the JPEG-compressed field colors in Figures 2 and 3.
+- id: rdbu-deep-red
+  name: RdBu deep red
+  hex: '#67001F'
+  rgb:
+  - 103
+  - 0
+  - 31
+  oklch:
+  - 0.3269
+  - 0.1306
+  - 14.2
+  alpha: 1.0
+  roles:
+  - diverging-field
+  - positive-extreme
+  source: sewing-f2-f3
+  confidence: high
+  status: user-approved
+  family: rdbu
+  preference_tier: primary
+  notes: Canonical RdBu_r stop selected after matching the JPEG-compressed field colors in Figures 2 and 3.
+- id: pattern-flesh
+  name: pattern flesh
+  hex: '#EDD1C6'
+  rgb:
+  - 237
+  - 209
+  - 198
+  oklch:
+  - 0.881
+  - 0.0349
+  - 42.7
+  alpha: 1.0
+  roles:
+  - pattern-fill
+  - case-color
+  source: sewing-supp-f4
+  confidence: high
+  status: user-approved
+  family: flesh
+  preference_tier: primary
+  notes: Robust median/mode across repeated foreground regions.
+- id: pattern-gray
+  name: pattern gray
+  hex: '#999999'
+  rgb:
+  - 153
+  - 153
+  - 153
+  oklch:
+  - 0.683
+  - 0.0
+  - 89.9
+  alpha: 1.0
+  roles:
+  - pattern-fill
+  - case-color
+  - neutral
+  source: sewing-supp-f4
+  confidence: high
+  status: user-approved
+  family: neutral
+  preference_tier: primary
+  notes: Robust median/mode across repeated foreground regions.
+- id: pattern-green
+  name: pattern green
+  hex: '#B2DEA1'
+  rgb:
+  - 178
+  - 222
+  - 161
+  oklch:
+  - 0.854
+  - 0.0943
+  - 137.1
+  alpha: 1.0
+  roles:
+  - pattern-fill
+  - case-color
+  source: sewing-supp-f4
+  confidence: high
+  status: user-approved
+  family: green
+  preference_tier: primary
+  notes: Robust median/mode across repeated foreground regions.
+- id: completion-blue-strong
+  name: completion blue strong
+  hex: '#6F99E1'
+  rgb:
+  - 111
+  - 153
+  - 225
+  oklch:
+  - 0.6827
+  - 0.1167
+  - 260.7
+  alpha: 1.0
+  roles:
+  - pattern-fill
+  - family-strong
+  source: sewing-supp-f5
+  confidence: medium
+  status: candidate
+  family: blue
+  preference_tier: secondary
+  notes: Dominant flat-region mode from JPEG-compressed source.
+- id: completion-blue-soft
+  name: completion blue soft
+  hex: '#C5D5EE'
+  rgb:
+  - 197
+  - 213
+  - 238
+  oklch:
+  - 0.8688
+  - 0.0388
+  - 259.3
+  alpha: 1.0
+  roles:
+  - pattern-fill
+  - family-soft
+  source: sewing-supp-f5
+  confidence: medium
+  status: candidate
+  family: blue
+  preference_tier: secondary
+  notes: Dominant flat-region mode from JPEG-compressed source.
+- id: completion-red-strong
+  name: completion red strong
+  hex: '#E38897'
+  rgb:
+  - 227
+  - 136
+  - 151
+  oklch:
+  - 0.7266
+  - 0.1122
+  - 9.6
+  alpha: 1.0
+  roles:
+  - pattern-fill
+  - family-strong
+  source: sewing-supp-f5
+  confidence: medium
+  status: candidate
+  family: red
+  preference_tier: secondary
+  notes: Dominant flat-region mode from JPEG-compressed source.
+- id: completion-red-soft
+  name: completion red soft
+  hex: '#EDC3C7'
+  rgb:
+  - 237
+  - 195
+  - 199
+  oklch:
+  - 0.8547
+  - 0.0482
+  - 11.7
+  alpha: 1.0
+  roles:
+  - pattern-fill
+  - family-soft
+  source: sewing-supp-f5
+  confidence: medium
+  status: candidate
+  family: red
+  preference_tier: secondary
+  notes: Dominant flat-region mode from JPEG-compressed source.
+- id: completion-green
+  name: completion green
+  hex: '#BFCEA5'
+  rgb:
+  - 191
+  - 206
+  - 165
+  oklch:
+  - 0.8292
+  - 0.0578
+  - 124.0
+  alpha: 1.0
+  roles:
+  - pattern-fill
+  - single-family-anchor
+  source: sewing-supp-f5
+  confidence: medium
+  status: candidate
+  family: green
+  preference_tier: secondary
+  notes: Dominant flat-region mode from JPEG-compressed source.
+- id: antipodal-f3-coral
+  name: Figure 3 coral orange
+  hex: '#F9856A'
+  rgb:
+  - 249
+  - 133
+  - 106
+  oklch:
+  - 0.7398
+  - 0.1474
+  - 34.2
+  alpha: 1.0
+  roles:
+  - region-fill
+  - warm-anchor
+  source: antipodal-main-f3
+  confidence: high
+  status: user-approved
+  family: coral-orange
+  preference_tier: primary
+  notes: Representative saturated orange interior from Figure 3; lossless raster sample.
+- id: antipodal-f3-mint
+  name: Figure 3 mint green
+  hex: '#A6E2B4'
+  rgb:
+  - 166
+  - 226
+  - 180
+  oklch:
+  - 0.8596
+  - 0.0883
+  - 151.4
+  alpha: 1.0
+  roles:
+  - region-fill
+  - cool-anchor
+  source: antipodal-main-f3
+  confidence: high
+  status: user-approved
+  family: mint-green
+  preference_tier: primary
+  notes: Representative green interior from Figure 3; lossless raster sample.
+- id: antipodal-f3-peach
+  name: Figure 3 pale peach
+  hex: '#FACBBB'
+  rgb:
+  - 250
+  - 203
+  - 187
+  oklch:
+  - 0.8788
+  - 0.058
+  - 39.7
+  alpha: 1.0
+  roles:
+  - region-fill
+  - warm-soft-companion
+  source: antipodal-main-f3
+  confidence: high
+  status: user-approved
+  family: peach
+  preference_tier: primary
+  notes: Representative pale orange companion from Figure 3; lossless raster sample.
+- id: antipodal-f5-muted-orange
+  name: Figure 5 muted orange
+  hex: '#DFB5A7'
+  rgb:
+  - 223
+  - 181
+  - 167
+  oklch:
+  - 0.8067
+  - 0.0528
+  - 39.3
+  alpha: 1.0
+  roles:
+  - surface-fill
+  - warm-anchor
+  source: antipodal-main-f5
+  confidence: high
+  status: user-approved
+  family: muted-orange
+  preference_tier: primary
+  notes: Dominant orange surface mode from the Figure 5 sphere render.
+- id: antipodal-f5-deep-orange
+  name: Figure 5 deep muted orange
+  hex: '#D2AB9D'
+  rgb:
+  - 210
+  - 171
+  - 157
+  oklch:
+  - 0.7724
+  - 0.05
+  - 40.7
+  alpha: 1.0
+  roles:
+  - surface-shading
+  - warm-deep
+  source: antipodal-main-f5
+  confidence: high
+  status: user-approved
+  family: muted-orange
+  preference_tier: primary
+  notes: Robust darker orange cluster from the Figure 5 shaded surface.
+- id: antipodal-f5-green
+  name: Figure 5 geometry green
+  hex: '#90C39C'
+  rgb:
+  - 144
+  - 195
+  - 156
+  oklch:
+  - 0.7706
+  - 0.0771
+  - 151.5
+  alpha: 1.0
+  roles:
+  - surface-fill
+  - cool-anchor
+  source: antipodal-main-f5
+  confidence: high
+  status: user-approved
+  family: green
+  preference_tier: primary
+  notes: Dominant green surface mode from the Figure 5 sphere render.
+- id: antipodal-f5-gray-light
+  name: Figure 5 sphere gray light
+  hex: '#F5F7F9'
+  rgb:
+  - 245
+  - 247
+  - 249
+  oklch:
+  - 0.9752
+  - 0.0034
+  - 247.9
+  alpha: 1.0
+  roles:
+  - surface-background
+  - gray-ramp-light
+  source: antipodal-main-f5
+  confidence: high
+  status: user-approved
+  family: neutral
+  preference_tier: primary
+  notes: Light sphere background sample from Figure 5.
+- id: antipodal-f5-gray-mid
+  name: Figure 5 sphere gray mid
+  hex: '#E6E6E8'
+  rgb:
+  - 230
+  - 230
+  - 232
+  oklch:
+  - 0.9255
+  - 0.0027
+  - 286.3
+  alpha: 1.0
+  roles:
+  - surface-background
+  - gray-ramp-mid
+  source: antipodal-main-f5
+  confidence: high
+  status: user-approved
+  family: neutral
+  preference_tier: primary
+  notes: Mid sphere background sample from Figure 5.
+- id: antipodal-f5-gray-deep
+  name: Figure 5 sphere gray deep
+  hex: '#CDCECF'
+  rgb:
+  - 205
+  - 206
+  - 207
+  oklch:
+  - 0.8509
+  - 0.0018
+  - 247.8
+  alpha: 1.0
+  roles:
+  - surface-background
+  - gray-ramp-deep
+  source: antipodal-main-f5
+  confidence: high
+  status: user-approved
+  family: neutral
+  preference_tier: primary
+  notes: Lower-light sphere background sample from Figure 5.
+- id: antipodal-supp3-error-00
+  name: Supplementary Figure 3 error ramp deep violet
+  hex: '#251255'
+  rgb:
+  - 37
+  - 18
+  - 85
+  oklch:
+  - 0.2581
+  - 0.1128
+  - 288.9
+  alpha: 1.0
+  roles:
+  - continuous-gradient-stop
+  - error-scale
+  source: antipodal-supp-f3
+  confidence: high
+  status: user-approved
+  family: violet-coral-error
+  preference_tier: primary
+  notes: Exact lossless colorbar sample at normalized position 0.000.
+- id: antipodal-supp3-error-01
+  name: Supplementary Figure 3 error ramp violet
+  hex: '#4F127B'
+  rgb:
+  - 79
+  - 18
+  - 123
+  oklch:
+  - 0.3489
+  - 0.1616
+  - 305.3
+  alpha: 1.0
+  roles:
+  - continuous-gradient-stop
+  - error-scale
+  source: antipodal-supp-f3
+  confidence: high
+  status: user-approved
+  family: violet-coral-error
+  preference_tier: primary
+  notes: Exact lossless colorbar sample at normalized position 0.125.
+- id: antipodal-supp3-error-02
+  name: Supplementary Figure 3 error ramp red violet
+  hex: '#752181'
+  rgb:
+  - 117
+  - 33
+  - 129
+  oklch:
+  - 0.4227
+  - 0.1649
+  - 322.4
+  alpha: 1.0
+  roles:
+  - continuous-gradient-stop
+  - error-scale
+  source: antipodal-supp-f3
+  confidence: high
+  status: user-approved
+  family: violet-coral-error
+  preference_tier: primary
+  notes: Exact lossless colorbar sample at normalized position 0.250.
+- id: antipodal-supp3-error-03
+  name: Supplementary Figure 3 error ramp magenta purple
+  hex: '#9C2E7F'
+  rgb:
+  - 156
+  - 46
+  - 127
+  oklch:
+  - 0.495
+  - 0.1695
+  - 340.2
+  alpha: 1.0
+  roles:
+  - continuous-gradient-stop
+  - error-scale
+  source: antipodal-supp-f3
+  confidence: high
+  status: user-approved
+  family: violet-coral-error
+  preference_tier: primary
+  notes: Exact lossless colorbar sample at normalized position 0.375.
+- id: antipodal-supp3-error-04
+  name: Supplementary Figure 3 error ramp berry
+  hex: '#C53C74'
+  rgb:
+  - 197
+  - 60
+  - 116
+  oklch:
+  - 0.5704
+  - 0.1789
+  - 359.6
+  alpha: 1.0
+  roles:
+  - continuous-gradient-stop
+  - error-scale
+  source: antipodal-supp-f3
+  confidence: high
+  status: user-approved
+  family: violet-coral-error
+  preference_tier: primary
+  notes: Exact lossless colorbar sample at normalized position 0.500.
+- id: antipodal-supp3-error-05
+  name: Supplementary Figure 3 error ramp coral red
+  hex: '#E95462'
+  rgb:
+  - 233
+  - 84
+  - 98
+  oklch:
+  - 0.6488
+  - 0.1838
+  - 18.4
+  alpha: 1.0
+  roles:
+  - continuous-gradient-stop
+  - error-scale
+  source: antipodal-supp-f3
+  confidence: high
+  status: user-approved
+  family: violet-coral-error
+  preference_tier: primary
+  notes: Exact lossless colorbar sample at normalized position 0.625.
+- id: antipodal-supp3-error-06
+  name: Supplementary Figure 3 error ramp orange coral
+  hex: '#FA7D5E'
+  rgb:
+  - 250
+  - 125
+  - 94
+  oklch:
+  - 0.7272
+  - 0.1598
+  - 35.1
+  alpha: 1.0
+  roles:
+  - continuous-gradient-stop
+  - error-scale
+  source: antipodal-supp-f3
+  confidence: high
+  status: user-approved
+  family: violet-coral-error
+  preference_tier: primary
+  notes: Exact lossless colorbar sample at normalized position 0.750.
+- id: antipodal-supp3-error-07
+  name: Supplementary Figure 3 error ramp soft orange
+  hex: '#FEAA74'
+  rgb:
+  - 254
+  - 170
+  - 116
+  oklch:
+  - 0.8089
+  - 0.1212
+  - 53.0
+  alpha: 1.0
+  roles:
+  - continuous-gradient-stop
+  - error-scale
+  source: antipodal-supp-f3
+  confidence: high
+  status: user-approved
+  family: violet-coral-error
+  preference_tier: primary
+  notes: Exact lossless colorbar sample at normalized position 0.875.
+- id: antipodal-supp3-error-08
+  name: Supplementary Figure 3 error ramp pale gold
+  hex: '#FED89A'
+  rgb:
+  - 254
+  - 216
+  - 154
+  oklch:
+  - 0.9003
+  - 0.0894
+  - 79.5
+  alpha: 1.0
+  roles:
+  - continuous-gradient-stop
+  - error-scale
+  source: antipodal-supp-f3
+  confidence: high
+  status: user-approved
+  family: violet-coral-error
+  preference_tier: primary
+  notes: Exact lossless colorbar sample at normalized position 1.000.
+- id: antipodal-supp3-evals-01
+  name: Supplementary Figure 3 evaluation ramp near-white blush
+  hex: '#FEF7F6'
+  rgb:
+  - 254
+  - 247
+  - 246
+  oklch:
+  - 0.9813
+  - 0.0076
+  - 27.2
+  alpha: 1.0
+  roles:
+  - continuous-gradient-stop
+  - evaluation-scale
+  source: antipodal-supp-f3
+  confidence: high
+  status: user-approved
+  family: white-orange-red
+  preference_tier: primary
+  notes: Exact lossless colorbar sample at normalized position 0.125; position 0 reuses paper-white.
+- id: antipodal-supp3-evals-02
+  name: Supplementary Figure 3 evaluation ramp pale blush
+  hex: '#FEEFEE'
+  rgb:
+  - 254
+  - 239
+  - 238
+  oklch:
+  - 0.9637
+  - 0.0163
+  - 22.1
+  alpha: 1.0
+  roles:
+  - continuous-gradient-stop
+  - evaluation-scale
+  source: antipodal-supp-f3
+  confidence: high
+  status: user-approved
+  family: white-orange-red
+  preference_tier: primary
+  notes: Exact lossless colorbar sample at normalized position 0.250; position 0 reuses paper-white.
+- id: antipodal-supp3-evals-03
+  name: Supplementary Figure 3 evaluation ramp light blush
+  hex: '#FDE8E5'
+  rgb:
+  - 253
+  - 232
+  - 229
+  oklch:
+  - 0.947
+  - 0.0234
+  - 27.3
+  alpha: 1.0
+  roles:
+  - continuous-gradient-stop
+  - evaluation-scale
+  source: antipodal-supp-f3
+  confidence: high
+  status: user-approved
+  family: white-orange-red
+  preference_tier: primary
+  notes: Exact lossless colorbar sample at normalized position 0.375; position 0 reuses paper-white.
+- id: antipodal-supp3-evals-04
+  name: Supplementary Figure 3 evaluation ramp blush
+  hex: '#FDE0DC'
+  rgb:
+  - 253
+  - 224
+  - 220
+  oklch:
+  - 0.9294
+  - 0.0326
+  - 27.1
+  alpha: 1.0
+  roles:
+  - continuous-gradient-stop
+  - evaluation-scale
+  source: antipodal-supp-f3
+  confidence: high
+  status: user-approved
+  family: white-orange-red
+  preference_tier: primary
+  notes: Exact lossless colorbar sample at normalized position 0.500; position 0 reuses paper-white.
+- id: antipodal-supp3-evals-05
+  name: Supplementary Figure 3 evaluation ramp pale salmon
+  hex: '#FCC8B7'
+  rgb:
+  - 252
+  - 200
+  - 183
+  oklch:
+  - 0.8742
+  - 0.064
+  - 38.9
+  alpha: 1.0
+  roles:
+  - continuous-gradient-stop
+  - evaluation-scale
+  source: antipodal-supp-f3
+  confidence: high
+  status: user-approved
+  family: white-orange-red
+  preference_tier: primary
+  notes: Exact lossless colorbar sample at normalized position 0.625; position 0 reuses paper-white.
+- id: antipodal-supp3-evals-06
+  name: Supplementary Figure 3 evaluation ramp salmon
+  hex: '#FCAD90'
+  rgb:
+  - 252
+  - 173
+  - 144
+  oklch:
+  - 0.8169
+  - 0.1017
+  - 41.0
+  alpha: 1.0
+  roles:
+  - continuous-gradient-stop
+  - evaluation-scale
+  source: antipodal-supp-f3
+  confidence: high
+  status: user-approved
+  family: white-orange-red
+  preference_tier: primary
+  notes: Exact lossless colorbar sample at normalized position 0.750; position 0 reuses paper-white.
+- id: antipodal-supp3-evals-07
+  name: Supplementary Figure 3 evaluation ramp orange red
+  hex: '#F67F64'
+  rgb:
+  - 246
+  - 127
+  - 100
+  oklch:
+  - 0.7257
+  - 0.1516
+  - 34.0
+  alpha: 1.0
+  roles:
+  - continuous-gradient-stop
+  - evaluation-scale
+  source: antipodal-supp-f3
+  confidence: high
+  status: user-approved
+  family: white-orange-red
+  preference_tier: primary
+  notes: Exact lossless colorbar sample at normalized position 0.875; position 0 reuses paper-white.
+- id: antipodal-supp3-evals-08
+  name: Supplementary Figure 3 evaluation ramp strong red
+  hex: '#DE2D26'
+  rgb:
+  - 222
+  - 45
+  - 38
+  oklch:
+  - 0.5853
+  - 0.2127
+  - 28.3
+  alpha: 1.0
+  roles:
+  - continuous-gradient-stop
+  - evaluation-scale
+  source: antipodal-supp-f3
+  confidence: high
+  status: user-approved
+  family: white-orange-red
+  preference_tier: primary
+  notes: Exact lossless colorbar sample at normalized position 1.000; position 0 reuses paper-white.
+- id: matern-bunny-sage
+  name: Stanford bunny sage green
+  hex: '#CACCA2'
+  rgb:
+  - 202
+  - 204
+  - 162
+  oklch:
+  - 0.8329
+  - 0.0563
+  - 109.8
+  alpha: 1.0
+  roles:
+  - bunny-surface-palette
+  - cool-soft-anchor
+  source: matern-f4-bunnies
+  confidence: medium
+  status: user-approved
+  family: sage-green
+  preference_tier: primary
+  notes: Representative light sage hue cluster from the rightmost three bunnies; surface lighting and JPEG compression
+    are present.
+- id: matern-bunny-orange
+  name: Stanford bunny muted orange
+  hex: '#D58B53'
+  rgb:
+  - 213
+  - 139
+  - 83
+  oklch:
+  - 0.7011
+  - 0.1156
+  - 56.6
+  alpha: 1.0
+  roles:
+  - bunny-surface-palette
+  - warm-anchor
+  source: matern-f4-bunnies
+  confidence: medium
+  status: user-approved
+  family: muted-orange
+  preference_tier: primary
+  notes: Representative saturated orange hue cluster from the rightmost three bunnies; surface lighting and JPEG
+    compression are present.
+- id: matern-bunny-blue
+  name: Stanford bunny steel blue
+  hex: '#7196AC'
+  rgb:
+  - 113
+  - 150
+  - 172
+  oklch:
+  - 0.6536
+  - 0.0525
+  - 234.7
+  alpha: 1.0
+  roles:
+  - bunny-surface-palette
+  - cool-anchor
+  source: matern-f4-bunnies
+  confidence: medium
+  status: user-approved
+  family: steel-blue
+  preference_tier: primary
+  notes: Representative mid steel-blue hue cluster from the rightmost three bunnies; surface lighting and JPEG compression
+    are present.
+combinations:
+- id: p1-soft-scientific-five-hue
+  name: Soft scientific five-hue, three-level palette
+  member_color_ids:
+  - soft-orange-light
+  - soft-orange-mid
+  - soft-orange-deep
+  - soft-coral-light
+  - soft-coral-mid
+  - soft-coral-deep
+  - soft-grass-light
+  - soft-grass-mid
+  - soft-grass-deep
+  - soft-purple-light
+  - soft-purple-mid
+  - soft-purple-deep
+  - soft-blue-light
+  - soft-blue-mid
+  - soft-blue-deep
+  - baseline-gray-mid
+  - baseline-gray-light
+  role_mapping:
+    different-categories: different hue families
+    within-family-hierarchy: light to mid to deep
+    baseline: neutral grays
+    emphasis: deep family anchor
+  background: '#FFFFFF'
+  source: prior-p1
+  suitable_for:
+  - multi-series-statistical-plots
+  - pipeline-stages
+  - model-families
+  - scale-hierarchies
+  pairing_guidance: Use hue for category and lightness within a hue for size, scale, or stage. Keep baselines neutral.
+  opacity_rules: Keep fixed family steps opaque; use alpha mainly for regions, overlap, or uncertainty.
+  status: preferred
+- id: p2-warm-cool-coral-blue
+  name: Warm coral and cool cornflower comparison
+  member_color_ids:
+  - warm-coral-line
+  - cool-blue-line
+  - structure-gray
+  role_mapping:
+    warm-subject: warm-coral-line
+    cool-subject: cool-blue-line
+    shared-structure: structure-gray
+  background: '#FFFFFF'
+  source: prior-p2
+  suitable_for:
+  - two-method-comparison
+  - dual-path-pipeline
+  - before-after
+  - old-new
+  pairing_guidance: Use coral and blue as equal subjects; keep frames and connectors in the shared gray.
+  avoid: Do not combine warm-coral-line with soft-coral-light as separate categories.
+  status: user-approved
+- id: p3-status-regime-map
+  name: Red, green, and blue status-region set
+  member_color_ids:
+  - soft-coral-deep
+  - soft-grass-deep
+  - soft-blue-deep
+  - warm-callout-fill
+  - warm-callout-border
+  - cool-callout-fill
+  - cool-callout-border
+  - stat-grid-gray
+  role_mapping:
+    primary-relation: soft-coral-deep
+    observations: soft-grass-deep
+    state-region: soft-blue-deep
+    warm-callout:
+    - warm-callout-fill
+    - warm-callout-border
+    cool-callout:
+    - cool-callout-fill
+    - cool-callout-border
+    grid: stat-grid-gray
+  background: '#FFFFFF'
+  source: prior-p3
+  suitable_for:
+  - regime-map
+  - threshold-plot
+  - risk-success-region
+  - annotated-concept-figure
+  pairing_guidance: Keep the three anchors distinct; confine callout colors to local annotations.
+  opacity_rules: Use approximately 0.15 for large state fills; preserve the stored callout fill alpha values.
+  status: validated
+- id: p4-deep-semantic-flow
+  name: Deep red, blue, and purple semantic-flow set
+  member_color_ids:
+  - deep-flow-red
+  - deep-flow-blue
+  - deep-flow-purple
+  - muted-flow-purple
+  - entity-blue-light
+  - entity-blue-dark
+  - entity-gray-dark
+  - entity-gray-light
+  - paper-white
+  - trainable-red-dark
+  - trainable-red-light
+  - ink-black
+  - group-gray
+  - aux-gray
+  - separator-gray
+  role_mapping:
+    primary-flow-a: deep-flow-red
+    primary-flow-b: deep-flow-blue
+    third-mechanism:
+    - deep-flow-purple
+    - muted-flow-purple
+    entity-gradients:
+    - entity-blue-light
+    - entity-blue-dark
+    - entity-gray-dark
+    - entity-gray-light
+    - paper-white
+    - trainable-red-dark
+    - trainable-red-light
+    neutral-structure:
+    - ink-black
+    - group-gray
+    - aux-gray
+    - separator-gray
+  background: '#FFFFFF'
+  source: prior-p4
+  suitable_for:
+  - pipeline
+  - semantic-flow
+  - formal-statistical-highlight
+  - timeline
+  pairing_guidance: Use red and blue for the two principal semantics and purple for a third mechanism or callout.
+  avoid: Do not casually add the pastel orange/green families from P1.
+  status: user-approved
+- id: p5-gray-burnt-orange-workflow
+  name: Gray and burnt-orange workflow contrast
+  member_color_ids:
+  - group-gray
+  - workflow-orange
+  - aux-gray
+  - workflow-blush
+  - paper-white
+  - ink-black
+  role_mapping:
+    previous-baseline: group-gray
+    proposed-ours: workflow-orange
+    baseline-background: aux-gray
+    proposed-background: workflow-blush
+    canvas: paper-white
+    primary-structure: ink-black
+  background: '#FFFFFF'
+  source: prior-p5
+  suitable_for:
+  - previous-vs-ours
+  - manual-vs-automatic
+  - workflow-groups
+  - table-sections
+  pairing_guidance: Use low-contrast white-to-gray or white-to-blush fields, with gray and burnt orange as anchors.
+  avoid: Do not use workflow-blush as a high-discrimination data series.
+  status: user-approved
+- id: p6-sdf-rdbu-diverging
+  name: SDF/UDF blue-to-orange-red diverging field
+  member_color_ids:
+  - rdbu-deep-blue
+  - rdbu-strong-blue
+  - rdbu-blue
+  - rdbu-light-blue
+  - rdbu-pale-blue
+  - rdbu-neutral
+  - rdbu-pale-coral
+  - rdbu-light-coral
+  - rdbu-coral
+  - rdbu-strong-red
+  - rdbu-deep-red
+  role_mapping:
+    negative-or-outside:
+    - rdbu-deep-blue
+    - rdbu-strong-blue
+    - rdbu-blue
+    - rdbu-light-blue
+    - rdbu-pale-blue
+    zero-or-boundary: rdbu-neutral
+    positive-or-inside:
+    - rdbu-pale-coral
+    - rdbu-light-coral
+    - rdbu-coral
+    - rdbu-strong-red
+    - rdbu-deep-red
+  background: '#FFFFFF'
+  source: sewing-f2-f3
+  suitable_for:
+  - signed-distance-field
+  - diverging-heatmap
+  - residual-map
+  - positive-negative-field
+  - continuous-scalar-encoding
+  pairing_guidance: Use the complete ordered ramp. Keep zero at the neutral midpoint and preserve the blue-to-coral-red
+    direction unless the semantic sign is explicitly reversed.
+  approximate_proportions: continuous; sample evenly in perceptual or scalar space
+  status: user-approved
+  notes: Matches the classic ColorBrewer/Matplotlib RdBu_r family visible in Figures 2 and 3.
+- id: p7-flesh-gray-green-pattern-trio
+  name: Flesh, gray, and green pattern trio
+  member_color_ids:
+  - pattern-flesh
+  - pattern-gray
+  - pattern-green
+  role_mapping:
+    case-a: pattern-flesh
+    case-b: pattern-gray
+    case-c: pattern-green
+  background: '#FFFFFF'
+  source: sewing-supp-f4
+  suitable_for:
+  - qualitative-case-groups
+  - pattern-comparison
+  - three-method-or-state-comparison
+  - diagram-modules
+  pairing_guidance: Use the three colors as a coordinated equal-weight set on white; keep labels and outlines neutral.
+  approximate_proportions: roughly equal across the three repeated groups
+  status: user-approved
+- id: p8-completion-blue-family
+  name: Soft completion blue family
+  member_color_ids:
+  - completion-blue-strong
+  - completion-blue-soft
+  role_mapping:
+    input-or-focus: completion-blue-strong
+    completed-or-context: completion-blue-soft
+  background: '#FFFFFF'
+  source: sewing-supp-f5
+  suitable_for:
+  - within-case-hierarchy
+  - input-completion-pair
+  - soft-module-family
+  pairing_guidance: Use the stronger blue for the initiating or focal element and the soft blue for completed/context
+    elements.
+  status: candidate
+  notes: Secondary-priority family; user described the overall Figure 5 color treatment as acceptable but average.
+- id: p9-completion-red-family
+  name: Soft completion red family
+  member_color_ids:
+  - completion-red-strong
+  - completion-red-soft
+  role_mapping:
+    input-or-focus: completion-red-strong
+    completed-or-context: completion-red-soft
+  background: '#FFFFFF'
+  source: sewing-supp-f5
+  suitable_for:
+  - within-case-hierarchy
+  - input-completion-pair
+  - soft-module-family
+  pairing_guidance: Use the stronger rose for the focal element and the pale rose for completed/context elements.
+  status: candidate
+  notes: Secondary-priority family; user described the overall Figure 5 color treatment as acceptable but average.
+- id: p10-completion-green-family
+  name: Soft completion green anchor
+  member_color_ids:
+  - completion-green
+  role_mapping:
+    single-case-family: completion-green
+  background: '#FFFFFF'
+  source: sewing-supp-f5
+  suitable_for:
+  - single-case-identity
+  - soft-module-family
+  - qualitative-result-group
+  pairing_guidance: Treat this as a single-hue case anchor; do not infer unstored light/dark companions.
+  status: candidate
+  notes: Secondary-priority family; user described the overall Figure 5 color treatment as acceptable but average.
+- id: p11-antipodal-mint-coral-regions
+  name: Mint green and coral-orange geometry regions
+  member_color_ids:
+  - antipodal-f3-mint
+  - antipodal-f3-coral
+  - antipodal-f3-peach
+  role_mapping:
+    cool-region: antipodal-f3-mint
+    warm-region: antipodal-f3-coral
+    warm-soft-context: antipodal-f3-peach
+  background: '#FFFFFF'
+  source: antipodal-main-f3
+  suitable_for:
+  - geometry-region-map
+  - signed-area-diagram
+  - two-state-concept-figure
+  - statistical-highlight-pair
+  pairing_guidance: Use mint and saturated coral as the two principal regions; use pale peach only as a softer
+    enclosing or lower-priority warm region.
+  approximate_proportions: Keep the saturated coral smaller than the mint or pale contextual regions.
+  status: user-approved
+  notes: The extracted values are displayed colors from a shaded sphere render, not unlit material constants.
+- id: p12-antipodal-muted-geometry-extension
+  name: Muted orange-green geometry set with sphere-gray ramp
+  member_color_ids:
+  - antipodal-f5-muted-orange
+  - antipodal-f5-deep-orange
+  - antipodal-f5-green
+  - antipodal-f5-gray-light
+  - antipodal-f5-gray-mid
+  - antipodal-f5-gray-deep
+  role_mapping:
+    warm-surface: antipodal-f5-muted-orange
+    warm-shadow-or-secondary: antipodal-f5-deep-orange
+    cool-surface: antipodal-f5-green
+    neutral-sphere-or-background:
+    - antipodal-f5-gray-light
+    - antipodal-f5-gray-mid
+    - antipodal-f5-gray-deep
+  background: '#FFFFFF'
+  source: antipodal-main-f5
+  suitable_for:
+  - shaded-geometry-diagram
+  - surface-orientation-figure
+  - three-dimensional-concept-figure
+  - module-background-system
+  pairing_guidance: Use muted orange and green for the semantic surfaces, the deeper orange for shading or a nested
+    warm region, and the gray ramp only for neutral geometry or illumination depth.
+  approximate_proportions: Let the neutral gray field occupy the largest area; reserve the chromatic colors for
+    explanatory regions.
+  status: user-approved
+- id: p13-antipodal-error-violet-coral-ramp
+  name: Violet-to-coral-orange error gradient
+  member_color_ids:
+  - antipodal-supp3-error-00
+  - antipodal-supp3-error-01
+  - antipodal-supp3-error-02
+  - antipodal-supp3-error-03
+  - antipodal-supp3-error-04
+  - antipodal-supp3-error-05
+  - antipodal-supp3-error-06
+  - antipodal-supp3-error-07
+  - antipodal-supp3-error-08
+  role_mapping:
+    low-end:
+    - antipodal-supp3-error-00
+    - antipodal-supp3-error-01
+    mid-range:
+    - antipodal-supp3-error-02
+    - antipodal-supp3-error-03
+    - antipodal-supp3-error-04
+    - antipodal-supp3-error-05
+    high-end:
+    - antipodal-supp3-error-06
+    - antipodal-supp3-error-07
+    - antipodal-supp3-error-08
+  background: '#FFFFFF'
+  source: antipodal-supp-f3
+  suitable_for:
+  - continuous-error-map
+  - density-or-energy-field
+  - log-scale-heatmap
+  - scalar-field-comparison
+  pairing_guidance: Preserve the complete ordered ramp from deep violet through berry and coral to pale orange;
+    do not treat the stops as unrelated categorical colors.
+  approximate_proportions: continuous, with normalized stop positions from 0 to 1 in increments of 0.125
+  status: user-approved
+- id: p14-antipodal-white-orange-red-ramp
+  name: White-to-orange-red evaluation gradient
+  member_color_ids:
+  - paper-white
+  - antipodal-supp3-evals-01
+  - antipodal-supp3-evals-02
+  - antipodal-supp3-evals-03
+  - antipodal-supp3-evals-04
+  - antipodal-supp3-evals-05
+  - antipodal-supp3-evals-06
+  - antipodal-supp3-evals-07
+  - antipodal-supp3-evals-08
+  role_mapping:
+    minimum-or-empty:
+    - paper-white
+    - antipodal-supp3-evals-01
+    - antipodal-supp3-evals-02
+    mid-range:
+    - antipodal-supp3-evals-03
+    - antipodal-supp3-evals-04
+    - antipodal-supp3-evals-05
+    maximum-or-dense:
+    - antipodal-supp3-evals-06
+    - antipodal-supp3-evals-07
+    - antipodal-supp3-evals-08
+  background: '#FFFFFF'
+  source: antipodal-supp-f3
+  suitable_for:
+  - evaluation-count-map
+  - computational-cost-map
+  - sparse-to-dense-heatmap
+  - one-sided-intensity-field
+  pairing_guidance: Use white for the semantic zero or minimum and increase monotonically through blush and salmon
+    to the strong red endpoint; add an outline when the white endpoint must remain visible on paper white.
+  approximate_proportions: continuous, with normalized stop positions from 0 to 1 in increments of 0.125
+  status: user-approved
+- id: p15-matern-bunny-sage-orange-blue
+  name: Sage green, muted orange, and steel-blue bunny palette
+  member_color_ids:
+  - matern-bunny-sage
+  - matern-bunny-orange
+  - matern-bunny-blue
+  role_mapping:
+    soft-or-neutral-chromatic-region: matern-bunny-sage
+    warm-emphasis: matern-bunny-orange
+    cool-anchor: matern-bunny-blue
+  background: '#FFFFFF'
+  source: matern-f4-bunnies
+  suitable_for:
+  - three-part-surface-encoding
+  - geometry-visualization
+  - three-series-statistical-plot
+  - compact-module-diagram
+  pairing_guidance: Keep the sage as the lightest and least saturated member, use orange for warm emphasis, and
+    blue as the cooler structural anchor. Prefer using all three together rather than importing unrelated colors.
+  approximate_proportions: blue and sage may occupy larger regions; reserve orange for smaller high-attention areas
+  status: user-approved
+  notes: Stored as three representative displayed colors only, per user request; no other colors from this paper
+    were admitted.

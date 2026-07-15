@@ -1,0 +1,2588 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{anyt/global//global/global/global}
+    \entry{3dgszip}{article}{}{}
+      \name{author}{7}{}{%
+        {{hash=50310c39eb214114551fe4b24f09b96a}{%
+           family={Bagdasarian},
+           familyi={B\bibinitperiod},
+           given={Milena\bibnamedelima T.},
+           giveni={M\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=8006b3829f50308045fb3369d5ae98d4}{%
+           family={Knoll},
+           familyi={K\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod}}}%
+        {{hash=8ecf3e73844f572348175d1d8c81bc64}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Yi-Hsin},
+           giveni={Y\bibinithyphendelim H\bibinitperiod}}}%
+        {{hash=7c59313e543fd435c672d81b9e838ce4}{%
+           family={Barthel},
+           familyi={B\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod}}}%
+        {{hash=33183f0c3a660d39cb900e2a91ad0500}{%
+           family={Hilsmann},
+           familyi={H\bibinitperiod},
+           given={Anna},
+           giveni={A\bibinitperiod}}}%
+        {{hash=3733615b0de90d45eae517c044259fd8}{%
+           family={Eisert},
+           familyi={E\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=1fa98972b79acbc5083229daf82bf418}{%
+           family={Morgenstern},
+           familyi={M\bibinitperiod},
+           given={Wieland},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{0e90e14f0bca44ec42e9805b4bbff78d}
+      \strng{fullhash}{bfe352dfcf002d287722ad907ca26e2e}
+      \strng{fullhashraw}{bfe352dfcf002d287722ad907ca26e2e}
+      \strng{bibnamehash}{0e90e14f0bca44ec42e9805b4bbff78d}
+      \strng{authorbibnamehash}{0e90e14f0bca44ec42e9805b4bbff78d}
+      \strng{authornamehash}{0e90e14f0bca44ec42e9805b4bbff78d}
+      \strng{authorfullhash}{bfe352dfcf002d287722ad907ca26e2e}
+      \strng{authorfullhashraw}{bfe352dfcf002d287722ad907ca26e2e}
+      \field{labelalpha}{BKL*24}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2407.09510}
+      \field{title}{3DGS.zip: A survey on 3D Gaussian Splatting Compression Methods}
+      \field{year}{2024}
+    \endentry
+    \entry{mipnerf}{inproceedings}{}{}
+      \name{author}{6}{}{%
+        {{hash=562f3254a241932db4a6d44a97473ec5}{%
+           family={Barron},
+           familyi={B\bibinitperiod},
+           given={Jonathan\bibnamedelima T.},
+           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=a3567364ab52973659adf74ee0c6e6f3}{%
+           family={Mildenhall},
+           familyi={M\bibinitperiod},
+           given={Ben},
+           giveni={B\bibinitperiod}}}%
+        {{hash=9a18985a5c8b8be23d0ec9de0a3c87b9}{%
+           family={Tancik},
+           familyi={T\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod}}}%
+        {{hash=157d821a2f0829e6758eb6c188684a09}{%
+           family={Hedman},
+           familyi={H\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=42005139be072c494eab6ffcdb947f2d}{%
+           family={Martin-Brualla},
+           familyi={M\bibinithyphendelim B\bibinitperiod},
+           given={Ricardo},
+           giveni={R\bibinitperiod}}}%
+        {{hash=b503d22b8c86fb9dfd477d2f70a59650}{%
+           family={Srinivasan},
+           familyi={S\bibinitperiod},
+           given={Pratul\bibnamedelima P.},
+           giveni={P\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{5acf5088ba74e2250adf1813c720e9cf}
+      \strng{fullhash}{fdf6d74ac0d387a476895b4631458185}
+      \strng{fullhashraw}{fdf6d74ac0d387a476895b4631458185}
+      \strng{bibnamehash}{5acf5088ba74e2250adf1813c720e9cf}
+      \strng{authorbibnamehash}{5acf5088ba74e2250adf1813c720e9cf}
+      \strng{authornamehash}{5acf5088ba74e2250adf1813c720e9cf}
+      \strng{authorfullhash}{fdf6d74ac0d387a476895b4631458185}
+      \strng{authorfullhashraw}{fdf6d74ac0d387a476895b4631458185}
+      \field{labelalpha}{BMT*21}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)}
+      \field{month}{10}
+      \field{title}{Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields}
+      \field{year}{2021}
+      \field{pages}{5855\bibrangedash 5864}
+      \range{pages}{10}
+    \endentry
+    \entry{mipnerf360}{inproceedings}{}{}
+      \name{author}{5}{}{%
+        {{hash=562f3254a241932db4a6d44a97473ec5}{%
+           family={Barron},
+           familyi={B\bibinitperiod},
+           given={Jonathan\bibnamedelima T.},
+           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=a3567364ab52973659adf74ee0c6e6f3}{%
+           family={Mildenhall},
+           familyi={M\bibinitperiod},
+           given={Ben},
+           giveni={B\bibinitperiod}}}%
+        {{hash=0d0af9b888707d306a6dab79b427493b}{%
+           family={Verbin},
+           familyi={V\bibinitperiod},
+           given={Dor},
+           giveni={D\bibinitperiod}}}%
+        {{hash=b503d22b8c86fb9dfd477d2f70a59650}{%
+           family={Srinivasan},
+           familyi={S\bibinitperiod},
+           given={Pratul\bibnamedelima P.},
+           giveni={P\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=157d821a2f0829e6758eb6c188684a09}{%
+           family={Hedman},
+           familyi={H\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{1ba9e8c22c3053434b3beceb35ed0839}
+      \strng{fullhash}{17082a2f8360e7c34868e12b18e9c3fb}
+      \strng{fullhashraw}{17082a2f8360e7c34868e12b18e9c3fb}
+      \strng{bibnamehash}{1ba9e8c22c3053434b3beceb35ed0839}
+      \strng{authorbibnamehash}{1ba9e8c22c3053434b3beceb35ed0839}
+      \strng{authornamehash}{1ba9e8c22c3053434b3beceb35ed0839}
+      \strng{authorfullhash}{17082a2f8360e7c34868e12b18e9c3fb}
+      \strng{authorfullhashraw}{17082a2f8360e7c34868e12b18e9c3fb}
+      \field{extraname}{1}
+      \field{labelalpha}{BMV*22}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}
+      \field{month}{6}
+      \field{title}{Mip-NeRF 360: Unbounded Anti-Aliased Neural Radiance Fields}
+      \field{year}{2022}
+      \field{pages}{5470\bibrangedash 5479}
+      \range{pages}{10}
+    \endentry
+    \entry{zipnerf}{inproceedings}{}{}
+      \name{author}{5}{}{%
+        {{hash=562f3254a241932db4a6d44a97473ec5}{%
+           family={Barron},
+           familyi={B\bibinitperiod},
+           given={Jonathan\bibnamedelima T.},
+           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=a3567364ab52973659adf74ee0c6e6f3}{%
+           family={Mildenhall},
+           familyi={M\bibinitperiod},
+           given={Ben},
+           giveni={B\bibinitperiod}}}%
+        {{hash=0d0af9b888707d306a6dab79b427493b}{%
+           family={Verbin},
+           familyi={V\bibinitperiod},
+           given={Dor},
+           giveni={D\bibinitperiod}}}%
+        {{hash=b503d22b8c86fb9dfd477d2f70a59650}{%
+           family={Srinivasan},
+           familyi={S\bibinitperiod},
+           given={Pratul\bibnamedelima P.},
+           giveni={P\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=157d821a2f0829e6758eb6c188684a09}{%
+           family={Hedman},
+           familyi={H\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{1ba9e8c22c3053434b3beceb35ed0839}
+      \strng{fullhash}{17082a2f8360e7c34868e12b18e9c3fb}
+      \strng{fullhashraw}{17082a2f8360e7c34868e12b18e9c3fb}
+      \strng{bibnamehash}{1ba9e8c22c3053434b3beceb35ed0839}
+      \strng{authorbibnamehash}{1ba9e8c22c3053434b3beceb35ed0839}
+      \strng{authornamehash}{1ba9e8c22c3053434b3beceb35ed0839}
+      \strng{authorfullhash}{17082a2f8360e7c34868e12b18e9c3fb}
+      \strng{authorfullhashraw}{17082a2f8360e7c34868e12b18e9c3fb}
+      \field{extraname}{2}
+      \field{labelalpha}{BMV*23}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)}
+      \field{month}{10}
+      \field{title}{Zip-NeRF: Anti-Aliased Grid-Based Neural Radiance Fields}
+      \field{year}{2023}
+      \field{pages}{19697\bibrangedash 19705}
+      \range{pages}{9}
+    \endentry
+    \entry{catmull1974subdivision}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=331a8a740c05d325bb58a85c81ca529a}{%
+           family={Catmull},
+           familyi={C\bibinitperiod},
+           given={Edwin\bibnamedelima Earl},
+           giveni={E\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {The University of Utah}%
+      }
+      \strng{namehash}{331a8a740c05d325bb58a85c81ca529a}
+      \strng{fullhash}{331a8a740c05d325bb58a85c81ca529a}
+      \strng{fullhashraw}{331a8a740c05d325bb58a85c81ca529a}
+      \strng{bibnamehash}{331a8a740c05d325bb58a85c81ca529a}
+      \strng{authorbibnamehash}{331a8a740c05d325bb58a85c81ca529a}
+      \strng{authornamehash}{331a8a740c05d325bb58a85c81ca529a}
+      \strng{authorfullhash}{331a8a740c05d325bb58a85c81ca529a}
+      \strng{authorfullhashraw}{331a8a740c05d325bb58a85c81ca529a}
+      \field{labelalpha}{Cat74}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A subdivision algorithm for computer display of curved surfaces}
+      \field{year}{1974}
+    \endentry
+    \entry{textured3dgs}{inproceedings}{}{}
+      \name{author}{11}{}{%
+        {{hash=a14ddfe215333adac1fa6109ebfff480}{%
+           family={Chao},
+           familyi={C\bibinitperiod},
+           given={Brian},
+           giveni={B\bibinitperiod}}}%
+        {{hash=a84ee5a0517794531ce2128fa5ddf508}{%
+           family={Tseng},
+           familyi={T\bibinitperiod},
+           given={Hung-Yu},
+           giveni={H\bibinithyphendelim Y\bibinitperiod}}}%
+        {{hash=3f543b20ea038a15d7e0248ffa6161df}{%
+           family={Porzi},
+           familyi={P\bibinitperiod},
+           given={Lorenzo},
+           giveni={L\bibinitperiod}}}%
+        {{hash=acfd991d98bf8417bf68be693cdfda52}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Chen},
+           giveni={C\bibinitperiod}}}%
+        {{hash=26601ea0f9a20e463f12342a3a8d5003}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Tuotuo},
+           giveni={T\bibinitperiod}}}%
+        {{hash=b732a89aa2bfbce5743b4f85b4180388}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Qinbo},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=6197ff1eb2586f2789af958b5cdb6ad1}{%
+           family={Saraf},
+           familyi={S\bibinitperiod},
+           given={Ayush},
+           giveni={A\bibinitperiod}}}%
+        {{hash=1d6b1cd30772081b71930383df11aa17}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Jia-Bin},
+           giveni={J\bibinithyphendelim B\bibinitperiod}}}%
+        {{hash=25901f326ed5464d64c6766e30a6cff7}{%
+           family={Kopf},
+           familyi={K\bibinitperiod},
+           given={Johannes},
+           giveni={J\bibinitperiod}}}%
+        {{hash=b41be3c07977ad4113164ba0fb675b9d}{%
+           family={Wetzstein},
+           familyi={W\bibinitperiod},
+           given={Gordon},
+           giveni={G\bibinitperiod}}}%
+        {{hash=82a0315471400beca0a07c461fe33800}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Changil},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{1ca66265bd01404df5620ebbbf485810}
+      \strng{fullhash}{e869ca670bbe00835aa23113ac142be1}
+      \strng{fullhashraw}{e869ca670bbe00835aa23113ac142be1}
+      \strng{bibnamehash}{1ca66265bd01404df5620ebbbf485810}
+      \strng{authorbibnamehash}{1ca66265bd01404df5620ebbbf485810}
+      \strng{authornamehash}{1ca66265bd01404df5620ebbbf485810}
+      \strng{authorfullhash}{e869ca670bbe00835aa23113ac142be1}
+      \strng{authorfullhashraw}{e869ca670bbe00835aa23113ac142be1}
+      \field{labelalpha}{CTP*25}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{CVPR}
+      \field{title}{Textured Gaussians for Enhanced 3D Scene Appearance Modeling}
+      \field{year}{2025}
+    \endentry
+    \entry{tensorf}{inproceedings}{}{}
+      \name{author}{5}{}{%
+        {{hash=96b649a41b8352920e0fbbb9d2dbabe7}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Anpei},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d77efd3cf0c8b4edfa93ab086b20a0e8}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Zexiang},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=06133052ac3c14a188601b82783cd4f7}{%
+           family={Geiger},
+           familyi={G\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9ea1d9e37fc3923b18dd07695731cd48}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Jingyi},
+           giveni={J\bibinitperiod}}}%
+        {{hash=18c26ddba8b9dd77f278213fd4e93ce4}{%
+           family={Su},
+           familyi={S\bibinitperiod},
+           given={Hao},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Tel Aviv, Israel}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{ea1f5f548f9d1be87744f7ca09b79bd7}
+      \strng{fullhash}{2981ae19c1c9bb0fd4a9b678dc78adf0}
+      \strng{fullhashraw}{2981ae19c1c9bb0fd4a9b678dc78adf0}
+      \strng{bibnamehash}{ea1f5f548f9d1be87744f7ca09b79bd7}
+      \strng{authorbibnamehash}{ea1f5f548f9d1be87744f7ca09b79bd7}
+      \strng{authornamehash}{ea1f5f548f9d1be87744f7ca09b79bd7}
+      \strng{authorfullhash}{2981ae19c1c9bb0fd4a9b678dc78adf0}
+      \strng{authorfullhashraw}{2981ae19c1c9bb0fd4a9b678dc78adf0}
+      \field{labelalpha}{CXG*22}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We present TensoRF, a novel approach to model and reconstruct radiance fields. Unlike NeRF that purely uses MLPs, we model the radiance field of a scene as a 4D tensor, which represents a 3D voxel grid with per-voxel multi-channel features. Our central idea is to factorize the 4D scene tensor into multiple compact low-rank tensor components. We demonstrate that applying traditional CANDECOMP/PARAFAC (CP) decomposition – that factorizes tensors into rank-one components with compact vectors – in our framework leads to improvements over vanilla NeRF. To further boost performance, we introduce a novel vector-matrix (VM) decomposition that relaxes the low-rank constraints for two modes of a tensor and factorizes tensors into compact vector and matrix factors. Beyond superior rendering quality, our models with CP and VM decompositions lead to a significantly lower memory footprint in comparison to previous and concurrent works that directly optimize per-voxel features. Experimentally, we demonstrate that TensoRF with CP decomposition achieves fast reconstruction (<30 min) with better rendering quality and even a smaller model size (<4 MB) compared to NeRF. Moreover, TensoRF with VM decomposition further boosts rendering quality and outperforms previous state-of-the-art methods, while reducing the reconstruction time (<10 min) and retaining a compact model size (<75 MB).}
+      \field{booktitle}{Computer Vision – ECCV 2022: 17th European Conference, Tel Aviv, Israel, October 23–27, 2022, Proceedings, Part XXXII}
+      \field{isbn}{978-3-031-19823-6}
+      \field{title}{TensoRF: Tensorial Radiance Fields}
+      \field{year}{2022}
+      \field{pages}{333\bibrangedash 350}
+      \range{pages}{18}
+      \verb{doi}
+      \verb 10.1007/978-3-031-19824-3_20
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-3-031-19824-3_20
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-031-19824-3_20
+      \endverb
+    \endentry
+    \entry{plenoxels}{inproceedings}{}{}
+      \name{author}{6}{}{%
+        {{hash=c631c1dd8a471790086b4fb6e8af17f2}{%
+           family={Fridovich-Keil},
+           familyi={F\bibinithyphendelim K\bibinitperiod},
+           given={Sara},
+           giveni={S\bibinitperiod}}}%
+        {{hash=ff32d51d3d43688459e059d03b115eca}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9a18985a5c8b8be23d0ec9de0a3c87b9}{%
+           family={Tancik},
+           familyi={T\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod}}}%
+        {{hash=87bb5d69ecd43c83ff6c1f229a3f059e}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Qinhong},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=3503059e1c0c778913607c87d8c5173a}{%
+           family={Recht},
+           familyi={R\bibinitperiod},
+           given={Benjamin},
+           giveni={B\bibinitperiod}}}%
+        {{hash=6739ae1219e43710a65f37e9a5b5e902}{%
+           family={Kanazawa},
+           familyi={K\bibinitperiod},
+           given={Angjoo},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{93a53be21403540a0e4ddbb898aeeb46}
+      \strng{fullhash}{13a051ca054a6ebd0c9c96b602778f7f}
+      \strng{fullhashraw}{13a051ca054a6ebd0c9c96b602778f7f}
+      \strng{bibnamehash}{93a53be21403540a0e4ddbb898aeeb46}
+      \strng{authorbibnamehash}{93a53be21403540a0e4ddbb898aeeb46}
+      \strng{authornamehash}{93a53be21403540a0e4ddbb898aeeb46}
+      \strng{authorfullhash}{13a051ca054a6ebd0c9c96b602778f7f}
+      \strng{authorfullhashraw}{13a051ca054a6ebd0c9c96b602778f7f}
+      \field{labelalpha}{FYT*22}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{CVPR}
+      \field{title}{Plenoxels: Radiance Fields without Neural Networks}
+      \field{year}{2022}
+    \endentry
+    \entry{hormann2007mesh}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=85d6697cabe60b018f165138bd6efb3c}{%
+           family={Hormann},
+           familyi={H\bibinitperiod},
+           given={Kai},
+           giveni={K\bibinitperiod}}}%
+        {{hash=326ff12222ca439a5666f727ce90e535}{%
+           family={Lévy},
+           familyi={L\bibinitperiod},
+           given={Bruno},
+           giveni={B\bibinitperiod}}}%
+        {{hash=e2c9527bb98341f47f2c65d36f546d7b}{%
+           family={Sheffer},
+           familyi={S\bibinitperiod},
+           given={Alla},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{f61cc4118a5408c8bd9e76669a73bf55}
+      \strng{fullhash}{f61cc4118a5408c8bd9e76669a73bf55}
+      \strng{fullhashraw}{f61cc4118a5408c8bd9e76669a73bf55}
+      \strng{bibnamehash}{f61cc4118a5408c8bd9e76669a73bf55}
+      \strng{authorbibnamehash}{f61cc4118a5408c8bd9e76669a73bf55}
+      \strng{authornamehash}{f61cc4118a5408c8bd9e76669a73bf55}
+      \strng{authorfullhash}{f61cc4118a5408c8bd9e76669a73bf55}
+      \strng{authorfullhashraw}{f61cc4118a5408c8bd9e76669a73bf55}
+      \field{labelalpha}{HLS07}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Mesh parameterization: Theory and practice}
+      \field{year}{2007}
+    \endentry
+    \entry{db}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=157d821a2f0829e6758eb6c188684a09}{%
+           family={Hedman},
+           familyi={H\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=5e1be8cf25dd8e1711fdb22ed41a67f3}{%
+           family={Philip},
+           familyi={P\bibinitperiod},
+           given={Julien},
+           giveni={J\bibinitperiod}}}%
+        {{hash=bf3f1db867127cc3e05bae211d271a7c}{%
+           family={Price},
+           familyi={P\bibinitperiod},
+           given={True},
+           giveni={T\bibinitperiod}}}%
+        {{hash=4af0c62bceb93c143845555052179bc8}{%
+           family={Frahm},
+           familyi={F\bibinitperiod},
+           given={Jan-Michael},
+           giveni={J\bibinithyphendelim M\bibinitperiod}}}%
+        {{hash=70ecb4c4a672f7c20e4b53b57d5a437e}{%
+           family={Drettakis},
+           familyi={D\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod}}}%
+        {{hash=6bbed608dc85bef00b737d3ddfa91b7f}{%
+           family={Brostow},
+           familyi={B\bibinitperiod},
+           given={Gabriel},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{a779f7c13dfb39bd8eb81e6c4ee82eb4}
+      \strng{fullhash}{040789514fcf30d9f0adfcbdece80ef3}
+      \strng{fullhashraw}{040789514fcf30d9f0adfcbdece80ef3}
+      \strng{bibnamehash}{a779f7c13dfb39bd8eb81e6c4ee82eb4}
+      \strng{authorbibnamehash}{a779f7c13dfb39bd8eb81e6c4ee82eb4}
+      \strng{authornamehash}{a779f7c13dfb39bd8eb81e6c4ee82eb4}
+      \strng{authorfullhash}{040789514fcf30d9f0adfcbdece80ef3}
+      \strng{authorfullhashraw}{040789514fcf30d9f0adfcbdece80ef3}
+      \field{labelalpha}{HPP*18}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Free-viewpoint image-based rendering (IBR) is a standing challenge. IBR methods combine warped versions of input photos to synthesize a novel view. The image quality of this combination is directly affected by geometric inaccuracies of multi-view stereo (MVS) reconstruction and by view- and image-dependent effects that produce artifacts when contributions from different input views are blended. We present a new deep learning approach to blending for IBR, in which we use held-out real image data to learn blending weights to combine input photo contributions. Our Deep Blending method requires us to address several challenges to achieve our goal of interactive free-viewpoint IBR navigation. We first need to provide sufficiently accurate geometry so the Convolutional Neural Network (CNN) can succeed in finding correct blending weights. We do this by combining two different MVS reconstructions with complementary accuracy vs. completeness tradeoffs. To tightly integrate learning in an interactive IBR system, we need to adapt our rendering algorithm to produce a fixed number of input layers that can then be blended by the CNN. We generate training data with a variety of captured scenes, using each input photo as ground truth in a held-out approach. We also design the network architecture and the training loss to provide high quality novel view synthesis, while reducing temporal flickering artifacts. Our results demonstrate free-viewpoint IBR in a wide variety of scenes, clearly surpassing previous methods in visual quality, especially when moving far from the input cameras.}
+      \field{issn}{0730-0301}
+      \field{journaltitle}{ACM Trans. Graph.}
+      \field{month}{12}
+      \field{number}{6}
+      \field{title}{Deep blending for free-viewpoint image-based rendering}
+      \field{volume}{37}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.1145/3272127.3275084
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3272127.3275084
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3272127.3275084
+      \endverb
+      \keyw{image-based rendering,free-viewpoint,deep learning}
+    \endentry
+    \entry{2dgs}{inproceedings}{}{}
+      \name{author}{5}{}{%
+        {{hash=d0498424e0fecb79aa60550c7cc0df9b}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Binbin},
+           giveni={B\bibinitperiod}}}%
+        {{hash=77ad6a98e896f6b857909d1bae06149f}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Zehao},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=96b649a41b8352920e0fbbb9d2dbabe7}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Anpei},
+           giveni={A\bibinitperiod}}}%
+        {{hash=06133052ac3c14a188601b82783cd4f7}{%
+           family={Geiger},
+           familyi={G\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+        {{hash=216e8481daed51755ccf212c6e70fec6}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Shenghua},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Denver, CO, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{427da15bea1fb302e297427228e860b9}
+      \strng{fullhash}{da013ac0bde616ddbeaeb5c3ed474c63}
+      \strng{fullhashraw}{da013ac0bde616ddbeaeb5c3ed474c63}
+      \strng{bibnamehash}{427da15bea1fb302e297427228e860b9}
+      \strng{authorbibnamehash}{427da15bea1fb302e297427228e860b9}
+      \strng{authornamehash}{427da15bea1fb302e297427228e860b9}
+      \strng{authorfullhash}{da013ac0bde616ddbeaeb5c3ed474c63}
+      \strng{authorfullhashraw}{da013ac0bde616ddbeaeb5c3ed474c63}
+      \field{labelalpha}{HYC*24}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{3D Gaussian Splatting (3DGS) has recently revolutionized radiance field reconstruction, achieving high quality novel view synthesis and fast rendering speed. However, 3DGS fails to accurately represent surfaces due to the multi-view inconsistent nature of 3D Gaussians. We present 2D Gaussian Splatting (2DGS), a novel approach to model and reconstruct geometrically accurate radiance fields from multi-view images. Our key idea is to collapse the 3D volume into a set of 2D oriented planar Gaussian disks. Unlike 3D Gaussians, 2D Gaussians provide view-consistent geometry while modeling surfaces intrinsically. To accurately recover thin surfaces and achieve stable optimization, we introduce a perspective-accurate 2D splatting process utilizing ray-splat intersection and rasterization. Additionally, we incorporate depth distortion and normal consistency terms to further enhance the quality of the reconstructions. We demonstrate that our differentiable renderer allows for noise-free and detailed geometry reconstruction while maintaining competitive appearance quality, fast training speed, and real-time rendering. Project page at https://surfsplatting.github.io.}
+      \field{booktitle}{ACM SIGGRAPH 2024 Conference Papers}
+      \field{isbn}{9798400705250}
+      \field{series}{SIGGRAPH '24}
+      \field{title}{2D Gaussian Splatting for Geometrically Accurate Radiance Fields}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1145/3641519.3657428
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3641519.3657428
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3641519.3657428
+      \endverb
+      \keyw{Novel View Synthesis,Radiance Fields,Surface Reconstruction,Surface Splatting}
+    \endentry
+    \entry{3dgs}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=c73d638ffd25328757379835747302ff}{%
+           family={Kerbl},
+           familyi={K\bibinitperiod},
+           given={Bernhard},
+           giveni={B\bibinitperiod}}}%
+        {{hash=2ab758a425dcd6ed440f4ae0d994dc2c}{%
+           family={Kopanas},
+           familyi={K\bibinitperiod},
+           given={Georgios},
+           giveni={G\bibinitperiod}}}%
+        {{hash=23f06719145b1e18e13a7e436bb8c2fc}{%
+           family={Leimkühler},
+           familyi={L\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=70ecb4c4a672f7c20e4b53b57d5a437e}{%
+           family={Drettakis},
+           familyi={D\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{36d84a8a291db8ba20b3f78b93a2eeee}
+      \strng{fullhash}{36d84a8a291db8ba20b3f78b93a2eeee}
+      \strng{fullhashraw}{36d84a8a291db8ba20b3f78b93a2eeee}
+      \strng{bibnamehash}{36d84a8a291db8ba20b3f78b93a2eeee}
+      \strng{authorbibnamehash}{36d84a8a291db8ba20b3f78b93a2eeee}
+      \strng{authornamehash}{36d84a8a291db8ba20b3f78b93a2eeee}
+      \strng{authorfullhash}{36d84a8a291db8ba20b3f78b93a2eeee}
+      \strng{authorfullhashraw}{36d84a8a291db8ba20b3f78b93a2eeee}
+      \field{labelalpha}{KKLD23}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Radiance Field methods have recently revolutionized novel-view synthesis of scenes captured with multiple photos or videos. However, achieving high visual quality still requires neural networks that are costly to train and render, while recent faster methods inevitably trade off speed for quality. For unbounded and complete scenes (rather than isolated objects) and 1080p resolution rendering, no current method can achieve real-time display rates. We introduce three key elements that allow us to achieve state-of-the-art visual quality while maintaining competitive training times and importantly allow high-quality real-time (≥ 30 fps) novel-view synthesis at 1080p resolution. First, starting from sparse points produced during camera calibration, we represent the scene with 3D Gaussians that preserve desirable properties of continuous volumetric radiance fields for scene optimization while avoiding unnecessary computation in empty space; Second, we perform interleaved optimization/density control of the 3D Gaussians, notably optimizing anisotropic covariance to achieve an accurate representation of the scene; Third, we develop a fast visibility-aware rendering algorithm that supports anisotropic splatting and both accelerates training and allows realtime rendering. We demonstrate state-of-the-art visual quality and real-time rendering on several established datasets.}
+      \field{journaltitle}{ACM Transactions on Graphics}
+      \field{title}{3D Gaussian Splatting for Real-Time Radiance Field Rendering}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.1145/3592433
+      \endverb
+    \endentry
+    \entry{tnt}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=f66acf8626194fd1c6d41fc06d2243f6}{%
+           family={Knapitsch},
+           familyi={K\bibinitperiod},
+           given={Arno},
+           giveni={A\bibinitperiod}}}%
+        {{hash=4601943d47b90174b1d991712b65af21}{%
+           family={Park},
+           familyi={P\bibinitperiod},
+           given={Jaesik},
+           giveni={J\bibinitperiod}}}%
+        {{hash=fc2bd85da63b3d182bb3b3433b80a17f}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Qian-Yi},
+           giveni={Q\bibinithyphendelim Y\bibinitperiod}}}%
+        {{hash=9025300f43a193cfed8e10e924f2a117}{%
+           family={Koltun},
+           familyi={K\bibinitperiod},
+           given={Vladlen},
+           giveni={V\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{38a217538e7b79d7f340ea5aa7656c53}
+      \strng{fullhash}{38a217538e7b79d7f340ea5aa7656c53}
+      \strng{fullhashraw}{38a217538e7b79d7f340ea5aa7656c53}
+      \strng{bibnamehash}{38a217538e7b79d7f340ea5aa7656c53}
+      \strng{authorbibnamehash}{38a217538e7b79d7f340ea5aa7656c53}
+      \strng{authornamehash}{38a217538e7b79d7f340ea5aa7656c53}
+      \strng{authorfullhash}{38a217538e7b79d7f340ea5aa7656c53}
+      \strng{authorfullhashraw}{38a217538e7b79d7f340ea5aa7656c53}
+      \field{labelalpha}{KPZK17}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We present a benchmark for image-based 3D reconstruction. The benchmark sequences were acquired outside the lab, in realistic conditions. Ground-truth data was captured using an industrial laser scanner. The benchmark includes both outdoor scenes and indoor environments. High-resolution video sequences are provided as input, supporting the development of novel pipelines that take advantage of video input to increase reconstruction fidelity. We report the performance of many image-based 3D reconstruction pipelines on the new benchmark. The results point to exciting challenges and opportunities for future work.}
+      \field{issn}{0730-0301}
+      \field{journaltitle}{ACM Trans. Graph.}
+      \field{month}{7}
+      \field{number}{4}
+      \field{title}{Tanks and temples: benchmarking large-scale scene reconstruction}
+      \field{volume}{36}
+      \field{year}{2017}
+      \verb{doi}
+      \verb 10.1145/3072959.3073599
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3072959.3073599
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3072959.3073599
+      \endverb
+      \keyw{structure from motion,multi-view stereo,large-scale scene reconstruction,image-based reconstruction}
+    \endentry
+    \entry{3dgs-mcmc}{inproceedings}{}{}
+      \name{author}{9}{}{%
+        {{hash=88c934814c97266f440f94cbb0569e3a}{%
+           family={Kheradmand},
+           familyi={K\bibinitperiod},
+           given={Shakiba},
+           giveni={S\bibinitperiod}}}%
+        {{hash=6c30c79a89d9023bb4d7c3471e475358}{%
+           family={Rebain},
+           familyi={R\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=ba1dd4b307d8ee9ded89946a3d1c23b9}{%
+           family={Sharma},
+           familyi={S\bibinitperiod},
+           given={Gopal},
+           giveni={G\bibinitperiod}}}%
+        {{hash=4781c42e169c246c010c5100fbd708e4}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Weiwei},
+           giveni={W\bibinitperiod}}}%
+        {{hash=20193f9ac72fba5ea0ed64761320f5f4}{%
+           family={Tseng},
+           familyi={T\bibinitperiod},
+           given={Yang-Che},
+           giveni={Y\bibinithyphendelim C\bibinitperiod}}}%
+        {{hash=27f136ff3530f47418deadfa917ef61b}{%
+           family={Isack},
+           familyi={I\bibinitperiod},
+           given={Hossam},
+           giveni={H\bibinitperiod}}}%
+        {{hash=ccd76da52edfaa9427ed504800c16b2d}{%
+           family={Kar},
+           familyi={K\bibinitperiod},
+           given={Abhishek},
+           giveni={A\bibinitperiod}}}%
+        {{hash=35f61b9b6f1205b7024a5dad3ed76ac6}{%
+           family={Tagliasacchi},
+           familyi={T\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
+        {{hash=c332f22bc364a00ced3e0b768294519e}{%
+           family={Yi},
+           familyi={Y\bibinitperiod},
+           given={Kwang\bibnamedelima Moo},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \name{editor}{7}{}{%
+        {{hash=fbc410321d4ef88338a144a263d84a52}{%
+           family={Globerson},
+           familyi={G\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e7447a28bd473ef5e8152edb91128f2b}{%
+           family={Mackey},
+           familyi={M\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=cbb0ac3a625af607c7b2347f3a1f6eec}{%
+           family={Belgrave},
+           familyi={B\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=1d2ac2a4357d536eb2d202b38a5ecc5d}{%
+           family={Fan},
+           familyi={F\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=bc2b28beef4ec09a22425f7ef2b357d0}{%
+           family={Paquet},
+           familyi={P\bibinitperiod},
+           given={U.},
+           giveni={U\bibinitperiod}}}%
+        {{hash=d20108b268da49090089b4db6ab51064}{%
+           family={Tomczak},
+           familyi={T\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=08835018e7f90fcf262517bf88eb4d72}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
+      \strng{namehash}{668b82bf639aebdc05ecad0a202314b6}
+      \strng{fullhash}{397b052e3c87af4812a811499cfe8cf1}
+      \strng{fullhashraw}{397b052e3c87af4812a811499cfe8cf1}
+      \strng{bibnamehash}{668b82bf639aebdc05ecad0a202314b6}
+      \strng{authorbibnamehash}{668b82bf639aebdc05ecad0a202314b6}
+      \strng{authornamehash}{668b82bf639aebdc05ecad0a202314b6}
+      \strng{authorfullhash}{397b052e3c87af4812a811499cfe8cf1}
+      \strng{authorfullhashraw}{397b052e3c87af4812a811499cfe8cf1}
+      \strng{editorbibnamehash}{93973210f9fcdbfabe5bcdcc01d4f6a2}
+      \strng{editornamehash}{93973210f9fcdbfabe5bcdcc01d4f6a2}
+      \strng{editorfullhash}{95f888c875167175c5f0367be32a7c09}
+      \strng{editorfullhashraw}{95f888c875167175c5f0367be32a7c09}
+      \field{labelalpha}{KRS*24}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Advances in Neural Information Processing Systems}
+      \field{title}{3D Gaussian Splatting as Markov Chain Monte Carlo}
+      \field{volume}{37}
+      \field{year}{2024}
+      \field{pages}{80965\bibrangedash 80986}
+      \range{pages}{22}
+      \verb{urlraw}
+      \verb https://proceedings.neurips.cc/paper_files/paper/2024/file/93be245fce00a9bb2333c17ceae4b732-Paper-Conference.pdf
+      \endverb
+      \verb{url}
+      \verb https://proceedings.neurips.cc/paper_files/paper/2024/file/93be245fce00a9bb2333c17ceae4b732-Paper-Conference.pdf
+      \endverb
+    \endentry
+    \entry{webglviewer}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=c61054da6610a292247636e9c14942eb}{%
+           family={Kwok},
+           familyi={K\bibinitperiod},
+           given={Kevin},
+           giveni={K\bibinitperiod}}}%
+      }
+      \strng{namehash}{c61054da6610a292247636e9c14942eb}
+      \strng{fullhash}{c61054da6610a292247636e9c14942eb}
+      \strng{fullhashraw}{c61054da6610a292247636e9c14942eb}
+      \strng{bibnamehash}{c61054da6610a292247636e9c14942eb}
+      \strng{authorbibnamehash}{c61054da6610a292247636e9c14942eb}
+      \strng{authornamehash}{c61054da6610a292247636e9c14942eb}
+      \strng{authorfullhash}{c61054da6610a292247636e9c14942eb}
+      \strng{authorfullhashraw}{c61054da6610a292247636e9c14942eb}
+      \field{labelalpha}{Kwo}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Splat Viewer}
+      \verb{urlraw}
+      \verb https://github.com/antimatter15/splat?tab=readme-ov-file
+      \endverb
+      \verb{url}
+      \verb https://github.com/antimatter15/splat?tab=readme-ov-file
+      \endverb
+    \endentry
+    \entry{li2018optcuts}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=d89d8ecdc5d62df52c36e129c55f5239}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Minchen},
+           giveni={M\bibinitperiod}}}%
+        {{hash=e6f43d9273c070bf76a44406206e7adf}{%
+           family={Kaufman},
+           familyi={K\bibinitperiod},
+           given={Danny\bibnamedelima M},
+           giveni={D\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=51f883f49df10737bddf8b436834ae55}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Vladimir\bibnamedelima G},
+           giveni={V\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+        {{hash=62fc41e0fca3280cb9f4a7b6fc215ae4}{%
+           family={Solomon},
+           familyi={S\bibinitperiod},
+           given={Justin},
+           giveni={J\bibinitperiod}}}%
+        {{hash=e2c9527bb98341f47f2c65d36f546d7b}{%
+           family={Sheffer},
+           familyi={S\bibinitperiod},
+           given={Alla},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACM New York, NY, USA}%
+      }
+      \strng{namehash}{68e42e13b5d6e7034beb42c02e4803e9}
+      \strng{fullhash}{9473d55748c0a455e9e45441c4b1628f}
+      \strng{fullhashraw}{9473d55748c0a455e9e45441c4b1628f}
+      \strng{bibnamehash}{68e42e13b5d6e7034beb42c02e4803e9}
+      \strng{authorbibnamehash}{68e42e13b5d6e7034beb42c02e4803e9}
+      \strng{authornamehash}{68e42e13b5d6e7034beb42c02e4803e9}
+      \strng{authorfullhash}{9473d55748c0a455e9e45441c4b1628f}
+      \strng{authorfullhashraw}{9473d55748c0a455e9e45441c4b1628f}
+      \field{labelalpha}{LKK*18}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM transactions on graphics (TOG)}
+      \field{number}{6}
+      \field{title}{Optcuts: Joint optimization of surface cuts and parameterization}
+      \field{volume}{37}
+      \field{year}{2018}
+      \field{pages}{1\bibrangedash 13}
+      \range{pages}{13}
+    \endentry
+    \entry{neuralangelo}{inproceedings}{}{}
+      \name{author}{7}{}{%
+        {{hash=436fb878916c43d1b8b0d7f363adbd50}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Zhaoshuo},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=c2ad285eb682bccdfe2685694db2188f}{%
+           family={Müller},
+           familyi={M\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=384420ee5132168a95e9f097058e3c55}{%
+           family={Evans},
+           familyi={E\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+        {{hash=1a03ccb23ac3569b6468f039a010f543}{%
+           family={Taylor},
+           familyi={T\bibinitperiod},
+           given={Russell\bibnamedelima H.},
+           giveni={R\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=036d5eb98f401b3d4926ac29befbfb7c}{%
+           family={Unberath},
+           familyi={U\bibinitperiod},
+           given={Mathias},
+           giveni={M\bibinitperiod}}}%
+        {{hash=0c3c4604957af5f2ce5f1537fdbaa510}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Ming-Yu},
+           giveni={M\bibinithyphendelim Y\bibinitperiod}}}%
+        {{hash=b2dc759174e1ae2d25f9ed0f8edd4a8d}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={Chen-Hsuan},
+           giveni={C\bibinithyphendelim H\bibinitperiod}}}%
+      }
+      \strng{namehash}{01f3fe26bce8c690a62aa2c0950dd5b9}
+      \strng{fullhash}{051c207543c23dde0d5e5e898c49ca30}
+      \strng{fullhashraw}{051c207543c23dde0d5e5e898c49ca30}
+      \strng{bibnamehash}{01f3fe26bce8c690a62aa2c0950dd5b9}
+      \strng{authorbibnamehash}{01f3fe26bce8c690a62aa2c0950dd5b9}
+      \strng{authornamehash}{01f3fe26bce8c690a62aa2c0950dd5b9}
+      \strng{authorfullhash}{051c207543c23dde0d5e5e898c49ca30}
+      \strng{authorfullhashraw}{051c207543c23dde0d5e5e898c49ca30}
+      \field{labelalpha}{LME*23}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}
+      \field{title}{Neuralangelo: High-Fidelity Neural Surface Reconstruction}
+      \field{year}{2023}
+      \field{pages}{8456\bibrangedash 8465}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/CVPR52729.2023.00817
+      \endverb
+      \keyw{Training;Surface reconstruction;Three-dimensional displays;Image resolution;Smoothing methods;Stochastic processes;Rendering (computer graphics);3D from multi-view and sensors}
+    \endentry
+    \entry{instant-ngp}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=c2ad285eb682bccdfe2685694db2188f}{%
+           family={Müller},
+           familyi={M\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=384420ee5132168a95e9f097058e3c55}{%
+           family={Evans},
+           familyi={E\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+        {{hash=56d271cf4aa34e6b3942487f50bc0419}{%
+           family={Schied},
+           familyi={S\bibinitperiod},
+           given={Christoph},
+           giveni={C\bibinitperiod}}}%
+        {{hash=611ada91d1e542d341733a32d3b74766}{%
+           family={Keller},
+           familyi={K\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{5ee9a8053cd04c40f99a57f291d2c4a8}
+      \strng{fullhash}{5ee9a8053cd04c40f99a57f291d2c4a8}
+      \strng{fullhashraw}{5ee9a8053cd04c40f99a57f291d2c4a8}
+      \strng{bibnamehash}{5ee9a8053cd04c40f99a57f291d2c4a8}
+      \strng{authorbibnamehash}{5ee9a8053cd04c40f99a57f291d2c4a8}
+      \strng{authornamehash}{5ee9a8053cd04c40f99a57f291d2c4a8}
+      \strng{authorfullhash}{5ee9a8053cd04c40f99a57f291d2c4a8}
+      \strng{authorfullhashraw}{5ee9a8053cd04c40f99a57f291d2c4a8}
+      \field{labelalpha}{MESK22}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Neural graphics primitives, parameterized by fully connected neural networks, can be costly to train and evaluate. We reduce this cost with a versatile new input encoding that permits the use of a smaller network without sacrificing quality, thus significantly reducing the number of floating point and memory access operations: a small neural network is augmented by a multiresolution hash table of trainable feature vectors whose values are optimized through stochastic gradient descent. The multiresolution structure allows the network to disambiguate hash collisions, making for a simple architecture that is trivial to parallelize on modern GPUs. We leverage this parallelism by implementing the whole system using fully-fused CUDA kernels with a focus on minimizing wasted bandwidth and compute operations. We achieve a combined speedup of several orders of magnitude, enabling training of high-quality neural graphics primitives in a matter of seconds, and rendering in tens of milliseconds at a resolution of 1920\texttimes{}1080.}
+      \field{issn}{0730-0301}
+      \field{journaltitle}{ACM Trans. Graph.}
+      \field{month}{7}
+      \field{number}{4}
+      \field{title}{Instant neural graphics primitives with a multiresolution hash encoding}
+      \field{volume}{41}
+      \field{year}{2022}
+      \verb{doi}
+      \verb 10.1145/3528223.3530127
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3528223.3530127
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3528223.3530127
+      \endverb
+      \keyw{GPUs,encodings,function approximation,hashing,image synthesis,neural networks,parallel computation}
+    \endentry
+    \entry{mildenhall2019local}{article}{}{}
+      \name{author}{7}{}{%
+        {{hash=a3567364ab52973659adf74ee0c6e6f3}{%
+           family={Mildenhall},
+           familyi={M\bibinitperiod},
+           given={Ben},
+           giveni={B\bibinitperiod}}}%
+        {{hash=b503d22b8c86fb9dfd477d2f70a59650}{%
+           family={Srinivasan},
+           familyi={S\bibinitperiod},
+           given={Pratul\bibnamedelima P},
+           giveni={P\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=68726d76bc6877c94a68761c2ecf354c}{%
+           family={Ortiz-Cayon},
+           familyi={O\bibinithyphendelim C\bibinitperiod},
+           given={Rodrigo},
+           giveni={R\bibinitperiod}}}%
+        {{hash=a572df1d21cc656ffc9928505c1774ed}{%
+           family={Kalantari},
+           familyi={K\bibinitperiod},
+           given={Nima\bibnamedelima Khademi},
+           giveni={N\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=e7e274981ceb0dd123d44af35cc7bedf}{%
+           family={Ramamoorthi},
+           familyi={R\bibinitperiod},
+           given={Ravi},
+           giveni={R\bibinitperiod}}}%
+        {{hash=96e30bdc2cf905aa1109c46617b16252}{%
+           family={Ng},
+           familyi={N\bibinitperiod},
+           given={Ren},
+           giveni={R\bibinitperiod}}}%
+        {{hash=ccd76da52edfaa9427ed504800c16b2d}{%
+           family={Kar},
+           familyi={K\bibinitperiod},
+           given={Abhishek},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACM New York, NY, USA}%
+      }
+      \strng{namehash}{ff9a7893cd1e55228d3f4d8749ff8851}
+      \strng{fullhash}{8f5b9ce97c701e53815daa14dbd9464d}
+      \strng{fullhashraw}{8f5b9ce97c701e53815daa14dbd9464d}
+      \strng{bibnamehash}{ff9a7893cd1e55228d3f4d8749ff8851}
+      \strng{authorbibnamehash}{ff9a7893cd1e55228d3f4d8749ff8851}
+      \strng{authornamehash}{ff9a7893cd1e55228d3f4d8749ff8851}
+      \strng{authorfullhash}{8f5b9ce97c701e53815daa14dbd9464d}
+      \strng{authorfullhashraw}{8f5b9ce97c701e53815daa14dbd9464d}
+      \field{labelalpha}{MSO*19}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM Transactions on Graphics (ToG)}
+      \field{number}{4}
+      \field{title}{Local light field fusion: Practical view synthesis with prescriptive sampling guidelines}
+      \field{volume}{38}
+      \field{year}{2019}
+      \field{pages}{1\bibrangedash 14}
+      \range{pages}{14}
+    \endentry
+    \entry{nerf}{article}{}{}
+      \name{author}{6}{}{%
+        {{hash=a3567364ab52973659adf74ee0c6e6f3}{%
+           family={Mildenhall},
+           familyi={M\bibinitperiod},
+           given={Ben},
+           giveni={B\bibinitperiod}}}%
+        {{hash=b503d22b8c86fb9dfd477d2f70a59650}{%
+           family={Srinivasan},
+           familyi={S\bibinitperiod},
+           given={Pratul\bibnamedelima P.},
+           giveni={P\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=9a18985a5c8b8be23d0ec9de0a3c87b9}{%
+           family={Tancik},
+           familyi={T\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod}}}%
+        {{hash=562f3254a241932db4a6d44a97473ec5}{%
+           family={Barron},
+           familyi={B\bibinitperiod},
+           given={Jonathan\bibnamedelima T.},
+           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=e7e274981ceb0dd123d44af35cc7bedf}{%
+           family={Ramamoorthi},
+           familyi={R\bibinitperiod},
+           given={Ravi},
+           giveni={R\bibinitperiod}}}%
+        {{hash=96e30bdc2cf905aa1109c46617b16252}{%
+           family={Ng},
+           familyi={N\bibinitperiod},
+           given={Ren},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{4d426255f49fbfdee4dcf85e64cc11d8}
+      \strng{fullhash}{9bee638bba28fb3cd739399aa8dc9983}
+      \strng{fullhashraw}{9bee638bba28fb3cd739399aa8dc9983}
+      \strng{bibnamehash}{4d426255f49fbfdee4dcf85e64cc11d8}
+      \strng{authorbibnamehash}{4d426255f49fbfdee4dcf85e64cc11d8}
+      \strng{authornamehash}{4d426255f49fbfdee4dcf85e64cc11d8}
+      \strng{authorfullhash}{9bee638bba28fb3cd739399aa8dc9983}
+      \strng{authorfullhashraw}{9bee638bba28fb3cd739399aa8dc9983}
+      \field{labelalpha}{MST*21}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We present a method that achieves state-of-the-art results for synthesizing novel views of complex scenes by optimizing an underlying continuous volumetric scene function using a sparse set of input views. Our algorithm represents a scene using a fully connected (nonconvolutional) deep network, whose input is a single continuous 5D coordinate (spatial location (x, y, z) and viewing direction (θ, ϕ)) and whose output is the volume density and view-dependent emitted radiance at that spatial location. We synthesize views by querying 5D coordinates along camera rays and use classic volume rendering techniques to project the output colors and densities into an image. Because volume rendering is naturally differentiable, the only input required to optimize our representation is a set of images with known camera poses. We describe how to effectively optimize neural radiance fields to render photorealistic novel views of scenes with complicated geometry and appearance, and demonstrate results that outperform prior work on neural rendering and view synthesis.}
+      \field{issn}{0001-0782}
+      \field{journaltitle}{Commun. ACM}
+      \field{month}{12}
+      \field{number}{1}
+      \field{title}{NeRF: representing scenes as neural radiance fields for view synthesis}
+      \field{volume}{65}
+      \field{year}{2021}
+      \field{pages}{99\bibrangedash 106}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1145/3503250
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3503250
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3503250
+      \endverb
+    \endentry
+    \entry{malarz2025gaussian}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=d0b41319f12af7e0ae5cfee04ce1a661}{%
+           family={Malarz},
+           familyi={M\bibinitperiod},
+           given={Dawid},
+           giveni={D\bibinitperiod}}}%
+        {{hash=0f80df4fa02a5850d8f170e7a9c3f175}{%
+           family={Smolak-Dyżewska},
+           familyi={S\bibinithyphendelim D\bibinitperiod},
+           given={Weronika},
+           giveni={W\bibinitperiod}}}%
+        {{hash=4337da93b48480cbd718784ead30f7b2}{%
+           family={Tabor},
+           familyi={T\bibinitperiod},
+           given={Jacek},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7dc0abf79e13f45da990c4936f53de42}{%
+           family={Tadeja},
+           familyi={T\bibinitperiod},
+           given={S{ł}awomir},
+           giveni={S\bibinitperiod}}}%
+        {{hash=d592ad3c8af74e31d095c5d9456b1314}{%
+           family={Spurek},
+           familyi={S\bibinitperiod},
+           given={Przemys{ł}aw},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{c8df8eb44291f882e2747f3c849d0f22}
+      \strng{fullhash}{ea958c3577ca5e339b0d85bdf56a5998}
+      \strng{fullhashraw}{ea958c3577ca5e339b0d85bdf56a5998}
+      \strng{bibnamehash}{c8df8eb44291f882e2747f3c849d0f22}
+      \strng{authorbibnamehash}{c8df8eb44291f882e2747f3c849d0f22}
+      \strng{authornamehash}{c8df8eb44291f882e2747f3c849d0f22}
+      \strng{authorfullhash}{ea958c3577ca5e339b0d85bdf56a5998}
+      \strng{authorfullhashraw}{ea958c3577ca5e339b0d85bdf56a5998}
+      \field{labelalpha}{MST*25}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computer Vision and Image Understanding}
+      \field{title}{Gaussian splatting with NeRF-based color and opacity}
+      \field{volume}{251}
+      \field{year}{2025}
+      \field{pages}{104273}
+      \range{pages}{1}
+    \endentry
+    \entry{mallett2020patch}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=bd2599b0c7f127133f6951c0b71a15d8}{%
+           family={Mallett},
+           familyi={M\bibinitperiod},
+           given={Ian},
+           giveni={I\bibinitperiod}}}%
+        {{hash=a90c0ad054c1f2877c2efb996ccb6d07}{%
+           family={Seiler},
+           familyi={S\bibinitperiod},
+           given={Larry},
+           giveni={L\bibinitperiod}}}%
+        {{hash=bb041363e165055885519b4ee1aee8eb}{%
+           family={Yuksel},
+           familyi={Y\bibinitperiod},
+           given={Cem},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{9c6038a534c58147fbf1303d81f0f699}
+      \strng{fullhash}{9c6038a534c58147fbf1303d81f0f699}
+      \strng{fullhashraw}{9c6038a534c58147fbf1303d81f0f699}
+      \strng{bibnamehash}{9c6038a534c58147fbf1303d81f0f699}
+      \strng{authorbibnamehash}{9c6038a534c58147fbf1303d81f0f699}
+      \strng{authornamehash}{9c6038a534c58147fbf1303d81f0f699}
+      \strng{authorfullhash}{9c6038a534c58147fbf1303d81f0f699}
+      \strng{authorfullhashraw}{9c6038a534c58147fbf1303d81f0f699}
+      \field{labelalpha}{MSY20}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Visualization and Computer Graphics}
+      \field{number}{7}
+      \field{title}{Patch textures: Hardware support for mesh colors}
+      \field{volume}{28}
+      \field{year}{2020}
+      \field{pages}{2710\bibrangedash 2721}
+      \range{pages}{12}
+    \endentry
+    \entry{regnerf}{inproceedings}{}{}
+      \name{author}{6}{}{%
+        {{hash=04553524ed9bcd1ebe43547a6153b40b}{%
+           family={Niemeyer},
+           familyi={N\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=562f3254a241932db4a6d44a97473ec5}{%
+           family={Barron},
+           familyi={B\bibinitperiod},
+           given={Jonathan\bibnamedelima T.},
+           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=a3567364ab52973659adf74ee0c6e6f3}{%
+           family={Mildenhall},
+           familyi={M\bibinitperiod},
+           given={Ben},
+           giveni={B\bibinitperiod}}}%
+        {{hash=ea53115fe83889642a19ccb418b2b249}{%
+           family={Sajjadi},
+           familyi={S\bibinitperiod},
+           given={Mehdi\bibnamedelimb S.\bibnamedelimi M.},
+           giveni={M\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=06133052ac3c14a188601b82783cd4f7}{%
+           family={Geiger},
+           familyi={G\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+        {{hash=0586210cb5f4c065146c79ff24fba467}{%
+           family={Radwan},
+           familyi={R\bibinitperiod},
+           given={Noha},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{61df80f19d1c0b0589ae8cb7c3865d8e}
+      \strng{fullhash}{0a72cc1def6ef9e9708349ee6742c871}
+      \strng{fullhashraw}{0a72cc1def6ef9e9708349ee6742c871}
+      \strng{bibnamehash}{61df80f19d1c0b0589ae8cb7c3865d8e}
+      \strng{authorbibnamehash}{61df80f19d1c0b0589ae8cb7c3865d8e}
+      \strng{authornamehash}{61df80f19d1c0b0589ae8cb7c3865d8e}
+      \strng{authorfullhash}{0a72cc1def6ef9e9708349ee6742c871}
+      \strng{authorfullhashraw}{0a72cc1def6ef9e9708349ee6742c871}
+      \field{labelalpha}{NBM*22}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}
+      \field{month}{6}
+      \field{title}{RegNeRF: Regularizing Neural Radiance Fields for View Synthesis From Sparse Inputs}
+      \field{year}{2022}
+      \field{pages}{5480\bibrangedash 5490}
+      \range{pages}{11}
+    \endentry
+    \entry{reduced3dgs}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=63d19f4b0278c43f6672feaec37992dc}{%
+           family={Papantonakis},
+           familyi={P\bibinitperiod},
+           given={Panagiotis},
+           giveni={P\bibinitperiod}}}%
+        {{hash=2ab758a425dcd6ed440f4ae0d994dc2c}{%
+           family={Kopanas},
+           familyi={K\bibinitperiod},
+           given={Georgios},
+           giveni={G\bibinitperiod}}}%
+        {{hash=c73d638ffd25328757379835747302ff}{%
+           family={Kerbl},
+           familyi={K\bibinitperiod},
+           given={Bernhard},
+           giveni={B\bibinitperiod}}}%
+        {{hash=7bb90559479e050af1b4991cf8226fd6}{%
+           family={Lanvin},
+           familyi={L\bibinitperiod},
+           given={Alexandre},
+           giveni={A\bibinitperiod}}}%
+        {{hash=70ecb4c4a672f7c20e4b53b57d5a437e}{%
+           family={Drettakis},
+           familyi={D\bibinitperiod},
+           given={George},
+           giveni={G\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{193e6cb7d50147cae02dfd0497b5a18f}
+      \strng{fullhash}{6477bf8f780daecc95d96e11494297af}
+      \strng{fullhashraw}{6477bf8f780daecc95d96e11494297af}
+      \strng{bibnamehash}{193e6cb7d50147cae02dfd0497b5a18f}
+      \strng{authorbibnamehash}{193e6cb7d50147cae02dfd0497b5a18f}
+      \strng{authornamehash}{193e6cb7d50147cae02dfd0497b5a18f}
+      \strng{authorfullhash}{6477bf8f780daecc95d96e11494297af}
+      \strng{authorfullhashraw}{6477bf8f780daecc95d96e11494297af}
+      \field{labelalpha}{PKK*24}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{3D Gaussian splatting provides excellent visual quality for novel view synthesis, with fast training and realtime rendering; unfortunately, the memory requirements of this method for storing and transmission are unreasonably high. We first analyze the reasons for this, identifying three main areas where storage can be reduced: the number of 3D Gaussian primitives used to represent a scene, the number of coefficients for the spherical harmonics used to represent directional radiance, and the precision required to store Gaussian primitive attributes. We present a solution to each of these issues. First, we propose an efficient, resolution-aware primitive pruning approach, reducing the primitive count by half. Second, we introduce an adaptive adjustment method to choose the number of coefficients used to represent directional radiance for each Gaussian primitive, and finally a codebook-based quantization method, together with a half-float representation for further memory reduction. Taken together, these three components result in a x27 reduction in overall size on disk on the standard datasets we tested, along with a x1.7 speedup in rendering speed. We demonstrate our method on standard datasets and show how our solution results in significantly reduced download times when using the method on a mobile device (see Fig. 1).}
+      \field{journaltitle}{Proc. ACM Comput. Graph. Interact. Tech.}
+      \field{month}{5}
+      \field{number}{1}
+      \field{title}{Reducing the Memory Footprint of 3D Gaussian Splatting}
+      \field{volume}{7}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1145/3651282
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3651282
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3651282
+      \endverb
+      \keyw{3D gaussian splatting,memory reduction,novel view synthesis,radiance fields}
+    \endentry
+    \entry{gstex}{inproceedings}{}{}
+      \name{author}{5}{}{%
+        {{hash=1069898a6183382e826ccd31408354ca}{%
+           family={Rong},
+           familyi={R\bibinitperiod},
+           given={Victor},
+           giveni={V\bibinitperiod}}}%
+        {{hash=4cef5c0573e3dfa6db107fea47527229}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Jingxiang},
+           giveni={J\bibinitperiod}}}%
+        {{hash=880b9bd0ac9728eb39e3d3e260f2a972}{%
+           family={Bahmani},
+           familyi={B\bibinitperiod},
+           given={Sherwin},
+           giveni={S\bibinitperiod}}}%
+        {{hash=843099af0fa2c19af91930e0c352dc60}{%
+           family={Kutulakos},
+           familyi={K\bibinitperiod},
+           given={Kiriakos},
+           giveni={K\bibinitperiod}}}%
+        {{hash=3c4ee9dd6b53ac86b5e1cfd475d72fd8}{%
+           family={Lindell},
+           familyi={L\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{baf6bf382518b5b71522cfbcd80ecfc3}
+      \strng{fullhash}{5102ff80e8ab15697f24f0db9db64f12}
+      \strng{fullhashraw}{5102ff80e8ab15697f24f0db9db64f12}
+      \strng{bibnamehash}{baf6bf382518b5b71522cfbcd80ecfc3}
+      \strng{authorbibnamehash}{baf6bf382518b5b71522cfbcd80ecfc3}
+      \strng{authornamehash}{baf6bf382518b5b71522cfbcd80ecfc3}
+      \strng{authorfullhash}{5102ff80e8ab15697f24f0db9db64f12}
+      \strng{authorfullhashraw}{5102ff80e8ab15697f24f0db9db64f12}
+      \field{labelalpha}{RCB*25}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the Winter Conference on Applications of Computer Vision (WACV)}
+      \field{month}{2}
+      \field{title}{GStex: Per-Primitive Texturing of 2D Gaussian Splatting for Decoupled Appearance and Geometry Modeling}
+      \field{year}{2025}
+      \field{pages}{3508\bibrangedash 3518}
+      \range{pages}{11}
+    \endentry
+    \entry{revising}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=e1629ebec2b28f0c5545beb8c91e1773}{%
+           family={Rota\bibnamedelima Bulò},
+           familyi={R\bibinitperiod\bibinitdelim B\bibinitperiod},
+           given={Samuel},
+           giveni={S\bibinitperiod}}}%
+        {{hash=3f543b20ea038a15d7e0248ffa6161df}{%
+           family={Porzi},
+           familyi={P\bibinitperiod},
+           given={Lorenzo},
+           giveni={L\bibinitperiod}}}%
+        {{hash=b4077a7f373f389c03be04898000050c}{%
+           family={Kontschieder},
+           familyi={K\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Milan, Italy}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{d21c92284dce567f82684a4808e648fc}
+      \strng{fullhash}{d21c92284dce567f82684a4808e648fc}
+      \strng{fullhashraw}{d21c92284dce567f82684a4808e648fc}
+      \strng{bibnamehash}{d21c92284dce567f82684a4808e648fc}
+      \strng{authorbibnamehash}{d21c92284dce567f82684a4808e648fc}
+      \strng{authornamehash}{d21c92284dce567f82684a4808e648fc}
+      \strng{authorfullhash}{d21c92284dce567f82684a4808e648fc}
+      \strng{authorfullhashraw}{d21c92284dce567f82684a4808e648fc}
+      \field{labelalpha}{RPK24}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In this paper, we address the limitations of Adaptive Density Control (ADC) in 3D Gaussian Splatting (3DGS), a scene representation method achieving high-quality, photorealistic results for novel view synthesis. ADC has been introduced for automatic 3D point primitive management, controlling densification and pruning, however, with certain limitations in the densification logic. Our main contribution is a more principled, pixel-error driven formulation for density control in 3DGS, leveraging an auxiliary, per-pixel error function as the criterion for densification. We further introduce a mechanism to control the total number of primitives generated per scene and correct a bias in the current opacity handling strategy of ADC during cloning operations. Our approach leads to consistent quality improvements across a variety of benchmark scenes, without sacrificing the method’s efficiency.}
+      \field{booktitle}{Computer Vision – ECCV 2024: 18th European Conference, Milan, Italy, September 29–October 4, 2024, Proceedings, Part LXIII}
+      \field{isbn}{978-3-031-73035-1}
+      \field{title}{Revising Densification in Gaussian Splatting}
+      \field{year}{2024}
+      \field{pages}{347\bibrangedash 362}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1007/978-3-031-73036-8_20
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-3-031-73036-8_20
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-031-73036-8_20
+      \endverb
+      \keyw{Gaussian Splatting,3D reconstruction,Novel View Synthesis}
+    \endentry
+    \entry{kilonerf}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=50488dd57a60b048dd8a210bb6eb0974}{%
+           family={Reiser},
+           familyi={R\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
+        {{hash=50cf323c42cc810f490f2ba9cbf452c0}{%
+           family={Peng},
+           familyi={P\bibinitperiod},
+           given={Songyou},
+           giveni={S\bibinitperiod}}}%
+        {{hash=9cf2ba3b352513a781b6b1a585e0b36a}{%
+           family={Liao},
+           familyi={L\bibinitperiod},
+           given={Yiyi},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=06133052ac3c14a188601b82783cd4f7}{%
+           family={Geiger},
+           familyi={G\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{a21da7a860fcc3a6683f1c05e211a14a}
+      \strng{fullhash}{a21da7a860fcc3a6683f1c05e211a14a}
+      \strng{fullhashraw}{a21da7a860fcc3a6683f1c05e211a14a}
+      \strng{bibnamehash}{a21da7a860fcc3a6683f1c05e211a14a}
+      \strng{authorbibnamehash}{a21da7a860fcc3a6683f1c05e211a14a}
+      \strng{authornamehash}{a21da7a860fcc3a6683f1c05e211a14a}
+      \strng{authorfullhash}{a21da7a860fcc3a6683f1c05e211a14a}
+      \strng{authorfullhashraw}{a21da7a860fcc3a6683f1c05e211a14a}
+      \field{labelalpha}{RPLG21}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{International Conference on Computer Vision (ICCV)}
+      \field{title}{KiloNeRF: Speeding up Neural Radiance Fields with Thousands of Tiny MLPs}
+      \field{year}{2021}
+    \endentry
+    \entry{srinivasan2024nuvo}{inproceedings}{}{}
+      \name{author}{5}{}{%
+        {{hash=b503d22b8c86fb9dfd477d2f70a59650}{%
+           family={Srinivasan},
+           familyi={S\bibinitperiod},
+           given={Pratul\bibnamedelima P},
+           giveni={P\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=96e894055172e371846089961c792631}{%
+           family={Garbin},
+           familyi={G\bibinitperiod},
+           given={Stephan\bibnamedelima J},
+           giveni={S\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=0d0af9b888707d306a6dab79b427493b}{%
+           family={Verbin},
+           familyi={V\bibinitperiod},
+           given={Dor},
+           giveni={D\bibinitperiod}}}%
+        {{hash=562f3254a241932db4a6d44a97473ec5}{%
+           family={Barron},
+           familyi={B\bibinitperiod},
+           given={Jonathan\bibnamedelima T},
+           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=a3567364ab52973659adf74ee0c6e6f3}{%
+           family={Mildenhall},
+           familyi={M\bibinitperiod},
+           given={Ben},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{8ffb42ee1495c8130778876491214639}
+      \strng{fullhash}{4fde715b947c22e6c2224bb775633ae1}
+      \strng{fullhashraw}{4fde715b947c22e6c2224bb775633ae1}
+      \strng{bibnamehash}{8ffb42ee1495c8130778876491214639}
+      \strng{authorbibnamehash}{8ffb42ee1495c8130778876491214639}
+      \strng{authornamehash}{8ffb42ee1495c8130778876491214639}
+      \strng{authorfullhash}{4fde715b947c22e6c2224bb775633ae1}
+      \strng{authorfullhashraw}{4fde715b947c22e6c2224bb775633ae1}
+      \field{labelalpha}{SGV*24}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{European Conference on Computer Vision}
+      \field{title}{Nuvo: Neural uv mapping for unruly 3d representations}
+      \field{year}{2024}
+      \field{pages}{18\bibrangedash 34}
+      \range{pages}{17}
+    \endentry
+    \entry{bbsplat}{misc}{}{}
+      \name{author}{4}{}{%
+        {{hash=83a45ff869ac47a37a24a0ffe179fe3a}{%
+           family={Svitov},
+           familyi={S\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+        {{hash=4d7262ba8a02a9be7cb2942cb5d9ef8e}{%
+           family={Morerio},
+           familyi={M\bibinitperiod},
+           given={Pietro},
+           giveni={P\bibinitperiod}}}%
+        {{hash=836e7362c7d7fa3adc6d78052d222e2b}{%
+           family={Agapito},
+           familyi={A\bibinitperiod},
+           given={Lourdes},
+           giveni={L\bibinitperiod}}}%
+        {{hash=2fc0086848116811daf401b763fbf599}{%
+           family={Bue},
+           familyi={B\bibinitperiod},
+           given={Alessio\bibnamedelima Del},
+           giveni={A\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+      }
+      \strng{namehash}{93f2875eba44aa7c5e361e953224d8a8}
+      \strng{fullhash}{93f2875eba44aa7c5e361e953224d8a8}
+      \strng{fullhashraw}{93f2875eba44aa7c5e361e953224d8a8}
+      \strng{bibnamehash}{93f2875eba44aa7c5e361e953224d8a8}
+      \strng{authorbibnamehash}{93f2875eba44aa7c5e361e953224d8a8}
+      \strng{authornamehash}{93f2875eba44aa7c5e361e953224d8a8}
+      \strng{authorfullhash}{93f2875eba44aa7c5e361e953224d8a8}
+      \strng{authorfullhashraw}{93f2875eba44aa7c5e361e953224d8a8}
+      \field{labelalpha}{SMAB25}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.CV}
+      \field{eprinttype}{arXiv}
+      \field{title}{BillBoard Splatting (BBSplat): Learnable Textured Primitives for Novel View Synthesis}
+      \field{year}{2025}
+      \verb{eprint}
+      \verb 2411.08508
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2411.08508
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2411.08508
+      \endverb
+    \endentry
+    \entry{sharma2024volumetric}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=ba1dd4b307d8ee9ded89946a3d1c23b9}{%
+           family={Sharma},
+           familyi={S\bibinitperiod},
+           given={Gopal},
+           giveni={G\bibinitperiod}}}%
+        {{hash=6c30c79a89d9023bb4d7c3471e475358}{%
+           family={Rebain},
+           familyi={R\bibinitperiod},
+           given={Daniel},
+           giveni={D\bibinitperiod}}}%
+        {{hash=c332f22bc364a00ced3e0b768294519e}{%
+           family={Yi},
+           familyi={Y\bibinitperiod},
+           given={Kwang\bibnamedelima Moo},
+           giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=35f61b9b6f1205b7024a5dad3ed76ac6}{%
+           family={Tagliasacchi},
+           familyi={T\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{88da8fd013ebbd64ad1ee3e85399f6ac}
+      \strng{fullhash}{88da8fd013ebbd64ad1ee3e85399f6ac}
+      \strng{fullhashraw}{88da8fd013ebbd64ad1ee3e85399f6ac}
+      \strng{bibnamehash}{88da8fd013ebbd64ad1ee3e85399f6ac}
+      \strng{authorbibnamehash}{88da8fd013ebbd64ad1ee3e85399f6ac}
+      \strng{authornamehash}{88da8fd013ebbd64ad1ee3e85399f6ac}
+      \strng{authorfullhash}{88da8fd013ebbd64ad1ee3e85399f6ac}
+      \strng{authorfullhashraw}{88da8fd013ebbd64ad1ee3e85399f6ac}
+      \field{labelalpha}{SRYT24}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{European Conference on Computer Vision}
+      \field{title}{Volumetric rendering with baked quadrature fields}
+      \field{year}{2024}
+      \field{pages}{275\bibrangedash 292}
+      \range{pages}{18}
+    \endentry
+    \entry{dvxgo}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=61b3698af0863546ed8c01202282cda5}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Cheng},
+           giveni={C\bibinitperiod}}}%
+        {{hash=7e4290bad319dc9b96a098c8eee04fc8}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Min},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5691b67693fd8e076169d967c112e8ad}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Hwann{-}Tzong},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{7cc03d3286e4a5aeffc9960bda72a019}
+      \strng{fullhash}{7cc03d3286e4a5aeffc9960bda72a019}
+      \strng{fullhashraw}{7cc03d3286e4a5aeffc9960bda72a019}
+      \strng{bibnamehash}{7cc03d3286e4a5aeffc9960bda72a019}
+      \strng{authorbibnamehash}{7cc03d3286e4a5aeffc9960bda72a019}
+      \strng{authornamehash}{7cc03d3286e4a5aeffc9960bda72a019}
+      \strng{authorfullhash}{7cc03d3286e4a5aeffc9960bda72a019}
+      \strng{authorfullhashraw}{7cc03d3286e4a5aeffc9960bda72a019}
+      \field{labelalpha}{SSC22}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{CVPR}
+      \field{title}{Direct Voxel Grid Optimization: Super-fast Convergence for Radiance Fields Reconstruction}
+      \field{year}{2022}
+    \endentry
+    \entry{tewari2022advances}{inproceedings}{}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{10}{}{%
+        {{hash=9222d9cbcc4e1dafc4ba63738fd6678a}{%
+           family={Tewari},
+           familyi={T\bibinitperiod},
+           given={Ayush},
+           giveni={A\bibinitperiod}}}%
+        {{hash=0c6bd39b4732b392a232da44bde7374a}{%
+           family={Thies},
+           familyi={T\bibinitperiod},
+           given={Justus},
+           giveni={J\bibinitperiod}}}%
+        {{hash=a3567364ab52973659adf74ee0c6e6f3}{%
+           family={Mildenhall},
+           familyi={M\bibinitperiod},
+           given={Ben},
+           giveni={B\bibinitperiod}}}%
+        {{hash=b242ec0679ea710c942d518e17190a42}{%
+           family={Srinivasan},
+           familyi={S\bibinitperiod},
+           given={Pratul},
+           giveni={P\bibinitperiod}}}%
+        {{hash=ce05c93342596f226c79b1e8caf699d2}{%
+           family={Tretschk},
+           familyi={T\bibinitperiod},
+           given={Edgar},
+           giveni={E\bibinitperiod}}}%
+        {{hash=8836f3259638a3d583fae8d00983d4b3}{%
+           family={Yifan},
+           familyi={Y\bibinitperiod},
+           given={Wang},
+           giveni={W\bibinitperiod}}}%
+        {{hash=e26d3dcb30749908728f9749436f6de4}{%
+           family={Lassner},
+           familyi={L\bibinitperiod},
+           given={Christoph},
+           giveni={C\bibinitperiod}}}%
+        {{hash=1592356006e4f676fcb9950bb9b869c2}{%
+           family={Sitzmann},
+           familyi={S\bibinitperiod},
+           given={Vincent},
+           giveni={V\bibinitperiod}}}%
+        {{hash=42005139be072c494eab6ffcdb947f2d}{%
+           family={Martin-Brualla},
+           familyi={M\bibinithyphendelim B\bibinitperiod},
+           given={Ricardo},
+           giveni={R\bibinitperiod}}}%
+        {{hash=822a7110e15d0ff2c311c040fe4b3b23}{%
+           family={Lombardi},
+           familyi={L\bibinitperiod},
+           given={Stephen},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{c77535cb619e4c9ef3c334063bf0a69c}
+      \strng{fullhash}{3c2b0f1fb8ffa25541d887ae40174bcb}
+      \strng{fullhashraw}{3c2b0f1fb8ffa25541d887ae40174bcb}
+      \strng{bibnamehash}{c77535cb619e4c9ef3c334063bf0a69c}
+      \strng{authorbibnamehash}{c77535cb619e4c9ef3c334063bf0a69c}
+      \strng{authornamehash}{c77535cb619e4c9ef3c334063bf0a69c}
+      \strng{authorfullhash}{3c2b0f1fb8ffa25541d887ae40174bcb}
+      \strng{authorfullhashraw}{3c2b0f1fb8ffa25541d887ae40174bcb}
+      \field{labelalpha}{TTM*22}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Computer Graphics Forum}
+      \field{number}{2}
+      \field{title}{Advances in neural rendering}
+      \field{volume}{41}
+      \field{year}{2022}
+      \field{pages}{703\bibrangedash 735}
+      \range{pages}{33}
+    \endentry
+    \entry{refnerf}{inproceedings}{}{}
+      \name{author}{6}{}{%
+        {{hash=0d0af9b888707d306a6dab79b427493b}{%
+           family={Verbin},
+           familyi={V\bibinitperiod},
+           given={Dor},
+           giveni={D\bibinitperiod}}}%
+        {{hash=157d821a2f0829e6758eb6c188684a09}{%
+           family={Hedman},
+           familyi={H\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=a3567364ab52973659adf74ee0c6e6f3}{%
+           family={Mildenhall},
+           familyi={M\bibinitperiod},
+           given={Ben},
+           giveni={B\bibinitperiod}}}%
+        {{hash=490d9df6679fedd715ef837f208bef3f}{%
+           family={Zickler},
+           familyi={Z\bibinitperiod},
+           given={Todd},
+           giveni={T\bibinitperiod}}}%
+        {{hash=562f3254a241932db4a6d44a97473ec5}{%
+           family={Barron},
+           familyi={B\bibinitperiod},
+           given={Jonathan\bibnamedelima T.},
+           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=b503d22b8c86fb9dfd477d2f70a59650}{%
+           family={Srinivasan},
+           familyi={S\bibinitperiod},
+           given={Pratul\bibnamedelima P.},
+           giveni={P\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+      }
+      \strng{namehash}{5c3098bfdec2774544e8429af512928b}
+      \strng{fullhash}{72fa1b876cfd4a78b9b4d955f5a760bc}
+      \strng{fullhashraw}{72fa1b876cfd4a78b9b4d955f5a760bc}
+      \strng{bibnamehash}{5c3098bfdec2774544e8429af512928b}
+      \strng{authorbibnamehash}{5c3098bfdec2774544e8429af512928b}
+      \strng{authornamehash}{5c3098bfdec2774544e8429af512928b}
+      \strng{authorfullhash}{72fa1b876cfd4a78b9b4d955f5a760bc}
+      \strng{authorfullhashraw}{72fa1b876cfd4a78b9b4d955f5a760bc}
+      \field{labelalpha}{VHM*22}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}
+      \field{month}{6}
+      \field{title}{Ref-NeRF: Structured View-Dependent Appearance for Neural Radiance Fields}
+      \field{year}{2022}
+      \field{pages}{5491\bibrangedash 5500}
+      \range{pages}{10}
+    \endentry
+    \entry{adaptiveshells}{article}{}{}
+      \name{author}{9}{}{%
+        {{hash=168bcf78b257d76849e2c36a35dc4487}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Zian},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=5bc9a6fec3933078a185ee4453786020}{%
+           family={Shen},
+           familyi={S\bibinitperiod},
+           given={Tianchang},
+           giveni={T\bibinitperiod}}}%
+        {{hash=842180dbcd36e62dd45ccff6b48fded8}{%
+           family={Nimier-David},
+           familyi={N\bibinithyphendelim D\bibinitperiod},
+           given={Merlin},
+           giveni={M\bibinitperiod}}}%
+        {{hash=25a0e2281bc47b2bf1b0f155c780a493}{%
+           family={Sharp},
+           familyi={S\bibinitperiod},
+           given={Nicholas},
+           giveni={N\bibinitperiod}}}%
+        {{hash=9a3433149c20baec10f299b1558363b5}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Jun},
+           giveni={J\bibinitperiod}}}%
+        {{hash=611ada91d1e542d341733a32d3b74766}{%
+           family={Keller},
+           familyi={K\bibinitperiod},
+           given={Alexander},
+           giveni={A\bibinitperiod}}}%
+        {{hash=132467c4a712be4725c988c89c68a30e}{%
+           family={Fidler},
+           familyi={F\bibinitperiod},
+           given={Sanja},
+           giveni={S\bibinitperiod}}}%
+        {{hash=c2ad285eb682bccdfe2685694db2188f}{%
+           family={Müller},
+           familyi={M\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+        {{hash=9e359000876b573744e1238ae3b705aa}{%
+           family={Gojcic},
+           familyi={G\bibinitperiod},
+           given={Zan},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{c14ae7ca164ae26d8c4616ee888988d7}
+      \strng{fullhash}{737bf97e6b00e8f820029f2531ae5f6f}
+      \strng{fullhashraw}{737bf97e6b00e8f820029f2531ae5f6f}
+      \strng{bibnamehash}{c14ae7ca164ae26d8c4616ee888988d7}
+      \strng{authorbibnamehash}{c14ae7ca164ae26d8c4616ee888988d7}
+      \strng{authornamehash}{c14ae7ca164ae26d8c4616ee888988d7}
+      \strng{authorfullhash}{737bf97e6b00e8f820029f2531ae5f6f}
+      \strng{authorfullhashraw}{737bf97e6b00e8f820029f2531ae5f6f}
+      \field{labelalpha}{WSN*23}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Neural radiance fields achieve unprecedented quality for novel view synthesis, but their volumetric formulation remains expensive, requiring a huge number of samples to render high-resolution images. Volumetric encodings are essential to represent fuzzy geometry such as foliage and hair, and they are well-suited for stochastic optimization. Yet, many scenes ultimately consist largely of solid surfaces which can be accurately rendered by a single sample per pixel. Based on this insight, we propose a neural radiance formulation that smoothly transitions between volumetric- and surface-based rendering, greatly accelerating rendering speed and even improving visual fidelity. Our method constructs an explicit mesh envelope which spatially bounds a neural volumetric representation. In solid regions, the envelope nearly converges to a surface and can often be rendered with a single sample. To this end, we generalize the NeuS [Wang et al. 2021] formulation with a learned spatially-varying kernel size which encodes the spread of the density, fitting a wide kernel to volume-like regions and a tight kernel to surface-like regions. We then extract an explicit mesh of a narrow band around the surface, with width determined by the kernel size, and fine-tune the radiance field within this band. At inference time, we cast rays against the mesh and evaluate the radiance field only within the enclosed region, greatly reducing the number of samples required. Experiments show that our approach enables efficient rendering at very high fidelity. We also demonstrate that the extracted envelope enables downstream applications such as animation and simulation.}
+      \field{issn}{0730-0301}
+      \field{journaltitle}{ACM Trans. Graph.}
+      \field{month}{12}
+      \field{number}{6}
+      \field{title}{Adaptive Shells for Efficient Neural Radiance Field Rendering}
+      \field{volume}{42}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.1145/3618390
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3618390
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3618390
+      \endverb
+      \keyw{fast rendering,level set methods,neural radiance fields,novel view synthesis}
+    \endentry
+    \entry{supergaussians}{misc}{}{}
+      \name{author}{10}{}{%
+        {{hash=af1f6890b49ac6de6ee9af944bdf1990}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Rui},
+           giveni={R\bibinitperiod}}}%
+        {{hash=0ca366703f2c56d3eda35da02529f6a8}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Wenyue},
+           giveni={W\bibinitperiod}}}%
+        {{hash=49e23b5e203047ab320fc1cc2c2aa48b}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Jiepeng},
+           giveni={J\bibinitperiod}}}%
+        {{hash=8e34231ba9b9318aa75b42a62d10fba4}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Yuan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=c26cc02bbb5db725a2c79cb200894d76}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Peng},
+           giveni={P\bibinitperiod}}}%
+        {{hash=62eb339ea1a82b543e062fcc27619c90}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Lin},
+           giveni={L\bibinitperiod}}}%
+        {{hash=96d190c3380b091b066b505667adb1df}{%
+           family={Xin},
+           familyi={X\bibinitperiod},
+           given={Shiqing},
+           giveni={S\bibinitperiod}}}%
+        {{hash=824488aff6706925802b1c75da7ab577}{%
+           family={Komura},
+           familyi={K\bibinitperiod},
+           given={Taku},
+           giveni={T\bibinitperiod}}}%
+        {{hash=86d8cd66cb62928ca1ec636d8cd2e11c}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Xin},
+           giveni={X\bibinitperiod}}}%
+        {{hash=cbf9bd0c687428039fe025eced393d59}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Wenping},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{875fed2fa75a6a88c45c3355de9aa0f8}
+      \strng{fullhash}{edca87aa2df253c2cf713a74cf9e5b4f}
+      \strng{fullhashraw}{edca87aa2df253c2cf713a74cf9e5b4f}
+      \strng{bibnamehash}{875fed2fa75a6a88c45c3355de9aa0f8}
+      \strng{authorbibnamehash}{875fed2fa75a6a88c45c3355de9aa0f8}
+      \strng{authornamehash}{875fed2fa75a6a88c45c3355de9aa0f8}
+      \strng{authorfullhash}{edca87aa2df253c2cf713a74cf9e5b4f}
+      \strng{authorfullhashraw}{edca87aa2df253c2cf713a74cf9e5b4f}
+      \field{labelalpha}{XCW*24}
+      \field{sortinit}{X}
+      \field{sortinithash}{1965c258adceecf23ce3d67b05113442}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{title}{SuperGaussians: Enhancing Gaussian Splatting Using Primitives with Spatially Varying Colors}
+      \field{year}{2024}
+    \endentry
+    \entry{uv3dgs}{inproceedings}{}{}
+      \name{author}{5}{}{%
+        {{hash=fab80671a8e953fdb41dd2d766463d86}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Tian-Xing},
+           giveni={T\bibinithyphendelim X\bibinitperiod}}}%
+        {{hash=66605f60ab11f3da205d46f6110a088e}{%
+           family={Hu},
+           familyi={H\bibinitperiod},
+           given={Wenbo},
+           giveni={W\bibinitperiod}}}%
+        {{hash=4bb63a56d1c146994bcd32b61ecddbf9}{%
+           family={Lai},
+           familyi={L\bibinitperiod},
+           given={Yu-Kun},
+           giveni={Y\bibinithyphendelim K\bibinitperiod}}}%
+        {{hash=a0e29acfeb76985fc3a8e6627409227a}{%
+           family={Shan},
+           familyi={S\bibinitperiod},
+           given={Ying},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=2cdb01c53ea53be516c5cce7627df584}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Song-Hai},
+           giveni={S\bibinithyphendelim H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Milan, Italy}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{74461ab42c6c84b136824b8e8b8dad31}
+      \strng{fullhash}{86fb99372499f9afd7e0106a2abda0e4}
+      \strng{fullhashraw}{86fb99372499f9afd7e0106a2abda0e4}
+      \strng{bibnamehash}{74461ab42c6c84b136824b8e8b8dad31}
+      \strng{authorbibnamehash}{74461ab42c6c84b136824b8e8b8dad31}
+      \strng{authornamehash}{74461ab42c6c84b136824b8e8b8dad31}
+      \strng{authorfullhash}{86fb99372499f9afd7e0106a2abda0e4}
+      \strng{authorfullhashraw}{86fb99372499f9afd7e0106a2abda0e4}
+      \field{labelalpha}{XHL*24}
+      \field{sortinit}{X}
+      \field{sortinithash}{1965c258adceecf23ce3d67b05113442}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{3D Gaussian splatting, emerging as a groundbreaking approach, has drawn increasing attention for its capabilities of high-fidelity reconstruction and real-time rendering. However, it couples the appearance and geometry of the scene within the Gaussian attributes, which hinders the flexibility of editing operations, such as texture swapping. To address this issue, we propose a novel approach, namely Texture-GS, to disentangle the appearance from the geometry by representing it as a 2D texture mapped onto the 3D surface, thereby facilitating appearance editing. Technically, the disentanglement is achieved by our proposed texture mapping module, which consists of a UV mapping MLP to learn the UV coordinates for the 3D Gaussian centers, a local Taylor expansion of the MLP to efficiently approximate the UV coordinates for the ray-Gaussian intersections, and a learnable texture to capture the fine-grained appearance. Extensive experiments on the DTU dataset demonstrate that our method not only facilitates high-fidelity appearance editing but also achieves real-time rendering on consumer-level devices, e.g.a single RTX 2080 Ti GPU.}
+      \field{booktitle}{Computer Vision – ECCV 2024: 18th European Conference, Milan, Italy, September 29–October 4, 2024, Proceedings, Part XXV}
+      \field{isbn}{978-3-031-72697-2}
+      \field{title}{Texture-GS: Disentangling the Geometry and Texture for 3D Gaussian Splatting Editing}
+      \field{year}{2024}
+      \field{pages}{37\bibrangedash 53}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1007/978-3-031-72698-9_3
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-3-031-72698-9_3
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-031-72698-9_3
+      \endverb
+      \keyw{Neural rendering,Scene editing,Novel view synthesis,Gaussian splatting,Texture mapping,Disentanglement}
+    \endentry
+    \entry{mipsplatting}{inproceedings}{}{}
+      \name{author}{5}{}{%
+        {{hash=77ad6a98e896f6b857909d1bae06149f}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Zehao},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=96b649a41b8352920e0fbbb9d2dbabe7}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Anpei},
+           giveni={A\bibinitperiod}}}%
+        {{hash=d0498424e0fecb79aa60550c7cc0df9b}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Binbin},
+           giveni={B\bibinitperiod}}}%
+        {{hash=a5137e6d768f19138ed8c6cfdd862a1d}{%
+           family={Sattler},
+           familyi={S\bibinitperiod},
+           given={Torsten},
+           giveni={T\bibinitperiod}}}%
+        {{hash=06133052ac3c14a188601b82783cd4f7}{%
+           family={Geiger},
+           familyi={G\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{b8fafc7273aa2ea91b2d28065b7a2f22}
+      \strng{fullhash}{7f6d71f15f70e3156b543fd14895da7b}
+      \strng{fullhashraw}{7f6d71f15f70e3156b543fd14895da7b}
+      \strng{bibnamehash}{b8fafc7273aa2ea91b2d28065b7a2f22}
+      \strng{authorbibnamehash}{b8fafc7273aa2ea91b2d28065b7a2f22}
+      \strng{authornamehash}{b8fafc7273aa2ea91b2d28065b7a2f22}
+      \strng{authorfullhash}{7f6d71f15f70e3156b543fd14895da7b}
+      \strng{authorfullhashraw}{7f6d71f15f70e3156b543fd14895da7b}
+      \field{labelalpha}{YCH*24}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}
+      \field{month}{6}
+      \field{title}{Mip-Splatting: Alias-free 3D Gaussian Splatting}
+      \field{year}{2024}
+      \field{pages}{19447\bibrangedash 19456}
+      \range{pages}{10}
+    \endentry
+    \entry{specgaussian}{inproceedings}{}{}
+      \name{author}{9}{}{%
+        {{hash=92620d557d6cbcb677377c2451949754}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Ziyi},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=03e7985fe5e84b74e9f01c4cdbaaee9c}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Xinyu},
+           giveni={X\bibinitperiod}}}%
+        {{hash=f894558cce05261206c67f26ba3ef63e}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Yang-Tian},
+           giveni={Y\bibinithyphendelim T\bibinitperiod}}}%
+        {{hash=39bae2d72dcc74ca7f26b796eaa4d9b9}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Yi-Hua},
+           giveni={Y\bibinithyphendelim H\bibinitperiod}}}%
+        {{hash=90d51032573b14fb4a1692c61490b5a9}{%
+           family={Lyu},
+           familyi={L\bibinitperiod},
+           given={Xiaoyang},
+           giveni={X\bibinitperiod}}}%
+        {{hash=b56d6fd86f6d64f4da71cb632887fcea}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Wen},
+           giveni={W\bibinitperiod}}}%
+        {{hash=38445de7e601a517090cdb582aa8ee1f}{%
+           family={Jiao},
+           familyi={J\bibinitperiod},
+           given={Shaohui},
+           giveni={S\bibinitperiod}}}%
+        {{hash=b21d751b50214e5e719eb624ac756bc0}{%
+           family={Qi},
+           familyi={Q\bibinitperiod},
+           given={Xiaojuan},
+           giveni={X\bibinitperiod}}}%
+        {{hash=c5403f7ff1826b30ac9ed368dfdaa557}{%
+           family={Jin},
+           familyi={J\bibinitperiod},
+           given={Xiaogang},
+           giveni={X\bibinitperiod}}}%
+      }
+      \name{editor}{7}{}{%
+        {{hash=fbc410321d4ef88338a144a263d84a52}{%
+           family={Globerson},
+           familyi={G\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e7447a28bd473ef5e8152edb91128f2b}{%
+           family={Mackey},
+           familyi={M\bibinitperiod},
+           given={L.},
+           giveni={L\bibinitperiod}}}%
+        {{hash=cbb0ac3a625af607c7b2347f3a1f6eec}{%
+           family={Belgrave},
+           familyi={B\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod}}}%
+        {{hash=1d2ac2a4357d536eb2d202b38a5ecc5d}{%
+           family={Fan},
+           familyi={F\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=bc2b28beef4ec09a22425f7ef2b357d0}{%
+           family={Paquet},
+           familyi={P\bibinitperiod},
+           given={U.},
+           giveni={U\bibinitperiod}}}%
+        {{hash=d20108b268da49090089b4db6ab51064}{%
+           family={Tomczak},
+           familyi={T\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod}}}%
+        {{hash=08835018e7f90fcf262517bf88eb4d72}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
+      \strng{namehash}{80ddac46de339b4cdaa4ce5c8e0be28d}
+      \strng{fullhash}{2b879d6471b34e8cddde7fe7599a2259}
+      \strng{fullhashraw}{2b879d6471b34e8cddde7fe7599a2259}
+      \strng{bibnamehash}{80ddac46de339b4cdaa4ce5c8e0be28d}
+      \strng{authorbibnamehash}{80ddac46de339b4cdaa4ce5c8e0be28d}
+      \strng{authornamehash}{80ddac46de339b4cdaa4ce5c8e0be28d}
+      \strng{authorfullhash}{2b879d6471b34e8cddde7fe7599a2259}
+      \strng{authorfullhashraw}{2b879d6471b34e8cddde7fe7599a2259}
+      \strng{editorbibnamehash}{93973210f9fcdbfabe5bcdcc01d4f6a2}
+      \strng{editornamehash}{93973210f9fcdbfabe5bcdcc01d4f6a2}
+      \strng{editorfullhash}{95f888c875167175c5f0367be32a7c09}
+      \strng{editorfullhashraw}{95f888c875167175c5f0367be32a7c09}
+      \field{labelalpha}{YGS*24}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Advances in Neural Information Processing Systems}
+      \field{title}{Spec-Gaussian: Anisotropic View-Dependent Appearance for 3D Gaussian Splatting}
+      \field{volume}{37}
+      \field{year}{2024}
+      \field{pages}{61192\bibrangedash 61216}
+      \range{pages}{25}
+      \verb{urlraw}
+      \verb https://proceedings.neurips.cc/paper_files/paper/2024/file/708e0d691a22212e1e373dc8779cbe53-Paper-Conference.pdf
+      \endverb
+      \verb{url}
+      \verb https://proceedings.neurips.cc/paper_files/paper/2024/file/708e0d691a22212e1e373dc8779cbe53-Paper-Conference.pdf
+      \endverb
+    \endentry
+    \entry{bakedsdf}{inproceedings}{}{}
+      \name{author}{8}{}{%
+        {{hash=7b9d475870b8ca5f9df02d67b21bc78d}{%
+           family={Yariv},
+           familyi={Y\bibinitperiod},
+           given={Lior},
+           giveni={L\bibinitperiod}}}%
+        {{hash=157d821a2f0829e6758eb6c188684a09}{%
+           family={Hedman},
+           familyi={H\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=50488dd57a60b048dd8a210bb6eb0974}{%
+           family={Reiser},
+           familyi={R\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
+        {{hash=0d0af9b888707d306a6dab79b427493b}{%
+           family={Verbin},
+           familyi={V\bibinitperiod},
+           given={Dor},
+           giveni={D\bibinitperiod}}}%
+        {{hash=b503d22b8c86fb9dfd477d2f70a59650}{%
+           family={Srinivasan},
+           familyi={S\bibinitperiod},
+           given={Pratul\bibnamedelima P.},
+           giveni={P\bibinitperiod\bibinitdelim P\bibinitperiod}}}%
+        {{hash=f2e556c93256e7d70895d67702e14f1a}{%
+           family={Szeliski},
+           familyi={S\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=562f3254a241932db4a6d44a97473ec5}{%
+           family={Barron},
+           familyi={B\bibinitperiod},
+           given={Jonathan\bibnamedelima T.},
+           giveni={J\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=a3567364ab52973659adf74ee0c6e6f3}{%
+           family={Mildenhall},
+           familyi={M\bibinitperiod},
+           given={Ben},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Los Angeles, CA, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{bbce9fbc8af7b7fa788ac658f4e64f5e}
+      \strng{fullhash}{d611d332119729b9cd549a029523a525}
+      \strng{fullhashraw}{d611d332119729b9cd549a029523a525}
+      \strng{bibnamehash}{bbce9fbc8af7b7fa788ac658f4e64f5e}
+      \strng{authorbibnamehash}{bbce9fbc8af7b7fa788ac658f4e64f5e}
+      \strng{authornamehash}{bbce9fbc8af7b7fa788ac658f4e64f5e}
+      \strng{authorfullhash}{d611d332119729b9cd549a029523a525}
+      \strng{authorfullhashraw}{d611d332119729b9cd549a029523a525}
+      \field{labelalpha}{YHR*23}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We present a method for reconstructing high-quality meshes of large unbounded real-world scenes suitable for photorealistic novel view synthesis. We first optimize a hybrid neural volume-surface scene representation designed to have well-behaved level sets that correspond to surfaces in the scene. We then bake this representation into a high-quality triangle mesh, which we equip with a simple and fast view-dependent appearance model based on spherical Gaussians. Finally, we optimize this baked representation to best reproduce the captured viewpoints, resulting in a model that can leverage accelerated polygon rasterization pipelines for real-time view synthesis on commodity hardware. Our approach outperforms previous scene representations for real-time rendering in terms of accuracy, speed, and power consumption, and produces high quality meshes that enable applications such as appearance editing and physical simulation.}
+      \field{booktitle}{ACM SIGGRAPH 2023 Conference Proceedings}
+      \field{isbn}{9798400701597}
+      \field{series}{SIGGRAPH '23}
+      \field{title}{BakedSDF: Meshing Neural SDFs for Real-Time View Synthesis}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.1145/3588432.3591536
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3588432.3591536
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3588432.3591536
+      \endverb
+      \keyw{Deep Learning.,Image Synthesis,Neural Radiance Fields,Real-Time Rendering,Signed Distance Function,Surface Reconstruction}
+    \endentry
+    \entry{yuksel2010mesh}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=bb041363e165055885519b4ee1aee8eb}{%
+           family={Yuksel},
+           familyi={Y\bibinitperiod},
+           given={Cem},
+           giveni={C\bibinitperiod}}}%
+        {{hash=0715369c75f8ec3d3089b10a588bd8fd}{%
+           family={Keyser},
+           familyi={K\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=b5730daa2e0e8292525d2ab7c2e98143}{%
+           family={House},
+           familyi={H\bibinitperiod},
+           given={Donald\bibnamedelima H},
+           giveni={D\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {ACM New York, NY, USA}%
+      }
+      \strng{namehash}{92400cf7efafcededbf02cc612777091}
+      \strng{fullhash}{92400cf7efafcededbf02cc612777091}
+      \strng{fullhashraw}{92400cf7efafcededbf02cc612777091}
+      \strng{bibnamehash}{92400cf7efafcededbf02cc612777091}
+      \strng{authorbibnamehash}{92400cf7efafcededbf02cc612777091}
+      \strng{authornamehash}{92400cf7efafcededbf02cc612777091}
+      \strng{authorfullhash}{92400cf7efafcededbf02cc612777091}
+      \strng{authorfullhashraw}{92400cf7efafcededbf02cc612777091}
+      \field{labelalpha}{YKH10}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM Transactions on Graphics (TOG)}
+      \field{number}{2}
+      \field{title}{Mesh colors}
+      \field{volume}{29}
+      \field{year}{2010}
+      \field{pages}{1\bibrangedash 11}
+      \range{pages}{11}
+    \endentry
+    \entry{yuksel2019rethinking}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=bb041363e165055885519b4ee1aee8eb}{%
+           family={Yuksel},
+           familyi={Y\bibinitperiod},
+           given={Cem},
+           giveni={C\bibinitperiod}}}%
+        {{hash=3b2fdb7691472aa2d01dd28201ec15f4}{%
+           family={Lefebvre},
+           familyi={L\bibinitperiod},
+           given={Sylvain},
+           giveni={S\bibinitperiod}}}%
+        {{hash=478e1e7395d45f1fc7ecaea2d316c261}{%
+           family={Tarini},
+           familyi={T\bibinitperiod},
+           given={Marco},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Wiley Online Library}%
+      }
+      \strng{namehash}{c8b62f37c204594ce9502fdd2352fb74}
+      \strng{fullhash}{c8b62f37c204594ce9502fdd2352fb74}
+      \strng{fullhashraw}{c8b62f37c204594ce9502fdd2352fb74}
+      \strng{bibnamehash}{c8b62f37c204594ce9502fdd2352fb74}
+      \strng{authorbibnamehash}{c8b62f37c204594ce9502fdd2352fb74}
+      \strng{authornamehash}{c8b62f37c204594ce9502fdd2352fb74}
+      \strng{authorfullhash}{c8b62f37c204594ce9502fdd2352fb74}
+      \strng{authorfullhashraw}{c8b62f37c204594ce9502fdd2352fb74}
+      \field{labelalpha}{YLT19}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Computer graphics forum}
+      \field{number}{2}
+      \field{title}{Rethinking texture mapping}
+      \field{volume}{38}
+      \field{year}{2019}
+      \field{pages}{535\bibrangedash 551}
+      \range{pages}{17}
+    \endentry
+    \entry{pixelnerf}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=ff32d51d3d43688459e059d03b115eca}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+        {{hash=8934eb629a707e2d2caaa1878c0a5d82}{%
+           family={Ye},
+           familyi={Y\bibinitperiod},
+           given={Vickie},
+           giveni={V\bibinitperiod}}}%
+        {{hash=9a18985a5c8b8be23d0ec9de0a3c87b9}{%
+           family={Tancik},
+           familyi={T\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod}}}%
+        {{hash=6739ae1219e43710a65f37e9a5b5e902}{%
+           family={Kanazawa},
+           familyi={K\bibinitperiod},
+           given={Angjoo},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{7da4269d8761bdbbbeb4d4ca98c4972d}
+      \strng{fullhash}{7da4269d8761bdbbbeb4d4ca98c4972d}
+      \strng{fullhashraw}{7da4269d8761bdbbbeb4d4ca98c4972d}
+      \strng{bibnamehash}{7da4269d8761bdbbbeb4d4ca98c4972d}
+      \strng{authorbibnamehash}{7da4269d8761bdbbbeb4d4ca98c4972d}
+      \strng{authornamehash}{7da4269d8761bdbbbeb4d4ca98c4972d}
+      \strng{authorfullhash}{7da4269d8761bdbbbeb4d4ca98c4972d}
+      \strng{authorfullhashraw}{7da4269d8761bdbbbeb4d4ca98c4972d}
+      \field{labelalpha}{YYTK21}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}
+      \field{month}{6}
+      \field{title}{pixelNeRF: Neural Radiance Fields From One or Few Images}
+      \field{year}{2021}
+      \field{pages}{4578\bibrangedash 4587}
+      \range{pages}{10}
+    \endentry
+    \entry{lpips}{inproceedings}{}{}
+      \name{author}{5}{}{%
+        {{hash=0c65190dcbd461dee172354f7938ae43}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=cae9f806bc99a5f19fadea538fc2db04}{%
+           family={Isola},
+           familyi={I\bibinitperiod},
+           given={Phillip},
+           giveni={P\bibinitperiod}}}%
+        {{hash=5a663b27298722834a8cf09bb93d8c94}{%
+           family={Efros},
+           familyi={E\bibinitperiod},
+           given={Alexei\bibnamedelima A.},
+           giveni={A\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=739ef881fb9e0c2c8d7110c90325d960}{%
+           family={Shechtman},
+           familyi={S\bibinitperiod},
+           given={Eli},
+           giveni={E\bibinitperiod}}}%
+        {{hash=4954ab8be479c4a3f1496ddfbc21a605}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Oliver},
+           giveni={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{636e6ae4822477e755423a7db71f9e17}
+      \strng{fullhash}{b4812124f82ca96d3c1cb10ee3db7804}
+      \strng{fullhashraw}{b4812124f82ca96d3c1cb10ee3db7804}
+      \strng{bibnamehash}{636e6ae4822477e755423a7db71f9e17}
+      \strng{authorbibnamehash}{636e6ae4822477e755423a7db71f9e17}
+      \strng{authornamehash}{636e6ae4822477e755423a7db71f9e17}
+      \strng{authorfullhash}{b4812124f82ca96d3c1cb10ee3db7804}
+      \strng{authorfullhashraw}{b4812124f82ca96d3c1cb10ee3db7804}
+      \field{labelalpha}{ZIE*18}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}
+      \field{month}{6}
+      \field{title}{The Unreasonable Effectiveness of Deep Features as a Perceptual Metric}
+      \field{year}{2018}
+    \endentry
+    \entry{zhang2020nerf++}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=accfaf086a407bfb746d7875478d9130}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Kai},
+           giveni={K\bibinitperiod}}}%
+        {{hash=dc0c43c9dcde41c919229d0097242cd9}{%
+           family={Riegler},
+           familyi={R\bibinitperiod},
+           given={Gernot},
+           giveni={G\bibinitperiod}}}%
+        {{hash=691a70527bf15623328097c061ad1940}{%
+           family={Snavely},
+           familyi={S\bibinitperiod},
+           given={Noah},
+           giveni={N\bibinitperiod}}}%
+        {{hash=9025300f43a193cfed8e10e924f2a117}{%
+           family={Koltun},
+           familyi={K\bibinitperiod},
+           given={Vladlen},
+           giveni={V\bibinitperiod}}}%
+      }
+      \strng{namehash}{e12213b9631d36dc9e24cde378fadd3f}
+      \strng{fullhash}{e12213b9631d36dc9e24cde378fadd3f}
+      \strng{fullhashraw}{e12213b9631d36dc9e24cde378fadd3f}
+      \strng{bibnamehash}{e12213b9631d36dc9e24cde378fadd3f}
+      \strng{authorbibnamehash}{e12213b9631d36dc9e24cde378fadd3f}
+      \strng{authornamehash}{e12213b9631d36dc9e24cde378fadd3f}
+      \strng{authorfullhash}{e12213b9631d36dc9e24cde378fadd3f}
+      \strng{authorfullhashraw}{e12213b9631d36dc9e24cde378fadd3f}
+      \field{labelalpha}{ZRSK20}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2010.07492}
+      \field{title}{Nerf++: Analyzing and improving neural radiance fields}
+      \field{year}{2020}
+    \endentry
+    \entry{zhou2018stereo}{article}{}{}
+      \name{author}{5}{}{%
+        {{hash=fbb5fac74ecd20c0f90a3884d6a93cdf}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Tinghui},
+           giveni={T\bibinitperiod}}}%
+        {{hash=08be40d6eb67b12e2e27a4996c395e3e}{%
+           family={Tucker},
+           familyi={T\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod}}}%
+        {{hash=c65f03306d0f5b6886d5a3de0b238e6c}{%
+           family={Flynn},
+           familyi={F\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=bbfece899c913124afe3883703d7d299}{%
+           family={Fyffe},
+           familyi={F\bibinitperiod},
+           given={Graham},
+           giveni={G\bibinitperiod}}}%
+        {{hash=691a70527bf15623328097c061ad1940}{%
+           family={Snavely},
+           familyi={S\bibinitperiod},
+           given={Noah},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{b348b7836910d303256f300b62181c58}
+      \strng{fullhash}{629282249ad25eb4d35408b0f6421d5e}
+      \strng{fullhashraw}{629282249ad25eb4d35408b0f6421d5e}
+      \strng{bibnamehash}{b348b7836910d303256f300b62181c58}
+      \strng{authorbibnamehash}{b348b7836910d303256f300b62181c58}
+      \strng{authornamehash}{b348b7836910d303256f300b62181c58}
+      \strng{authorfullhash}{629282249ad25eb4d35408b0f6421d5e}
+      \strng{authorfullhashraw}{629282249ad25eb4d35408b0f6421d5e}
+      \field{labelalpha}{ZTF*18}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The view synthesis problem---generating novel views of a scene from known imagery---has garnered recent attention due in part to compelling applications in virtual and augmented reality. In this paper, we explore an intriguing scenario for view synthesis: extrapolating views from imagery captured by narrow-baseline stereo cameras, including VR cameras and now-widespread dual-lens camera phones. We call this problem stereo magnification, and propose a learning framework that leverages a new layered representation that we call multiplane images (MPIs). Our method also uses a massive new data source for learning view extrapolation: online videos on YouTube. Using data mined from such videos, we train a deep network that predicts an MPI from an input stereo image pair. This inferred MPI can then be used to synthesize a range of novel views of the scene, including views that extrapolate significantly beyond the input baseline. We show that our method compares favorably with several recent view synthesis methods, and demonstrate applications in magnifying narrow-baseline stereo images.}
+      \field{issn}{0730-0301}
+      \field{journaltitle}{ACM Trans. Graph.}
+      \field{month}{7}
+      \field{number}{4}
+      \field{title}{Stereo magnification: learning view synthesis using multiplane images}
+      \field{volume}{37}
+      \field{year}{2018}
+      \verb{doi}
+      \verb 10.1145/3197517.3201323
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3197517.3201323
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3197517.3201323
+      \endverb
+      \keyw{view extrapolation,deep learning}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

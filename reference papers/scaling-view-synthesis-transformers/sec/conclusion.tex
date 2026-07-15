@@ -1,0 +1,16 @@
+\section{Conclusion}
+\label{sec:conclusion}
+%
+In this work, we established a rigorous compute-normalized benchmark for transformer view synthesis models.
+%
+ Our empirical studies reveal the importance of the concept of \emph{effective batch size} ---the product of the number of scenes in a batch with the number of per-scene rendering target views --- which redefines the notion of batch size for NVS training.
+%
+Based on this insight, we propose the Scalable View Synthesis Model (SVSM), which features a unidirectional encoder-decoder architecture for favorable scaling with effective batch. We demonstrate that SVSM is dramatically more compute-efficient than the current SOTA architecture, LVSM, and consistently achieves the same performance with $2-3\times$ less training compute.
+%
+We further demonstrate that relative camera pose embeddings in multi-view attention is the key to realizing favorable scaling behavior with increasing numbers of context views. 
+%
+Lastly, we show that even with a fixed-size latent representation, our unidirectional decoder is still more compute-efficient than the LVSM encoder–decoder architecture; however, both approaches scale substantially worse than the designs without a latent bottleneck.
+%
+In sum, our findings establish a new framework for evaluating the performance and effectiveness of transformer view synthesis models.  
+
+\paragraph{Acknowledgements.} This work was supported by the National Science Foundation under Grant No. 2211259, by the Singapore DSTA under DST00OECI20300823 (New Representations for Vision, 3D Self-Supervised Learning for Label-Efficient Vision), by the Intelligence Advanced Research Projects Activity (IARPA) via Department of Interior/ Interior Business Center (DOI/IBC) under 140D0423C0075, by the Amazon Science Hub, by the MIT-Google Program for Computing Innovation, and by a 2025 MIT Office of Research Computing and Data Seed Grant.

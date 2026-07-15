@@ -1,0 +1,60 @@
+\begin{table*}[t]
+  \centering
+  \begin{threeparttable}
+    \scriptsize
+    \setlength{\tabcolsep}{3pt} % Use the same column separation
+
+    % --- NEW SUB-TABLE ---
+    \begin{subtable}{\linewidth}
+      % 1 'l' column for model names, 9 'r' columns for data
+      \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} l *{9}{c}}
+        \toprule
+        
+        % --- Supercolumns ---
+        & \multicolumn{3}{c}{\textbf{Scale Parameters}}
+        & \multicolumn{3}{c}{\textbf{Reconstruction Quality}}
+        & \multicolumn{3}{c}{\textbf{Rendering FPS (↑)}} \\
+        
+        % --- Rules for supercolumns ---
+        \cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10}
+        
+        % --- Subcolumns ---
+        \textbf{Model} 
+        & \textbf{Model Size} & \textbf{Train Iters} & \textbf{Train FLOPs (↓)}  
+        & \textbf{PSNR} (↑) & \textbf{SSIM} (↑) & \textbf{LPIPS} (↓)
+        & $V_C$=2  & $V_C$=4  & $V_C$=8  \\
+        
+        \midrule
+        
+        % --- Data Rows (with placeholders) ---
+        LVSM Encoder-Decoder~\citep{jin2024lvsm}
+        & 173M & 100k & 2.53 zflops 
+        & 28.58 & 0.893 & 0.114
+        & \underline{53.7} & \underline{52.9} & \textbf{52.7} \\
+        
+        LVSM Decoder-Only~\citep{jin2024lvsm}
+        & 171M & 100k & 1.60 zflops 
+        & 29.67 & 0.906 & \underline{0.098}
+        & 37.9 & 19.5 & 8.6 \\
+        
+        SVSM Enc-Dec (\textbf{ours}, Iter-matched)
+        & 740M & 100k & \textbf{0.74 zflops} 
+        & \underline{29.80} & \underline{0.907} & \underline{0.098} 
+        & 48.6 & 42.7 & 35.0 \\
+
+        SVSM Enc-Dec (\textbf{ours}, Pareto-optimal)
+        & 416M & 170k & \textbf{0.77 zflops} 
+        & \textbf{30.01} & \textbf{0.910} & \textbf{0.096}
+        & \textbf{71.0} & \textbf{61.8} & \underline{49.7} \\
+        
+        \bottomrule
+      \end{tabular*}
+      \label{tab:my_new_table_part1} % New label
+    \end{subtable}
+
+  \caption{\textbf{Stereo (}$V_C=2$\textbf{) NVS Results of the Largest Models.} 
+  All models use a patch size of $8$ with input images at $256 \times 256$ resolution. Our models achieve the highest reconstruction metrics while using less than half of the training compute. The rendering FPS of both SVSM models is also much faster than that of the LVSM decoder-only model, though both are slower than the LVSM encoder-decoder when $V_C$ is large.}
+  \label{tab:two-view-result} % New label
+  \end{threeparttable}
+  \vskip -1.0\baselineskip % Kept this from your example
+\end{table*}

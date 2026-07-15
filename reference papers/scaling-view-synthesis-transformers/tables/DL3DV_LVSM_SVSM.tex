@@ -1,0 +1,73 @@
+\begin{table}[t]
+\centering
+\begin{threeparttable}
+
+\footnotesize            % <<— Increase font size here
+\setlength{\tabcolsep}{4pt}  % <<— Reduce column padding to prevent wide table
+
+% --- TABLE ---
+\begin{tabular}{lcccccc}   % <<— Use tabular (not tabular*) to shrink width
+\toprule
+
+& \multicolumn{3}{c}{\textbf{Encoder}}
+& \multicolumn{3}{c}{\textbf{Decoder}} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+
+\textbf{Params}
+& \textbf{dim} & \textbf{dim\_head} & \textbf{n\_layers}
+& \textbf{dim} & \textbf{dim\_head} & \textbf{n\_layers} \\
+\midrule
+
+15M & 384 & 64 & 3 & 384 & 64 & 3 \\
+32M & 384 & 64 & 6 & 384 & 64 & 8 \\
+85M & 512 & 64 & 10 & 512 & 64 & 12 \\
+168M & 640 & 64 & 12 & 640 & 64 & 16 \\
+280M & 768 & 64 & 12 & 768 & 64 & 20 \\
+711M & 1024 & 64 & 24 & 1024 & 64 & 24 \\
+\hline
+\textbf{400M} & 768 & 64 & 24 & 768 & 64 & 24 \\
+
+\bottomrule
+\end{tabular}
+
+\caption{\textbf{DL3DV $\boldsymbol{V_C}\mathbf{{=}4}$, SVSM Encoder-Decoder.} SVSM Encoder-Decoder model settings used to sweep scaling laws for the multi-view ($V_C > 2$) novel view synthesis setting. \textbf{Bolded} is the row for the compute-matched, Pareto-optimal SVSM model compared against the 24-layer LVSM Decoder-only model.}
+\label{tab:svsm-dl3dv-details}
+\end{threeparttable}
+\end{table}
+
+\begin{table}[t]
+\centering
+\begin{threeparttable}
+
+\footnotesize            % <<— Increase font size here
+\setlength{\tabcolsep}{4pt}  % <<— Reduce column padding to prevent wide table
+
+% --- TABLE ---
+\begin{tabular}{lcccccc}   % <<— Use tabular (not tabular*) to shrink width
+\toprule
+
+& \multicolumn{3}{c}{\textbf{Encoder}}
+& \multicolumn{3}{c}{\textbf{Decoder}} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+
+\textbf{Params}
+& \textbf{dim} & \textbf{dim\_head} & \textbf{n\_layers}
+& \textbf{dim} & \textbf{dim\_head} & \textbf{n\_layers} \\
+\midrule
+
+8M & - & - & - & 384 & 64 & 3 \\
+22M & - & - & - & 512 & 64 & 6 \\
+43M & - & - & - & 640 & 64 & 10 \\
+90M & - & - & - & 768 & 64 & 12 \\
+175M & - & - & - & 768 & 64 & 24 \\
+383M & - & - & - & 1024 & 64 & 30 \\
+
+\bottomrule
+\end{tabular}
+
+\caption{\textbf{DL3DV $\boldsymbol{V_C}\mathbf{{=}4}$, LVSM Decoder-only.} LVSM Decoder-only model settings used to sweep scaling laws for the multi-view ($V_C > 2$) novel view synthesis setting.}
+\vspace{-0.5cm}
+\label{tab:dec-only-dl3dv-details}
+\end{threeparttable}
+\end{table}
+

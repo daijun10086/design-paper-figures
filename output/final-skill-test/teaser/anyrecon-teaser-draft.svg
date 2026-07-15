@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="720" viewBox="0 0 1600 720" role="img" aria-labelledby="title desc">
+  <title id="title">AnyRecon teaser concept draft</title>
+  <desc id="desc">An editable intuition-plus-results teaser concept for AnyRecon: sparse unordered captures feed a geometry-guided diffusion loop that produces interpolation, extrapolation, and long-scene results.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#000000" flood-opacity="0.13"/>
+    </filter>
+    <pattern id="placeholder" width="18" height="18" patternUnits="userSpaceOnUse">
+      <rect width="18" height="18" fill="#FFFFFF"/>
+      <path d="M0 0L18 18M18 0L0 18" stroke="#D9D9D9" stroke-width="0.8"/>
+    </pattern>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#5D8DFD"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#88B06D"/>
+    </marker>
+    <style>
+      text{font-family:Optima,Candara,"Segoe UI",Arial,sans-serif}
+      .headline{font-size:31px;font-weight:700}
+      .subhead{font-size:16px;fill:#666666}
+      .panel-title{font-size:19px;font-weight:700}
+      .section-label{font-size:15px;font-weight:700}
+      .label{font-size:13px;font-weight:650}
+      .meta{font-size:11.5px;fill:#666666}
+      .card{fill:#FFFFFF;stroke:#D9D9D9;stroke-width:1.2}
+      .flow{fill:none;stroke:#5D8DFD;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#arrow-blue)}
+      .loop{fill:none;stroke:#88B06D;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;marker-end:url(#arrow-green)}
+    </style>
+  </defs>
+
+  <g id="background"><rect width="1600" height="720" fill="#FFFFFF"/></g>
+
+  <g id="header">
+    <rect x="28" y="18" width="174" height="29" rx="14.5" fill="#D0B3FF" fill-opacity="0.32"/>
+    <text x="115" y="38" text-anchor="middle" font-size="12.5" font-weight="700" fill="#7A5DE1">TEASER CONCEPT</text>
+    <text x="28" y="86" class="headline">Sparse, unordered captures become consistent, long-range 3D scenes</text>
+    <text x="28" y="116" class="subhead">Geometry retrieves what matters, diffusion generates the next segment, and every segment strengthens the shared scene memory.</text>
+    <text x="1572" y="38" text-anchor="end" class="meta">Editable draft - replace every hatched image with verified paper output</text>
+  </g>
+
+  <g id="panels">
+    <g id="input-panel">
+      <rect x="28" y="148" width="290" height="518" rx="20" fill="#AEC6FE" fill-opacity="0.13" stroke="#86AAFE" stroke-width="1.4"/>
+      <text x="50" y="181" class="panel-title" fill="#5D8DFD">Arbitrary captured views</text>
+      <text x="50" y="204" class="meta">unordered, irregular, and widely separated</text>
+    </g>
+    <g id="intuition-panel">
+      <rect x="340" y="148" width="430" height="518" rx="20" fill="#B3CDA2" fill-opacity="0.10" stroke="#9EBF88" stroke-width="1.4"/>
+      <text x="362" y="181" class="panel-title" fill="#88B06D">A geometry-grounded generation loop</text>
+      <text x="362" y="204" class="meta">one visual sentence for the core intuition</text>
+    </g>
+    <g id="results-panel">
+      <rect x="792" y="148" width="780" height="518" rx="20" fill="#FBA09D" fill-opacity="0.08" stroke="#F86762" stroke-width="1.4"/>
+      <text x="814" y="181" class="panel-title" fill="#F5433D">Consistent views across distance and scale</text>
+      <text x="1550" y="181" text-anchor="end" class="meta">capability evidence + compact verified metrics</text>
+    </g>
+  </g>
+
+  <g id="input-rail">
+    <g id="placeholder-input-01" filter="url(#shadow)">
+      <rect x="54" y="236" width="164" height="126" rx="12" fill="url(#placeholder)" stroke="#5D8DFD" stroke-width="1.3"/>
+      <text x="136" y="294" text-anchor="middle" class="label" fill="#5D8DFD">REPLACE: capture A</text>
+      <text x="136" y="317" text-anchor="middle" class="meta">sparse RGB view</text>
+    </g>
+    <g id="placeholder-input-02" filter="url(#shadow)">
+      <rect x="94" y="334" width="164" height="126" rx="12" fill="url(#placeholder)" stroke="#86AAFE" stroke-width="1.3"/>
+      <text x="176" y="392" text-anchor="middle" class="label" fill="#5D8DFD">REPLACE: capture B</text>
+      <text x="176" y="415" text-anchor="middle" class="meta">large viewpoint gap</text>
+    </g>
+    <g id="placeholder-input-03" filter="url(#shadow)">
+      <rect x="54" y="432" width="164" height="126" rx="12" fill="url(#placeholder)" stroke="#AEC6FE" stroke-width="1.3"/>
+      <text x="136" y="490" text-anchor="middle" class="label" fill="#5D8DFD">REPLACE: capture C</text>
+      <text x="136" y="513" text-anchor="middle" class="meta">arbitrary order</text>
+    </g>
+    <g id="camera-pose-hint">
+      <path d="M70 607C116 574 172 626 244 584" fill="none" stroke="#F5433D" stroke-width="2" stroke-dasharray="5 5"/>
+      <circle cx="70" cy="607" r="5" fill="#F5433D"/><circle cx="152" cy="605" r="5" fill="#F86762"/><circle cx="244" cy="584" r="5" fill="#F5433D"/>
+      <text x="152" y="635" text-anchor="middle" class="meta">REPLACE: capture poses / path</text>
+    </g>
+  </g>
+
+  <g id="intuition-loop">
+    <g id="geometry-memory-card" filter="url(#shadow)">
+      <rect x="370" y="244" width="172" height="143" rx="16" fill="#B3CDA2" stroke="#88B06D" stroke-width="1.5"/>
+      <g fill="#88B06D" opacity="0.9">
+        <circle cx="408" cy="292" r="5"/><circle cx="445" cy="272" r="4"/><circle cx="478" cy="305" r="6"/><circle cx="510" cy="281" r="4"/>
+        <circle cx="421" cy="337" r="5"/><circle cx="458" cy="352" r="4"/><circle cx="497" cy="330" r="5"/>
+        <path d="M408 292L445 272L478 305L510 281M421 337L458 352L497 330L478 305" fill="none" stroke="#88B06D" stroke-width="2"/>
+      </g>
+      <text x="456" y="367" text-anchor="middle" class="section-label" fill="#666666">3D Geometry Memory</text>
+    </g>
+    <g id="retrieval-card" filter="url(#shadow)">
+      <rect x="570" y="226" width="168" height="82" rx="14" fill="#F9CB8A" stroke="#F5A83D" stroke-width="1.4"/>
+      <text x="654" y="259" text-anchor="middle" class="section-label">Retrieve useful views</text>
+      <text x="654" y="281" text-anchor="middle" class="meta">visibility + overlap</text>
+    </g>
+    <g id="video-diffusion-card" filter="url(#shadow)">
+      <rect x="556" y="342" width="190" height="128" rx="16" fill="#5D8DFD"/>
+      <text x="651" y="383" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">Geometry-guided</text>
+      <text x="651" y="407" text-anchor="middle" font-size="17" font-weight="700" fill="#FFFFFF">Video Diffusion</text>
+      <text x="651" y="433" text-anchor="middle" font-size="11.5" fill="#FFFFFF">global context - sparse attention</text>
+      <rect x="594" y="444" width="114" height="22" rx="11" fill="#7A5DE1"/>
+      <text x="651" y="459" text-anchor="middle" font-size="10.5" font-weight="700" fill="#FFFFFF">4-step sampling</text>
+    </g>
+    <g id="generated-segment-card" filter="url(#shadow)">
+      <rect x="396" y="448" width="128" height="106" rx="14" fill="#FFFFFF" stroke="#F5433D" stroke-width="1.4"/>
+      <rect x="410" y="465" width="31" height="48" rx="5" fill="url(#placeholder)" stroke="#FBA09D"/>
+      <rect x="446" y="465" width="31" height="48" rx="5" fill="url(#placeholder)" stroke="#F86762"/>
+      <rect x="482" y="465" width="31" height="48" rx="5" fill="url(#placeholder)" stroke="#F5433D"/>
+      <text x="460" y="538" text-anchor="middle" class="label" fill="#F5433D">Next segment</text>
+    </g>
+    <g id="intuition-arrows">
+      <path d="M542 287H558Q570 287 570 276" class="flow"/>
+      <path d="M654 308V342" class="flow"/>
+      <path d="M556 416H542Q524 416 524 448" class="flow"/>
+      <path d="M460 448V412Q460 397 446 397H414Q396 397 396 380" class="loop"/>
+    </g>
+    <g id="loop-caption">
+      <rect x="386" y="585" width="338" height="45" rx="12" fill="#FFFFFF" stroke="#D9D9D9"/>
+      <text x="555" y="604" text-anchor="middle" class="label">Generate -> reconstruct -> update -> repeat</text>
+      <text x="555" y="620" text-anchor="middle" class="meta">the scene memory grows with each trajectory segment</text>
+    </g>
+  </g>
+
+  <g id="results-evidence">
+    <g id="hero-large-scene">
+      <text x="814" y="221" class="section-label" fill="#F5433D">Large-scene trajectory - 200+ generated frames</text>
+      <g id="large-scene-frame-slots" filter="url(#shadow)">
+        <rect x="814" y="237" width="142" height="128" rx="10" fill="url(#placeholder)" stroke="#FBA09D"/>
+        <rect x="960" y="237" width="142" height="128" rx="10" fill="url(#placeholder)" stroke="#FBA09D"/>
+        <rect x="1106" y="237" width="142" height="128" rx="10" fill="url(#placeholder)" stroke="#F86762"/>
+        <rect x="1252" y="237" width="142" height="128" rx="10" fill="url(#placeholder)" stroke="#F86762"/>
+        <rect x="1398" y="237" width="152" height="128" rx="10" fill="url(#placeholder)" stroke="#F5433D" stroke-width="1.4"/>
+      </g>
+      <text x="885" y="351" text-anchor="middle" class="meta">Frame 1</text>
+      <text x="1031" y="351" text-anchor="middle" class="meta">Frame 40</text>
+      <text x="1177" y="351" text-anchor="middle" class="meta">Frame 80</text>
+      <text x="1323" y="351" text-anchor="middle" class="meta">Frame 160</text>
+      <text x="1474" y="351" text-anchor="middle" class="meta">Frame 220</text>
+    </g>
+    <g id="case-interpolation">
+      <text x="814" y="403" class="section-label" fill="#5D8DFD">Interpolation</text>
+      <rect x="814" y="416" width="102" height="88" rx="8" fill="url(#placeholder)" stroke="#AEC6FE"/>
+      <rect x="921" y="416" width="102" height="88" rx="8" fill="url(#placeholder)" stroke="#86AAFE"/>
+      <rect x="1028" y="416" width="102" height="88" rx="8" fill="url(#placeholder)" stroke="#5D8DFD"/>
+      <text x="972" y="527" text-anchor="middle" class="meta">REPLACE: gap-filling sequence</text>
+    </g>
+    <g id="case-extrapolation">
+      <text x="1166" y="403" class="section-label" fill="#F5A83D">Extrapolation</text>
+      <rect x="1166" y="416" width="102" height="88" rx="8" fill="url(#placeholder)" stroke="#F9CB8A"/>
+      <rect x="1273" y="416" width="102" height="88" rx="8" fill="url(#placeholder)" stroke="#F7BA64"/>
+      <rect x="1380" y="416" width="102" height="88" rx="8" fill="url(#placeholder)" stroke="#F5A83D"/>
+      <text x="1324" y="527" text-anchor="middle" class="meta">REPLACE: unobserved-tail sequence</text>
+    </g>
+    <g id="metric-band">
+      <g id="metric-quality">
+        <rect x="814" y="562" width="222" height="72" rx="14" fill="#AEC6FE" stroke="#5D8DFD"/>
+      <text x="925" y="590" text-anchor="middle" font-size="20" font-weight="700" fill="#5D8DFD">20.95 PSNR</text>
+        <text x="925" y="614" text-anchor="middle" class="meta">DL3DV interpolation</text>
+      </g>
+      <g id="metric-speed">
+        <rect x="1050" y="562" width="222" height="72" rx="14" fill="#F9CB8A" stroke="#F5A83D"/>
+        <text x="1161" y="590" text-anchor="middle" font-size="20" font-weight="700" fill="#666666">105 s</text>
+        <text x="1161" y="614" text-anchor="middle" class="meta">40 frames at 512 x 896</text>
+      </g>
+      <g id="metric-acceleration">
+        <rect x="1286" y="562" width="264" height="72" rx="14" fill="#D0B3FF" stroke="#7A5DE1"/>
+        <text x="1418" y="590" text-anchor="middle" font-size="20" font-weight="700" fill="#7A5DE1">about 20x faster</text>
+        <text x="1418" y="614" text-anchor="middle" class="meta">sparse attention + 4-step distillation</text>
+      </g>
+    </g>
+  </g>
+
+  <g id="main-connectors">
+    <path d="M318 407H340" class="flow"/>
+    <path d="M770 407H792" class="flow"/>
+  </g>
+
+  <g id="footer-note">
+    <text x="28" y="701" class="meta">Evidence mode: intuition + results, with a compact verified metric strip. The final teaser should replace all placeholders with matched real assets.</text>
+  </g>
+</svg>

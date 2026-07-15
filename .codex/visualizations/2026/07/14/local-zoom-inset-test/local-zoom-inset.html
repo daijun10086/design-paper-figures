@@ -1,0 +1,136 @@
+<div id="local-zoom-inset-test" style="width:100%;color:var(--foreground);font-family:inherit">
+  <svg id="local-zoom-inset-svg" viewBox="0 0 736 440" width="100%" role="img" aria-labelledby="local-zoom-title local-zoom-desc" style="display:block;overflow:visible">
+    <title id="local-zoom-title">Synthetic convergence chart with a zoomed inset</title>
+    <desc id="local-zoom-desc">Four model curves converge near the lower right. A rectangle marks iterations 620 to 900 and connects to a larger inset that separates the crowded curves.</desc>
+    <defs>
+      <clipPath id="local-main-clip"><rect x="70" y="15" width="646" height="370"></rect></clipPath>
+      <clipPath id="local-inset-clip"><rect x="425" y="155" width="260" height="155"></rect></clipPath>
+    </defs>
+    <g id="local-main-grid"></g>
+    <g id="local-main-curves" clip-path="url(#local-main-clip)"></g>
+    <rect x="70" y="15" width="646" height="370" fill="none" stroke="currentColor" stroke-width="1.2"></rect>
+    <g id="local-main-ticks" class="text-small"></g>
+    <text x="393" y="428" text-anchor="middle">Training iterations (k)</text>
+    <text x="18" y="200" text-anchor="middle" transform="rotate(-90 18 200)">FID-50K (lower is better)</text>
+    <text x="88" y="360" class="text-small" fill="var(--muted-foreground)">Synthetic benchmark</text>
+
+    <g id="local-legend" class="text-small">
+      <rect x="435" y="28" width="265" height="66" rx="4" fill="var(--card)" stroke="var(--border)"></rect>
+    </g>
+
+    <rect id="local-roi" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.5"></rect>
+    <line id="local-connector-left" stroke="currentColor" stroke-width="1.5" opacity="0.5"></line>
+    <line id="local-connector-right" stroke="currentColor" stroke-width="1.5" opacity="0.5"></line>
+
+    <rect x="425" y="155" width="260" height="155" fill="var(--background)"></rect>
+    <g id="local-inset-grid"></g>
+    <g id="local-inset-curves" clip-path="url(#local-inset-clip)"></g>
+    <rect x="425" y="155" width="260" height="155" fill="none" stroke="currentColor" stroke-width="1.2"></rect>
+    <g id="local-inset-ticks" class="text-small"></g>
+  </svg>
+  <script>
+    (() => {
+      const root = document.getElementById("local-zoom-inset-test");
+      const svg = root.querySelector("#local-zoom-inset-svg");
+      const ns = "http://www.w3.org/2000/svg";
+      const make = (name, attrs = {}, parent = svg) => {
+        const node = document.createElementNS(ns, name);
+        Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, String(value)));
+        parent.appendChild(node);
+        return node;
+      };
+      const addText = (parent, x, y, value, anchor = "middle", weight = "400") => {
+        const node = make("text", { x, y, "text-anchor": anchor, fill: "currentColor", "font-weight": weight }, parent);
+        node.textContent = value;
+        return node;
+      };
+      const main = { x: 70, y: 15, w: 646, h: 370, xmin: 0, xmax: 1000, ymin: 1.8, ymax: 12.8 };
+      const inset = { x: 425, y: 155, w: 260, h: 155, xmin: 620, xmax: 900, ymin: 2.25, ymax: 3.42 };
+      const sx = (v, box) => box.x + ((v - box.xmin) / (box.xmax - box.xmin)) * box.w;
+      const sy = (v, box) => box.y + ((box.ymax - v) / (box.ymax - box.ymin)) * box.h;
+      const series = [
+        { label: "Baseline-S", color: "var(--viz-series-1)", shape: "circle", a: 10.2, d: 245, f: 2.50, p: 0.1 },
+        { label: "Baseline-B", color: "var(--viz-series-2)", shape: "square", a: 10.0, d: 250, f: 2.34, p: 0.8 },
+        { label: "Baseline-L", color: "var(--viz-series-3)", shape: "triangle", a: 9.8, d: 255, f: 2.20, p: 1.5 },
+        { label: "Proposed", color: "var(--viz-series-4)", shape: "diamond", a: 10.1, d: 260, f: 2.03, p: 2.2, strong: true }
+      ];
+      const value = (s, x) => s.a * Math.exp(-x / s.d) + s.f + 0.035 * Math.sin(x / 74 + s.p) * Math.exp(-x / 900);
+      const gridColor = "var(--border)";
+
+      const mainGrid = root.querySelector("#local-main-grid");
+      const mainTicks = root.querySelector("#local-main-ticks");
+      [0, 200, 400, 600, 800, 1000].forEach((tick) => {
+        const x = sx(tick, main);
+        make("line", { x1: x, y1: main.y, x2: x, y2: main.y + main.h, stroke: gridColor, "stroke-width": 1 }, mainGrid);
+        addText(mainTicks, x, 404, String(tick));
+      });
+      [2, 4, 6, 8, 10, 12].forEach((tick) => {
+        const y = sy(tick, main);
+        make("line", { x1: main.x, y1: y, x2: main.x + main.w, y2: y, stroke: gridColor, "stroke-width": 1 }, mainGrid);
+        addText(mainTicks, 58, y + 4, String(tick), "end");
+      });
+
+      const insetGrid = root.querySelector("#local-inset-grid");
+      const insetTicks = root.querySelector("#local-inset-ticks");
+      [650, 750, 850].forEach((tick) => {
+        const x = sx(tick, inset);
+        make("line", { x1: x, y1: inset.y, x2: x, y2: inset.y + inset.h, stroke: gridColor, "stroke-width": 1 }, insetGrid);
+        addText(insetTicks, x, 327, String(tick));
+      });
+      [2.4, 2.8, 3.2].forEach((tick) => {
+        const y = sy(tick, inset);
+        make("line", { x1: inset.x, y1: y, x2: inset.x + inset.w, y2: y, stroke: gridColor, "stroke-width": 1 }, insetGrid);
+        addText(insetTicks, 416, y + 4, tick.toFixed(1), "end");
+      });
+
+      const drawMarker = (parent, x, y, shape, color, size) => {
+        if (shape === "circle") make("circle", { cx: x, cy: y, r: size, fill: "var(--background)", stroke: color, "stroke-width": 1.6 }, parent);
+        if (shape === "square") make("rect", { x: x - size, y: y - size, width: size * 2, height: size * 2, fill: "var(--background)", stroke: color, "stroke-width": 1.6 }, parent);
+        if (shape === "triangle") make("polygon", { points: `${x},${y-size-0.6} ${x-size-0.8},${y+size} ${x+size+0.8},${y+size}`, fill: "var(--background)", stroke: color, "stroke-width": 1.6 }, parent);
+        if (shape === "diamond") make("polygon", { points: `${x},${y-size-0.8} ${x+size+0.8},${y} ${x},${y+size+0.8} ${x-size-0.8},${y}`, fill: "var(--background)", stroke: color, "stroke-width": 1.6 }, parent);
+      };
+      const drawSeries = (parent, box, step, markerStep) => {
+        series.forEach((s) => {
+          const points = [];
+          for (let x = box.xmin; x <= box.xmax + 0.001; x += step) points.push([sx(x, box), sy(value(s, x), box)]);
+          const path = points.map((p, i) => `${i === 0 ? "M" : "L"}${p[0].toFixed(2)},${p[1].toFixed(2)}`).join(" ");
+          make("path", { d: path, fill: "none", stroke: s.color, "stroke-width": s.strong ? 3.2 : 2.5, "stroke-linejoin": "round", "stroke-linecap": "round" }, parent);
+          for (let x = Math.ceil(box.xmin / markerStep) * markerStep; x <= box.xmax; x += markerStep) drawMarker(parent, sx(x, box), sy(value(s, x), box), s.shape, s.color, 3.5);
+        });
+      };
+      drawSeries(root.querySelector("#local-main-curves"), main, 10, 100);
+      drawSeries(root.querySelector("#local-inset-curves"), inset, 5, 50);
+
+      const legend = root.querySelector("#local-legend");
+      series.forEach((s, i) => {
+        const col = i % 2;
+        const row = Math.floor(i / 2);
+        const x = 450 + col * 125;
+        const y = 50 + row * 28;
+        make("line", { x1: x, y1: y, x2: x + 25, y2: y, stroke: s.color, "stroke-width": s.strong ? 3.2 : 2.5 }, legend);
+        drawMarker(legend, x + 12.5, y, s.shape, s.color, 3.5);
+        addText(legend, x + 32, y + 4, s.label, "start", s.strong ? "500" : "400");
+      });
+
+      const roi = root.querySelector("#local-roi");
+      const roiX1 = sx(620, main);
+      const roiX2 = sx(900, main);
+      const roiY1 = sy(3.42, main);
+      const roiY2 = sy(2.25, main);
+      roi.setAttribute("x", roiX1);
+      roi.setAttribute("y", roiY1);
+      roi.setAttribute("width", roiX2 - roiX1);
+      roi.setAttribute("height", roiY2 - roiY1);
+      const leftConnector = root.querySelector("#local-connector-left");
+      leftConnector.setAttribute("x1", inset.x);
+      leftConnector.setAttribute("y1", inset.y + inset.h);
+      leftConnector.setAttribute("x2", roiX1);
+      leftConnector.setAttribute("y2", roiY2);
+      const rightConnector = root.querySelector("#local-connector-right");
+      rightConnector.setAttribute("x1", inset.x + inset.w);
+      rightConnector.setAttribute("y1", inset.y + inset.h);
+      rightConnector.setAttribute("x2", roiX2);
+      rightConnector.setAttribute("y2", roiY2);
+    })();
+  </script>
+</div>

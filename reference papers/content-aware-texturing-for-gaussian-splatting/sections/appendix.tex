@@ -1,0 +1,151 @@
+%\clearpage
+
+
+\begin{table*}[!h]
+\footnotesize
+\setlength\tabcolsep{1.5pt}
+\centering
+\scalebox{0.95}{
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.2cm}|>{\centering\arraybackslash}p{0.8cm}>{\centering\arraybackslash}p{0.8cm}>{\centering\arraybackslash}p{0.8cm}>{\raggedleft\arraybackslash}p{0.8cm}>{\raggedleft\arraybackslash}p{0.7cm}>{\centering\arraybackslash}p{0.9cm}>{\centering\arraybackslash}p{0.55cm}|>{\centering\arraybackslash}p{0.8cm}>{\centering\arraybackslash}p{0.8cm}>{\centering\arraybackslash}p{0.8cm}>{\raggedleft\arraybackslash}p{0.8cm}>{\raggedleft\arraybackslash}p{0.7cm}>{\centering\arraybackslash}p{0.9cm}>{\centering\arraybackslash}p{0.55cm}|>{\centering\arraybackslash}p{0.8cm}>{\centering\arraybackslash}p{0.8cm}>{\centering\arraybackslash}p{0.8cm}>{\raggedleft\arraybackslash}p{0.8cm}>{\raggedleft\arraybackslash}p{0.7cm}>{\centering\arraybackslash}p{0.9cm}>{\centering\arraybackslash}p{0.55cm}}
+ & \multicolumn{7}{c|}{DeepBlending} & \multicolumn{7}{c|}{Mip-Nerf-360} & \multicolumn{7}{c}{Tanks\&Temples} \\
+ & SSIM$\uparrow$ & PSNR$\uparrow$ & LPIPS$\downarrow$ & Points & Texels & Params & FPS & SSIM$\uparrow$ & PSNR$\uparrow$ & LPIPS$\downarrow$ & Points & Texels & Params & FPS & SSIM$\uparrow$ & PSNR$\uparrow$ & LPIPS$\downarrow$ & Points & Texels & Params & FPS \\
+\midrule
+Default & 0.907 & 30.03 & 0.303 & 222K & 21.6M & 78.1M & 70 & 0.795 & 27.00 & 0.263 & 218K & 46.6M & 152.6M & 67 & 0.835 & 23.43 & 0.225 & 164K & 10.4M & 41.1M & 121 \\
+Higher $\tau_\text{ds}$ & 0.903 & 29.90 & 0.324 & 196K & 7.9M & 35.4M & 67 & 0.791 & 26.97 & 0.277 & 233K & 33.8M & 115.1M & 60 & 0.829 & 23.40 & 0.246 & 165K & 6.6M & 29.4M & 118 \\
+Lower $\tau_{tr}$ & 0.907 & 30.08 & 0.300 & 316K & 22.0M & 84.8M & 66 & 0.812 & 27.30 & 0.244 & 542K & 46.3M & 170.8M & 52 & 0.842 & 23.67 & 0.217 & 281K & 10.9M & 49.3M & 104 \\
+\end{tabular}
+}
+\caption{\label{tab:extra-models} \revision{}{We provide results for two extra models, trained with different $\tau_{ds}$ and $\tau_{tr}$ to demonstrate the effect of these hyperparameters in the final model.}}
+
+\end{table*}
+
+\begin{table*}[!h]
+\footnotesize
+\setlength\tabcolsep{1.5pt}
+\centering
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.3cm}|>{\centering\arraybackslash}p{0.8cm}>{\centering\arraybackslash}p{0.8cm}>{\centering\arraybackslash}p{0.8cm}>{\raggedleft\arraybackslash}p{0.9cm}>{\raggedleft\arraybackslash}p{0.8cm}>{\centering\arraybackslash}p{1.3cm}>{\centering\arraybackslash}p{0.5cm}>{\raggedleft\arraybackslash}p{1cm}>{\centering\arraybackslash}p{1.3cm}}
+Scene & SSIM$\uparrow$ & PSNR$\uparrow$ & LPIPS$\downarrow$ & Points & Texels & Params & FPS & Mem & \multirow{2}{4em}{Texels/ Primitive} \\
+& & & & & & & & & \\
+\midrule
+drjohnson & 0.906 & 29.78 & 0.314 & 293K & 20.8M & 79.7M & 77 & 318MB & 70.9 \\
+playroom & 0.907 & 30.28 & 0.293 & 152K & 22.5M & 76.4M & 64 & 305MB & 147.7 \\
+% \midrule
+% average & 0.907 & 30.03 & 0.303 & 222K & 21.6M & 78.1M & 70 & 311 & 109.3 \\
+% \midrule
+\midrule
+bicycle & 0.726 & 24.22 & 0.254 & 186K & 83.9M & 262.7M & 84 & 1050MB & 450.5 \\
+bonsai & 0.933 & 31.46 & 0.253 & 291K & 9.0M & 44.1M & 35 & 176MB & 30.8 \\
+counter & 0.900 & 28.79 & 0.261 & 237K & 12.4M & 51.3M & 41 & 205MB & 52.2 \\
+flowers & 0.531 & 20.22 & 0.392 & 177K & 61.3M & 194.5M & 74 & 777MB & 345.6 \\
+garden & 0.832 & 26.56 & 0.156 & 164K & 51.7M & 164.7M & 112 & 658MB & 314.6 \\
+kitchen & 0.915 & 30.90 & 0.173 & 288K & 9.6M & 45.9M & 40 & 183MB & 33.3 \\
+room & 0.921 & 31.72 & 0.272 & 212K & 17.7M & 65.7M & 62 & 262MB & 83.3 \\
+stump & 0.756 & 26.09 & 0.273 & 228K & 101.4M & 317.6M & 77 & 1270MB & 444.5 \\
+treehill & 0.641 & 23.01 & 0.335 & 180K & 72.2M & 227.2M & 77 & 908MB & 398.8 \\
+% \midrule
+% average & 0.795 & 27.00 & 0.263 & 218K & 46.6M & 152.6M & 67 & 609 & 239.3 \\
+% \midrule
+\midrule
+train & 0.795 & 21.38 & 0.279 & 172K & 7.2M & 31.8M & 139 & 127MB & 41.7 \\
+truck & 0.875 & 25.47 & 0.172 & 156K & 13.7M & 50.4M & 103 & 201MB & 87.3 \\
+% \midrule
+% average & 0.835 & 23.43 & 0.225 & 164K & 10.4M & 41.1M & 121 & 164 & 64.5 \\
+\end{tabular}
+\caption{\label{tab:per-scene} \revision{}{Per-scene metrics of our model, grouped by their dataset.}}
+
+\end{table*}
+\appendix
+\revision{}{
+\section{Implementation Details}
+In this section we provide some more details on the implementation.
+}
+
+
+
+
+
+\revision{}{
+The texture grids are initialized with a value of $0$ on every channel
+and start optimizing after 500 iterations.
+To avoid running out of memory and to avoid early overfitting,
+at 500 iterations,
+we set $t_2p_r$ for each primivite so that their smallest axis is 8 texels wide,
+in practice using the closest power of two value.
+}
+\revision{}{
+The error calculation along with the
+adaptive texel size determination and resolution-aware primitive management strategies run every 250 iterations,
+until 25k iterations.
+The threshold $\tau_{\mathrm{tr}}$ starts at $64$ and is progressively reduced to $32$ within 7000 iterations.
+}
+\revision{}{
+We implement downscaling and upscaling using pytorch's interpolate function,
+with a scale factor of 2,
+which translates to reductions or increases of the number of texels by a factor of 4,
+respectively.
+Upscale is done using nearest neighbour interpolation,
+so that we avoid changing the appearance of the texture,
+that could disrupt that optimizer.
+}
+
+\revision{rev4160 6315}{
+\section{Hyperparameter Tuning}
+}
+\revision{}{
+We provide here some intuition on their impact of hyperparameters to the final model.
+}
+
+\revision{}{
+The quantile of the error $E$ used in both texel size adaptation and primitive management routines affects how aggressively they act on the model.
+A lower quantile means more aggressive changes as more primitives are potentially upscaled and/or split,
+while a higher one has the opposite effect.
+$\tau_{tr}$ controls how many primitives are split or not,
+contributing to the total number of primitives.
+Setting this hyperparameter to a low number leads to a model with more primitives,
+as it is easier for primitives to fall above the texture resolution threshold.
+Finally,
+$\lambda_\text{texture}$ controls the variance of the texture maps,
+with higher values leading to smoother results,
+while downscale parameter $t_\text{ds}a$ affects how easily a texture map can get downscaled,
+and thus having a simpler appearance.
+Both of these hyperparameters have a direct effect on the number of texels.
+A low $\lambda_\text{texture}$ and high  $t_\text{ds}$ result in models with few texels per primitive,
+while the opposite configuration leads to more texels being used overall,
+increasing the number of parameters used.
+}
+\begin{algorithm}[!htbp]
+\SetAlgoLined
+\SetAlgoNoLine
+    \If{$iter \bmod 250 = 0$}{
+       \ForAll{primitives}{
+        Compute $E_i$\;
+            \If{texture resolution > $\tau_{tr}$ and $E_i$ in top 90\%}{
+                Split primitive along overflowing axes\;
+            }
+            \If{$\mathrm{t_2p_r} > 1$ and $E_i$ in top 90\%} {
+                Decrease texel size (Upscale)\;
+            }
+            \ElseIf{$\mathcal{E}_d < \tau_\text{ds}$}{
+                Increase texel size (Downscale)\;
+            }
+        }
+    }
+\caption{\revision{}{Texel Size Adaptation and Primitive Management Routine}}
+\label{alg:routines}
+\end{algorithm}
+
+\revision{}{
+Note that since the number of primitives and the number of texels are linked through our resolution-aware primitive management,
+a change in one hyperparameter can have secondary, indirect effects.
+For example,
+encouraging the spawning of more primitives by using a lower $\tau_{tr}$ can lead to fewer texels,
+since each primitive represents a more localized and therefore simpler part of the scene.
+This is demonstrated in the third experiment  (Tab~\ref{tab:point-budget}) with Tanks\&Temples.
+Our method is robust enough to operate with different ratios of primitive and texel budgets,
+converging to good results and automatically adjusting the allocation of model capacity.
+}
+\revision{}{
+In Tab.~\ref{tab:extra-models} we provide two additional models,
+one with more primitives, as a result of a lower $\tau_{tr}$ and one with less texels,
+as a result of a higher $\tau_\text{ds}$.
+}

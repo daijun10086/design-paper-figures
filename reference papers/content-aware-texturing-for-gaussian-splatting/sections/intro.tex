@@ -1,0 +1,79 @@
+\section{Introduction}
+%
+%\GD{Following is just to help me structure my thoughts}
+%\begin{itemize}
+%\item 3DGS and variants use a mixture of splats and SH's to represent appearance
+%\item Texture is a compact and effective way of representing high frequency
+%appearance attached to a surface
+%\item Total number of parameters of the representation: Primitives, with position (mean), scale, rotation for shape together with opacity and SH for appearance; and texture resolution.
+%\item We strive to exploit compact texture as much as possible; this requires a choice of how to distribute the parameter burden between the primitives and the texture in a principled manner.
+%\item We introduce a principled approach to resolution and primitive management, based on the content in the input images, by setting world-space texel size based on available resolution in the input.
+%\end{itemize}
+%
+%\TODO{Standard Intro}
+
+Gaussian Splatting~\cite{3dgs,2dgs} has become the method of choice for the  capture and real-time novel-view synthesis of real scenes. It relies on flexible, easy-to-optimize \emph{Gaussian primitives} to represent the scene.
+However, in the standard approach, fine visual appearance -- such as intricate texture on a surface -- needs to be represented with a large number of very small primitives even when the geometric complexity is low. 
+This wasteful limitation arises because each Gaussian primitive is associated with a single color sample, preventing the decoupling of appearance and geometric complexity.
+Rendering techniques, on the other hand, have traditionally built on \emph{texture mapping} to represent such detailed appearance. We build on this tradition to propose a representation for {\em textured} Gaussian primitives that is guided by the scene and its content.
+
+In recent and concurrent work~\cite{bbsplat, gstex, textured3dgs, supergaussians} a number of methods introduce textured Gaussian primitives, 
+providing a spatially varying color.
+Most of these methods
+use planar 2D Gaussians to match the dimensionality of traditional textures.
+Each primitive carries several parameters (position, rotation, scale, opacity and spherical harmonics (SH)),
+while textures are 2D arrays of RGB(A) texels.
+The fundamental challenge of such approaches is how to allocate model capacity across the scene
+and between the number of texels and the number of primitives used.
+Previous and concurrent solutions either deal with the issue by imposing a fixed texture resolution per primitive~\cite{bbsplat, supergaussians, textured3dgs}, or propose heuristic approaches, that are far from ideal~\cite{gstex}.
+This leaves open the question of how to share resources in a more principled manner.%between texels and primitives.
+
+To answer this question,
+we propose a \emph{content-aware} texturing solution for 2D Gaussian primitives that uses the appearance complexity \revision{rev6315 term content unclear}{as observed from the input images of the scene} to make informed decisions on how parameter resources
+are distributed.
+We do this by first introducing a textured Gaussian primitive representation in which texel size is \emph{fixed} in world space.
+\revision{rev6315 term content unclear}{
+This makes the appearance texture of each primitive independent of its size,
+and therefore unaffected by the growing or shrinking that it undergoes during optimization.
+This representation separates the parameters of geometry and appearance, allowing us to refine them independently with appropriate allocation of memory capacity.
+%As a result, we can develop methods that allocate model capacity to refine the two independently.
+%This enables us to refine 
+}
+% , estimated using the content of the input images.
+More specifically,
+we introduce a method to increase and decrease the texel size as optimization evolves,
+by analyzing the frequency content that primitive textures can represent and determining the corresponding error.
+We pair that with a resolution-aware method to control the overall number of primitives,
+striking a balance between texture size and number of primitives.
+Our solution interacts closely with the optimization,
+using the downscale/upscale mechanism to reduce the error in \emph{appearance},
+while our control of the number of primitives handles \emph{geometric} error by spawning additional Gaussians to capture geometric detail.
+
+%\begin{itemize}
+%\item 3DGS is great, but requires tons of small primitives, mixing appearance and shape 
+%\item Texture is great (standard CG), good representation of surface detail
+%\item Several efforts to combine the two. Problem of how to assign texture resolution, usually ad-hoc
+%\item We introduce a principled, content-aware approach
+%\begin{itemize}
+%\item Review previous methods at a high level, say heuristics
+%\item Need for a principled approach rather than ad-hoc
+%\end{itemize}
+%
+%\begin{itemize}
+%\item We introduce a principled content-aware approach, 
+%\item Explain representation, need for frequency content adaptation and
+%progressive approach, need for splitting
+%\item Contribs: 
+
+\noindent
+In summary,
+we propose three contributions:
+\begin{itemize}
+\item A texture representation for 2D Gaussians that defines texels with a \emph{fixed} world space size, supporting visual reconstruction independent of the shape of the primitives.
+% \item A content-aware texture representation for Gaussian primitives,
+\item A progressive algorithm that adaptively determines texel size and allows for content-aware fitting of the scene.
+\item A resolution-based solution to control the number of primitives,
+adjusted to the textured representation.
+
+\end{itemize}
+Our experiments show that our method provides a good balance between visual quality and the number of parameters used for the representation, comparing favorably to other textured Gaussian primitives solutions proposed in recent and concurrent work.

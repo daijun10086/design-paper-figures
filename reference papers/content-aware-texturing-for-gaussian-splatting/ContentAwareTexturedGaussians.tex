@@ -1,0 +1,168 @@
+% ---------------------------------------------------------------------------
+% Author guideline and sample document for EG publication using LaTeX2e input
+% D.Fellner, v1.20, Jan 18, 2023
+
+\documentclass{egpubl}
+\usepackage{egsr2025_DLOnlyTrack}
+\title{Content-Aware Texturing for Gaussian Splatting}
+% for anonymous conference submission please enter your SUBMISSION ID
+% instead of the author's name (and leave the affiliation blank) !!
+% for final version: please provide your *own* ORCID in the brackets following \orcid; see https://orcid.org/ for more details.
+\author[Panagiotis Papantonakis \& Georgios Kopanas \& Frédo Durand \& George Drettakis]
+{\parbox{\textwidth}{\centering Panagiotis Papantonakis$^{1,2}$\orcid{0009-0009-5058-1249},
+        Georgios Kopanas\thanks{work done at Google}$^{3,4}$\orcid{0009-0002-5829-2192},
+        Frédo Durand$^{5}$\orcid{0000-0001-9919-069X}
+        and George Drettakis$^{1,2}$\orcid{0000-0002-9254-4819}
+}\\
+{\parbox{\textwidth}{\centering $^1$ Inria $^2$ Université Côte D'Azur $^3$ Google $^4$ Runway ML
+         $^5$MIT CSAIL
+       }
+   }
+}
+% \author[Panagiotis Papantonakis]{Panagiotis Papantonakis}
+
+% --- for  Annual CONFERENCE
+% \ConferenceSubmission   % uncomment for Conference submission
+% \ConferencePaper        % uncomment for (final) Conference Paper
+% \STAR                   % uncomment for STAR contribution
+% \Tutorial               % uncomment for Tutorial contribution
+% \ShortPresentation      % uncomment for (final) Short Conference Presentation
+% \Areas                  % uncomment for Areas contribution
+% \Education              % uncomment for Education contribution
+% \Poster                 % uncomment for Poster contribution
+% \DC                     % uncomment for Doctoral Consortium
+%
+% --- for  CGF Journal
+% \JournalSubmission    % uncomment for submission to Computer Graphics Forum
+% \JournalPaper         % uncomment for final version of Journal Paper
+%
+% --- for  CGF Journal: special issue
+% \SpecialIssueSubmission    % uncomment for submission to , special issue
+\SpecialIssuePaper         % uncomment for final version of Computer Graphics Forum, special issue
+%                          % EuroVis, SGP, Rendering, PG
+% --- for  EG Workshop Proceedings
+% \WsSubmission      % uncomment for submission to EG Workshop
+\WsPaper           % uncomment for final version of EG Workshop contribution
+% \WsSubmissionJoint % for joint events, for example ICAT-EGVE
+% \WsPaperJoint      % for joint events, for example ICAT-EGVE
+% \Expressive        % for SBIM, CAe, NPAR
+% \DigitalHeritagePaper
+% \PaperL2P          % for events EG only asks for License to Publish
+
+% --- for EuroVis 
+% for full papers use \SpecialIssuePaper
+% \STAREurovis   % for EuroVis additional material 
+% \EuroVisPoster % for EuroVis additional material 
+% \EuroVisShort  % for EuroVis additional material
+% \MedicalPrize  % uncomment for Medical Prize (Dirk Bartz) contribution, since 2021 part of EuroVis
+
+% Licences: for CGF Journal (EG conf. full papers and STARs, EuroVis conf. full papers and STARs, SR, SGP, PG)
+% please choose the correct license
+%\CGFStandardLicense
+\CGFccby
+%\CGFccbync
+%\CGFccbyncnd
+
+% !! *please* don't change anything above
+% !! unless you REALLY know what you are doing
+% ------------------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage{dfadobe}  
+
+%\usepackage{cite}  % comment out for biblatex with backend=biber 
+% ---------------------------
+\biberVersion
+\BibtexOrBiblatex
+\usepackage[backend=biber,bibstyle=EG,citestyle=alphabetic,backref=true]{biblatex} 
+\addbibresource{references.bib}
+% ---------------------------  
+\electronicVersion
+\PrintedOrElectronic
+
+% for including postscript figures
+% mind: package option 'draft' will replace PS figure by a filename within a frame
+\ifpdf \usepackage[pdftex]{graphicx} \pdfcompresslevel=9
+\else \usepackage[dvips]{graphicx} \fi
+
+\usepackage{egweblnk} 
+% end of prologue
+\usepackage{amssymb, amsmath}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{spy}
+\usepackage{rotating}
+\usepackage{soul}
+
+\usepackage[ruled]{algorithm2e}
+
+\begin{document}
+% uncomment for using teaser
+\teaser{
+ \includegraphics[width=1\linewidth]{images/teaser_split_texture_onoff_new.pdf}
+\centering
+\caption{
+We propose a content-aware texturing method for 2D Gaussian Splatting.  Our textures reconstruct intricate scene detail (a). Gaussian primitives reconstruct the shape of the scene at low frequency of appearance; we show this in (b) where texturing is disabled. Our method is adaptive, allowing different primitives to have different texel sizes, depending on scene content. On the right hand panel we display primitives with progressively higher \emph{texel-to-pixel} ratio. In regions with high frequency appearance, texels have size close that of pixels (e.g., the table cover (c)). For the low-frequency walls however (d), the ratio is high, with each texel representing a large number of input image pixels.
+%By iteratively adjusting the texel size,
+%our textures match the frequency content of the scene(right).
+% Guided by the scene's content and how well the textures represent it,
+% their ratios get iteratively updated.
+% Our method achieves competitive results while requiring fewer parameters than other texturing methods.
+}
+\label{fig:teaser}
+}
+
+\newcommand{\missingcitation}[1]{\textcolor{magenta}{#1}}
+\newcommand{\TODO}[1]{}
+% \newcommand{\TODO}[1]{\textcolor{red}{#1}}
+\newcommand{\PP}[1]{\textcolor{cyan}{#1}}
+\newcommand{\GD}[1]{\textcolor{blue}{#1}}
+\newcommand{\GK}[1]{\textcolor{brown}{#1}}
+\newcommand{\Fredo}[1]{\textcolor{orange}{Fr\'edo: #1}}
+% \newcommand{\revision}[2]{\textcolor{red}{#2}}
+\newcommand{\revision}[2]{#2}
+\definecolor{tabfirst}{rgb}{1, 0.7, 0.7} % red
+
+\definecolor{tabsecond}{rgb}{1, 0.85, 0.7} % orange
+\definecolor{tabthird}{rgb}{1, 1, 0.7} % yellow
+
+\newcommand{\mvec}[1]{\mathbf{#1}}
+
+\newcommand{\spyimage}[5]{%
+	\begin{tikzpicture}[spy using outlines={rectangle,#1,magnification=5,size=1cm, connect spies}]
+		\node[anchor=south west,inner sep=0]  at (0,0) {\includegraphics[width=#2]{#3}};
+		\spy on (#4) in node [left] at (#5);
+	\end{tikzpicture}%
+}
+
+\maketitle
+\begin{abstract}
+Gaussian Splatting has become the method of choice for 3D reconstruction and real-time rendering of captured real scenes.
+However, fine appearance details  need to be represented as a large number of small Gaussian primitives, which can be wasteful when geometry and appearance exhibit different frequency characteristics.
+Inspired by the long tradition of texture mapping, we propose to use texture to represent detailed appearance where possible.
+Our main focus is to incorporate per-primitive texture maps that adapt to the 
+%\emph{content} of the 
+scene in a principled manner during Gaussian Splatting optimization.
+We do this by proposing a new appearance representation for 2D Gaussian primitives with textures where the size of a texel is bounded by the image sampling frequency and adapted to the content of the input images. 
+We achieve this by adaptively upscaling or downscaling the texture resolution during optimization.
+In addition,
+our approach enables control of the number of primitives during optimization based on texture resolution.
+We show that our approach performs favorably in image quality and  total number of parameters used compared to alternative solutions for textured Gaussian primitives.
+\end{abstract}
+
+\input{sections/intro.tex}
+\input{sections/related_work.tex}
+\input{sections/method.tex}
+\input{sections/implementation.tex}
+\input{sections/results_evaluation.tex}
+\input{sections/discussion_conclusions.tex}
+\input{sections/acknowledgements.tex}
+% \bibliographystyle{eg-alpha-doi} 
+% \bibliography{references.bib}  
+\printbibliography
+\input{sections/appendix.tex}
+\end{document}
+

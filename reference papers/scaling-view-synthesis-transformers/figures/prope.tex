@@ -1,0 +1,7 @@
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=1.0\textwidth]{images/prope_arch.png}
+    \caption{\textbf{Multiview PRoPE.} We find that multiview projective RoPE embeddings~\citep{miyato2023gta,kong2024eschernet,li2025cameras} are critical for our model to scale with compute and data in the multiview setting ($V_C>2$). For each layer of the multiview transformer encoder, PRoPE embeddings use context camera poses to transform context view tokens into a common coordinate frames before the attention layer, and apply the inverse transformation before each MLP. To render, both context features and query tokens of the target view are transformed by PRoPE before cross-attention.}
+    \vspace{-\baselineskip}
+    \label{fig:prope}
+\end{figure*}

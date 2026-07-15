@@ -1,0 +1,134 @@
+\section{Related Work}
+
+\subsection{Traditional Representations}
+%Representations of appearance and geometry are widely studied in Computer Graphics (CG). Arguably, different representations offer different trade-offs between expressivity, computational efficiency, and compactness. \Fredo{This intro paragraph can be deleted.}
+%In other cases different representations enable useful downstream applications like animation\cite{}, physical simulation\cite{} and editing\cite{}.
+
+%\Fredo{Overall this section is a bit %long and can be shortened.}
+%\GD{I think this is fine}
+
+\emph{Texture Mapping} was introduced in the early days of CG~\cite{catmull1974subdivision} and is widely used to effectively map detailed appearance information onto a simpler geometric representation, such as triangles. Textures are stored as 2D image arrays with a mapping function between the 3D surface and 2D texture coordinates. Computing this 2D surface parameterization is a well-studied and difficult problem~\cite{hormann2007mesh, li2018optcuts, srinivasan2024nuvo}. Intrinsic 2D parameterizations pose challenges even in traditional graphics pippelines~\cite{yuksel2019rethinking} because they introduce difficulties in content creation and produce visual artifacts in rendering. In the context of optimization for inverse problems -- such as novel view synthesis -- intrinsic parameterizations are also challenging since the geometry is not known in advance~\cite{srinivasan2024nuvo}. An alternative, non-parametric way to store localized information on the surface is by attaching it on the primitives themselves, i.e.,  attaching colors to the vertices of a mesh, requiring a very fine mesh subdivision to represent details. Mesh Colors~\cite{yuksel2010mesh,mallett2020patch} extend this idea by using more color samples along the edges and the faces of the triangles. This significantly improves the representational capacity of non-parametric appearance textures. While non-parametric appearance models are limited in many ways, they have significant advantages in the context of optimization since they overcome the need to jointly solve for texture parameterization and the surface. Our representation is also a non-parametric texture representation for Gaussian Splatting.
+
+\subsection{Representations for 3D Reconstruction}
+\label{sec:reps}
+%\Fredo{Maybe skip directly to Gaussians?}\GD{Again, ok for me}\GK{My motivation to add MPI is because its a "textured" representation, kind of, happy to skip some if Fredo insists!}
+Scene reconstruction and novel view synthesis has recently utilized differentiable rendering to recover 3D representations from a set of images or video. Early methods utilized Multi-Plane Images (MPIs)~\cite{mildenhall2019local,zhou2018stereo}, a collection of planes with RGBA textures that are re-projected and rendered very efficiently using homography transformations. The semi-transparent and planar nature of the RGBA textures allowed the optimization to converge to useful 3D representations, but the planar assumption for the geometry is insufficient in most realistic cases. Neural Radiance Fields (NeRF~\cite{nerf}) popularized volumetric representations in the context of 3D reconstruction by introducing an Multi-Layer Perceptron (MLP) that stores volume density and color. NeRF's success resulted in follow-up work that extended it to support anti-aliasing and unbounded scenes~\cite{mipnerf, mipnerf360, zhang2020nerf++}, improve its training and rendering speed~\cite{kilonerf, dvxgo, instant-ngp, tensorf, plenoxels, zipnerf, adaptiveshells, sharma2024volumetric}, increase its robustness when using fewer views \cite{pixelnerf, regnerf}, and better reconstruct surfaces and handle reflections~\cite{refnerf, neuralangelo, bakedsdf}. Most closely related to our work is Nuvo~\cite{srinivasan2024nuvo} that recovers a 2D parameterization of a volume. For a more complete survey we refer readers to~\cite{tewari2022advances}.
+
+Gaussian Splatting~\cite{3dgs} has emerged as an alternative, point-based approach to NeRFs by replacing the volumetric field with a collection of semi-transparent ellipsoidal primitives. This technique achieves excellent quality and real-time rendering even at high resolutions.
+Several methods built on top of 3DGS to provide anti-aliasing \cite{mipsplatting},
+by changing the appearance model but are constrained by the 1-to-1 relationship between color samples and primitives~\cite{specgaussian,malarz2025gaussian}. 
+
+2D Gaussian Splatting~\cite{2dgs} flattens one of the dimensions of the ellipsoids to create planar discs or \emph{surfels} to align better with surfaces. 
+%\subsection{Preliminaries: 2D Gaussian Splatting}
+%2D Gaussian Splatting \cite{2dgs},
+%aimed to improve the original 3DGS method in terms of the geometrical reconstruction of scenes.
+%Almost identically to 3DGS,
+Surfels are parametrized by the set of parameters $A=\{\boldsymbol{\mu}, \boldsymbol {\sigma}, \mvec{q}, o, \mvec{SH}\}$,
+where $\boldsymbol{\mu} \in \mathbb{R}^3$ is the primitive's center,
+$\boldsymbol{\sigma} \in \mathbb{R^+}^2$ are the scales of the primal axes of the surfel,
+$\mvec{q} \in \mathbb{R}^4$ is a quaternion that represents the rotation $\mvec{R}$,
+$o$ is the opacity and
+$\mvec{SH}$ are the spherical harmonics coefficients used to get the view-dependent colour $\mvec{c}$.
+The normal vector $\mvec{n}$ of the surfel is the third column of the rotation matrix $\mvec{R}$.
+
+With this formulation, the intersection point between a ray $\mvec{r} = \mvec{r_0} + t\mvec{d}$ and a primitive can be computed as:
+\begin{equation}\label{eq:intersection_point}
+\mvec{p} = \mvec{r}_0 + t\mvec{d}, t = \frac{\mvec{n} \cdot (\mvec{\mu} - \mvec{r}_0)}{\mvec{n} \cdot \mvec{d}}
+\end{equation}
+We also build on 2D Gaussian Splatting for our method.
+
+The initial primitive-based representations were not as compact as NeRFs, but a number of recent results allow competitive compression strategies~\cite{3dgszip}. Several recent methods build on traditional CG solutions, demonstrating that disentangling appearance from geometry can achieve significant improvements in terms of storage and memory costs.  Texture-GS~\cite{uv3dgs} combines deferred shading and a per-pixel UV coordinate to fetch appearance from a texture. This assumes that the objects can be represented by a sphere imposing topological constraints. Our results demonstrate that non-parametric texture mapping is a convenient and flexible way to recover texture during the optimization. 
+
+Recent and concurrent work \cite{bbsplat, textured3dgs, supergaussians, gstex} have used textures to represent fine visual details.
+\cite{gstex} and \cite{textured3dgs} use converged 2DGS and 3DGS point clouds, respectively,
+as a starting point of their method, and then proceed to add and optimize texture parameters.
+Several methods~\cite{bbsplat, textured3dgs, supergaussians} use a fixed texture resolution for each primitive that is a hyperparameter of the method. GSTex~\cite{gstex} distributes a texel budget over the primitives proportional to their size, resulting in different resolutions for different-sized primitives.
+All these methods define their textures in the Gaussian canonical space, with the textures undergoing the same transformations as the primitive, which leads to texture stretching and shrinking.
+SuperGaussians~\cite{supergaussians} also experiment with representing the texture with a small Neural Network.
+In our approach,
+we explore a different and more robust design that allows for texture maps to dynamically adjust to the captured content.
+Along with two strategies that control the size of the texels and the number of primitives that are designed specifically for our representation,
+we are able to reconstruct scenes without the need for a pretrained model.
+
+
+
+% \subsection{Novel View Synthesis (NVS) - Neural Radiance Fields}
+% NVS deals with the problem of reconstructing a scene from any viewpoint,
+% given a set of images or a video as input.
+% Neural Radiance Fields (NeRF)\cite{nerf}, introduced in 2020.
+% represents the scene as a continuous radiance field stored at the weights of a multi-layer perceptron (MLP).
+% Querying this MLP at any point in space yields a density and view-dependent colour value
+% that can be used to render an image from an arbitrary viewpoint using volumetric rendering.
+% By comparing the renders to the ground truth,
+% the weights of the MLP can be adjusted,
+% via gradient descent optimisation,
+% so that it better fits the scene.
+
+% NeRF's success resulted in a lot of follow-up works that extended it to support anti-aliasing and unbounded scenes \cite{mipnerf, mipnerf360},
+% improve its training and rendering speed \cite{instant-ngp, tensorf, zipnerf},
+% increase its robustness when using fewer views \cite{pixelnerf, regnerf},
+% and better reconstruct surfaces and handle reflections
+% \cite{refnerf, neuralangelo, bakedsdf, adaptiveshells}.
+% For a more complete list of works we refer readers to \missingcitation{a nerf star??}.
+
+% \begin{figure*}[!h]
+% \vspace{4cm}
+% \caption{
+% \label{fig:stretch}
+% (a) A simple mapping to UV coordinates results in texture stretching when the primitive grows during optimization. (b) Heuristic spltting results in texture resolution to be spread amongst primitives. (c) In our approach, texture resolution is \emph{constant} and is conceptually defined by the highest available resolution available in the input images. (d) Upscaling and Downscaling of our textures is performed based on image content.}
+% \end{figure*}
+
+% \subsection{Gaussian Splatting}
+% More recently,
+% 3D Gaussian Splatting \cite{3dgs} has emerged as an alternative, point-based approach to NVS.
+% This technique achieves excellent quality with real-time rendering, even at high resolutions.
+% It represents the scene as a set of anisotropic 3D Gaussians,
+% each defined by a series of parameters controling its position, covariance matrix, opacity and view-dependent colour.
+% The projections of these primitives on the image plane,
+% known as splats,
+% are blended efficiently using a differentiable rasteriser.
+% This allows the gradients to flow back to the parameters,
+% resulting in a fast optimisation procedure.
+
+% \GD{Probably introduce densification and SH in a bit more detail.}
+% This work sparked a period of extremely fast paced and vibrant research aimed at improving various aspects of 3DGS.
+% Numerous works have focused on reducing its memory footprint \cite{reduced3dgs, taming3dgs} \missingcitation{get papers from memory reduction star},
+% addressing aliasing \cite{mipsplatting},
+% supporting huge datasets \cite{biggaussians} \missingcitation{and some more large scale}.
+% Additionally,
+% several works employ it in a diffusion setting \missingcitation{dream gaussians?? and friends?},
+% improve the densification procedure \cite{revising, taming, 3dgs-mcmc},
+% distill it to meshes \cite{sugar, frosting, binaryopacitygrids} or use it for better geometric reconstruction \cite{2dgs, gaussianopacityfields}.
+% Finally,
+% 3DGS has also been used in the case of generalised NVS \missingcitation{pixelSplatting},
+% and has been modified to support ray tracing \missingcitation{NVIDIA 
+% raycasting paper},
+% lifting the limitations on camera models and light effects that rasterisation brings.
+
+% We build on 2DGS \missingcitation{2dgs}, that uses 2D surfels with a Gaussian falloff.
+% So, each primitive is described by the set of parameters $A=\{\mvec{\mu}, \mvec{\sigma}, \mvec{q}, o, \mvec{SH}\}$,
+% where $\mvec{\mu} \in \mathbb{R}^3$ is the primitive's center,
+% $\mvec{\sigma} \in \mathbb{R^+}^2$ are the scales of the primal axes of the surfel,
+% $\mvec{q} \in \mathbb{R}^4$ is a quaternion that represents the rotation $\mvec{R}$,
+% $o$ is the opacity and
+% $\mvec{SH}$ are the spherical harmonics coefficients used to get the view-dependent colour $\mvec{c}$.
+% Of the three columns of the rotation matrix $\mvec{R}$,
+% the first two represent the tangent vectors and the third the normal $\mvec{n}$.
+
+
+
+% \subsection{Altering the Appearance Model - Concurrent Work}
+% One fundamental property of the original 3DGS method is that
+% each primitive is tied to a single view-dependented colour sample,
+% described by SH coefficients.
+% There are several works that try to change the appearance model by
+% detaching the appearance information from the primitive,
+% by employing MLPs \missingcitation{EAGLES??? ScaffoldGS, some neural features + neural decoding ones. For sure there are others},
+% Having the disentanglement of geometry and appearance in mind,
+% \missingcitation{Texture-GS: Disentangling the Geometry and Texture for 3D Gaussian Splatting Editing}
+% equiped the primitives with a feature that undergoes alpha blending to create a UV coordinate
+% that queries a texture atlas.
+% This technique assumed that the objects represented could be modeled by a sphere,
+% imposing topological constraints and excluding bigger scenes and even more complex objects.
+% Concurrent to our work...
+% , BBSplat, TextureGS, Enhanced 3dgs, the SH ellipsoid one etc

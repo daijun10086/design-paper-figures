@@ -1,0 +1,57 @@
+\begin{table*}[t]
+  \centering
+  \begin{threeparttable}
+    \scriptsize
+    \setlength{\tabcolsep}{3pt} % Use the same column separation
+
+    % --- NEW SUB-TABLE ---
+    \begin{subtable}{\linewidth}
+      % 1 'l' column for model names, 9 'r' columns for data
+      \begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} l *{9}{c}}
+        \toprule
+        
+        % --- Supercolumns ---
+        & \multicolumn{3}{c}{\textbf{Scale Parameters}}
+        & \multicolumn{3}{c}{\textbf{Reconstruction Quality}}
+        & \multicolumn{3}{c}{\textbf{Rendering FPS (↑)}} \\
+        
+        % --- Rules for supercolumns ---
+        \cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10}
+        
+        % --- Subcolumns ---
+        \textbf{Model} 
+        & \textbf{Model Size} & \textbf{Train Iters} & \textbf{Train FLOPs (↓)}  
+        & \textbf{PSNR} (↑) & \textbf{SSIM} (↑) & \textbf{LPIPS} (↓)
+        & $V_C$=4  & $V_C$=8  & $V_C$=16\\
+        
+        \midrule
+        
+        % --- Data Rows (with placeholders) ---
+        
+        LVSM Decoder-only + PRoPE~\citep{jin2024lvsm,li2025cameras}
+        & 171M & 100k & 43 eflops 
+        & 26.19 & 0.830 & 0.145
+        & 104.7 & 52.6 & 23.8 \\
+        
+        SVSM Enc-Dec (\textbf{ours}, $\approx$ Iter-matched)
+        & 711M & 100k & 32 eflops
+        & \underline{26.29} & \underline{0.835} & \underline{0.141} 
+        & 280.4 & 261.2 & 230.4 \\
+
+        SVSM Enc-Dec (\textbf{ours}, Pareto-optimal)
+        & 400M & 233k & 44 eflops
+        & \textbf{26.87} & \textbf{0.853} & \textbf{0.129}
+        & \textbf{411.1} & \textbf{381.1} & \textbf{333} \\
+        
+        \bottomrule
+      \end{tabular*}
+      % \label{tab:my_new_table_part2} % New label
+    \end{subtable}
+
+    \caption{
+        \textbf{Multiview (}$V_C{>}2$\textbf{) NVS Results of the Largest Models.} Our compute-matched model achieves significantly better rendering quality ($+0.68\text{ PSNR}$, $-0.016\text{ LPIPS}$), while maintaining nearly four times the rendering speed at inference-time.
+    }
+    \label{tab:multiview-result} % New label
+  \end{threeparttable}
+  % \vskip -0.8\baselineskip % Kept this from your example
+\end{table*}

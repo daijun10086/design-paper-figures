@@ -1,0 +1,648 @@
+@String{cgforum = "Computer Graphics Forum"}
+@String{tog = "ACM TOG"}
+
+@ARTICLE{3dgs,title={3D Gaussian Splatting for Real-Time Radiance Field Rendering},year={2023},author={Bernhard Kerbl and Georgios Kopanas and Thomas Leimkühler and George Drettakis},doi={10.1145/3592433},pmid={null},pmcid={null},mag_id={4385318467},journal={ACM Transactions on Graphics},abstract={Radiance Field methods have recently revolutionized novel-view synthesis of scenes captured with multiple photos or videos. However, achieving high visual quality still requires neural networks that are costly to train and render, while recent faster methods inevitably trade off speed for quality. For unbounded and complete scenes (rather than isolated objects) and 1080p resolution rendering, no current method can achieve real-time display rates. We introduce three key elements that allow us to achieve state-of-the-art visual quality while maintaining competitive training times and importantly allow high-quality real-time (≥ 30 fps) novel-view synthesis at 1080p resolution. First, starting from sparse points produced during camera calibration, we represent the scene with 3D Gaussians that preserve desirable properties of continuous volumetric radiance fields for scene optimization while avoiding unnecessary computation in empty space; Second, we perform interleaved optimization/density control of the 3D Gaussians, notably optimizing anisotropic covariance to achieve an accurate representation of the scene; Third, we develop a fast visibility-aware rendering algorithm that supports anisotropic splatting and both accelerates training and allows realtime rendering. We demonstrate state-of-the-art visual quality and real-time rendering on several established datasets.}}
+
+@article{reduced3dgs,
+author = {Papantonakis, Panagiotis and Kopanas, Georgios and Kerbl, Bernhard and Lanvin, Alexandre and Drettakis, George},
+title = {Reducing the Memory Footprint of 3D Gaussian Splatting},
+year = {2024},
+issue_date = {May 2024},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {7},
+number = {1},
+url = {https://doi.org/10.1145/3651282},
+doi = {10.1145/3651282},
+abstract = {3D Gaussian splatting provides excellent visual quality for novel view synthesis, with fast training and realtime rendering; unfortunately, the memory requirements of this method for storing and transmission are unreasonably high. We first analyze the reasons for this, identifying three main areas where storage can be reduced: the number of 3D Gaussian primitives used to represent a scene, the number of coefficients for the spherical harmonics used to represent directional radiance, and the precision required to store Gaussian primitive attributes. We present a solution to each of these issues. First, we propose an efficient, resolution-aware primitive pruning approach, reducing the primitive count by half. Second, we introduce an adaptive adjustment method to choose the number of coefficients used to represent directional radiance for each Gaussian primitive, and finally a codebook-based quantization method, together with a half-float representation for further memory reduction. Taken together, these three components result in a x27 reduction in overall size on disk on the standard datasets we tested, along with a x1.7 speedup in rendering speed. We demonstrate our method on standard datasets and show how our solution results in significantly reduced download times when using the method on a mobile device (see Fig. 1).},
+journal = {Proc. ACM Comput. Graph. Interact. Tech.},
+month = may,
+articleno = {16},
+numpages = {17},
+keywords = {3D gaussian splatting, memory reduction, novel view synthesis, radiance fields}
+}
+
+@article{nerf,
+author = {Mildenhall, Ben and Srinivasan, Pratul P. and Tancik, Matthew and Barron, Jonathan T. and Ramamoorthi, Ravi and Ng, Ren},
+title = {NeRF: representing scenes as neural radiance fields for view synthesis},
+year = {2021},
+issue_date = {January 2022},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {65},
+number = {1},
+issn = {0001-0782},
+url = {https://doi.org/10.1145/3503250},
+doi = {10.1145/3503250},
+abstract = {We present a method that achieves state-of-the-art results for synthesizing novel views of complex scenes by optimizing an underlying continuous volumetric scene function using a sparse set of input views. Our algorithm represents a scene using a fully connected (nonconvolutional) deep network, whose input is a single continuous 5D coordinate (spatial location (x, y, z) and viewing direction (θ, ϕ)) and whose output is the volume density and view-dependent emitted radiance at that spatial location. We synthesize views by querying 5D coordinates along camera rays and use classic volume rendering techniques to project the output colors and densities into an image. Because volume rendering is naturally differentiable, the only input required to optimize our representation is a set of images with known camera poses. We describe how to effectively optimize neural radiance fields to render photorealistic novel views of scenes with complicated geometry and appearance, and demonstrate results that outperform prior work on neural rendering and view synthesis.},
+journal = {Commun. ACM},
+month = dec,
+pages = {99–106},
+numpages = {8}
+}
+
+@InProceedings{mipnerf,
+    author    = {Barron, Jonathan T. and Mildenhall, Ben and Tancik, Matthew and Hedman, Peter and Martin-Brualla, Ricardo and Srinivasan, Pratul P.},
+    title     = {Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2021},
+    pages     = {5855-5864}
+}
+
+@InProceedings{mipnerf360,
+    author    = {Barron, Jonathan T. and Mildenhall, Ben and Verbin, Dor and Srinivasan, Pratul P. and Hedman, Peter},
+    title     = {Mip-NeRF 360: Unbounded Anti-Aliased Neural Radiance Fields},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2022},
+    pages     = {5470-5479}
+}
+
+@article{instant-ngp,
+author = {M\"{u}ller, Thomas and Evans, Alex and Schied, Christoph and Keller, Alexander},
+title = {Instant neural graphics primitives with a multiresolution hash encoding},
+year = {2022},
+issue_date = {July 2022},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {41},
+number = {4},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3528223.3530127},
+doi = {10.1145/3528223.3530127},
+abstract = {Neural graphics primitives, parameterized by fully connected neural networks, can be costly to train and evaluate. We reduce this cost with a versatile new input encoding that permits the use of a smaller network without sacrificing quality, thus significantly reducing the number of floating point and memory access operations: a small neural network is augmented by a multiresolution hash table of trainable feature vectors whose values are optimized through stochastic gradient descent. The multiresolution structure allows the network to disambiguate hash collisions, making for a simple architecture that is trivial to parallelize on modern GPUs. We leverage this parallelism by implementing the whole system using fully-fused CUDA kernels with a focus on minimizing wasted bandwidth and compute operations. We achieve a combined speedup of several orders of magnitude, enabling training of high-quality neural graphics primitives in a matter of seconds, and rendering in tens of milliseconds at a resolution of 1920\texttimes{}1080.},
+journal = {ACM Trans. Graph.},
+month = jul,
+articleno = {102},
+numpages = {15},
+keywords = {GPUs, encodings, function approximation, hashing, image synthesis, neural networks, parallel computation}
+}
+
+@inproceedings{tensorf,
+author = {Chen, Anpei and Xu, Zexiang and Geiger, Andreas and Yu, Jingyi and Su, Hao},
+title = {TensoRF: Tensorial Radiance Fields},
+year = {2022},
+isbn = {978-3-031-19823-6},
+publisher = {Springer-Verlag},
+address = {Berlin, Heidelberg},
+url = {https://doi.org/10.1007/978-3-031-19824-3_20},
+doi = {10.1007/978-3-031-19824-3_20},
+abstract = {We present TensoRF, a novel approach to model and reconstruct radiance fields. Unlike NeRF that purely uses MLPs, we model the radiance field of a scene as a 4D tensor, which represents a 3D voxel grid with per-voxel multi-channel features.  Our central idea is to factorize the 4D scene tensor into multiple compact low-rank tensor components. We demonstrate that applying traditional CANDECOMP/PARAFAC (CP) decomposition – that factorizes tensors into rank-one components with compact vectors – in our framework leads to improvements over vanilla NeRF. To further boost performance, we introduce a novel vector-matrix (VM) decomposition that relaxes the low-rank constraints for two modes of a tensor and factorizes tensors into compact vector and matrix factors. Beyond superior rendering quality, our models with CP and VM decompositions lead to a significantly lower memory footprint in comparison to previous and concurrent works that directly optimize per-voxel features. Experimentally, we demonstrate that TensoRF with CP decomposition achieves fast reconstruction (<30 min) with better rendering quality and even a smaller model size (<4 MB) compared to NeRF. Moreover, TensoRF with VM decomposition further boosts rendering quality and outperforms previous state-of-the-art methods, while reducing the reconstruction time (<10 min) and retaining a compact model size (<75 MB).},
+booktitle = {Computer Vision – ECCV 2022: 17th European Conference, Tel Aviv, Israel, October 23–27, 2022, Proceedings, Part XXXII},
+pages = {333–350},
+numpages = {18},
+location = {Tel Aviv, Israel}
+}
+
+@InProceedings{zipnerf,
+    author    = {Barron, Jonathan T. and Mildenhall, Ben and Verbin, Dor and Srinivasan, Pratul P. and Hedman, Peter},
+    title     = {Zip-NeRF: Anti-Aliased Grid-Based Neural Radiance Fields},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2023},
+    pages     = {19697-19705}
+}
+
+@InProceedings{pixelnerf,
+    author    = {Yu, Alex and Ye, Vickie and Tancik, Matthew and Kanazawa, Angjoo},
+    title     = {pixelNeRF: Neural Radiance Fields From One or Few Images},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2021},
+    pages     = {4578-4587}
+}
+
+@InProceedings{refnerf,
+    author    = {Verbin, Dor and Hedman, Peter and Mildenhall, Ben and Zickler, Todd and Barron, Jonathan T. and Srinivasan, Pratul P.},
+    title     = {Ref-NeRF: Structured View-Dependent Appearance for Neural Radiance Fields},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2022},
+    pages     = {5491-5500}
+}
+
+@InProceedings{regnerf,
+    author    = {Niemeyer, Michael and Barron, Jonathan T. and Mildenhall, Ben and Sajjadi, Mehdi S. M. and Geiger, Andreas and Radwan, Noha},
+    title     = {RegNeRF: Regularizing Neural Radiance Fields for View Synthesis From Sparse Inputs},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2022},
+    pages     = {5480-5490}
+}
+
+@INPROCEEDINGS{neuralangelo,
+  author={Li, Zhaoshuo and Müller, Thomas and Evans, Alex and Taylor, Russell H. and Unberath, Mathias and Liu, Ming-Yu and Lin, Chen-Hsuan},
+  booktitle={2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, 
+  title={Neuralangelo: High-Fidelity Neural Surface Reconstruction}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={8456-8465},
+  keywords={Training;Surface reconstruction;Three-dimensional displays;Image resolution;Smoothing methods;Stochastic processes;Rendering (computer graphics);3D from multi-view and sensors},
+  doi={10.1109/CVPR52729.2023.00817}}
+
+@article{adaptiveshells,
+author = {Wang, Zian and Shen, Tianchang and Nimier-David, Merlin and Sharp, Nicholas and Gao, Jun and Keller, Alexander and Fidler, Sanja and M\"{u}ller, Thomas and Gojcic, Zan},
+title = {Adaptive Shells for Efficient Neural Radiance Field Rendering},
+year = {2023},
+issue_date = {December 2023},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {42},
+number = {6},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3618390},
+doi = {10.1145/3618390},
+abstract = {Neural radiance fields achieve unprecedented quality for novel view synthesis, but their volumetric formulation remains expensive, requiring a huge number of samples to render high-resolution images. Volumetric encodings are essential to represent fuzzy geometry such as foliage and hair, and they are well-suited for stochastic optimization. Yet, many scenes ultimately consist largely of solid surfaces which can be accurately rendered by a single sample per pixel. Based on this insight, we propose a neural radiance formulation that smoothly transitions between volumetric- and surface-based rendering, greatly accelerating rendering speed and even improving visual fidelity. Our method constructs an explicit mesh envelope which spatially bounds a neural volumetric representation. In solid regions, the envelope nearly converges to a surface and can often be rendered with a single sample. To this end, we generalize the NeuS [Wang et al. 2021] formulation with a learned spatially-varying kernel size which encodes the spread of the density, fitting a wide kernel to volume-like regions and a tight kernel to surface-like regions. We then extract an explicit mesh of a narrow band around the surface, with width determined by the kernel size, and fine-tune the radiance field within this band. At inference time, we cast rays against the mesh and evaluate the radiance field only within the enclosed region, greatly reducing the number of samples required. Experiments show that our approach enables efficient rendering at very high fidelity. We also demonstrate that the extracted envelope enables downstream applications such as animation and simulation.},
+journal = {ACM Trans. Graph.},
+month = dec,
+articleno = {260},
+numpages = {15},
+keywords = {fast rendering, level set methods, neural radiance fields, novel view synthesis}
+}
+
+@inproceedings{bakedsdf,
+author = {Yariv, Lior and Hedman, Peter and Reiser, Christian and Verbin, Dor and Srinivasan, Pratul P. and Szeliski, Richard and Barron, Jonathan T. and Mildenhall, Ben},
+title = {BakedSDF: Meshing Neural SDFs for Real-Time View Synthesis},
+year = {2023},
+isbn = {9798400701597},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3588432.3591536},
+doi = {10.1145/3588432.3591536},
+abstract = {We present a method for reconstructing high-quality meshes of large unbounded real-world scenes suitable for photorealistic novel view synthesis. We first optimize a hybrid neural volume-surface scene representation designed to have well-behaved level sets that correspond to surfaces in the scene. We then bake this representation into a high-quality triangle mesh, which we equip with a simple and fast view-dependent appearance model based on spherical Gaussians. Finally, we optimize this baked representation to best reproduce the captured viewpoints, resulting in a model that can leverage accelerated polygon rasterization pipelines for real-time view synthesis on commodity hardware. Our approach outperforms previous scene representations for real-time rendering in terms of accuracy, speed, and power consumption, and produces high quality meshes that enable applications such as appearance editing and physical simulation.},
+booktitle = {ACM SIGGRAPH 2023 Conference Proceedings},
+articleno = {46},
+numpages = {9},
+keywords = {Deep Learning., Image Synthesis, Neural Radiance Fields, Real-Time Rendering, Signed Distance Function, Surface Reconstruction},
+location = {Los Angeles, CA, USA},
+series = {SIGGRAPH '23}
+}
+
+@inproceedings{taming3dgs,
+author = {Mallick, Saswat Subhajyoti and Goel, Rahul and Kerbl, Bernhard and Steinberger, Markus and Carrasco, Francisco Vicente and De La Torre, Fernando},
+title = {Taming 3DGS: High-Quality Radiance Fields with Limited Resources},
+year = {2024},
+isbn = {9798400711312},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3680528.3687694},
+doi = {10.1145/3680528.3687694},
+abstract = {3D Gaussian Splatting (3DGS) has transformed novel-view synthesis with its fast, interpretable, and high-fidelity rendering. However, its resource requirements limit its usability. Especially on constrained devices, training performance degrades quickly and often cannot complete due to excessive memory consumption of the model. The method converges with an indefinite number of Gaussians—many of them redundant—making rendering unnecessarily slow and preventing its usage in downstream tasks that expect fixed-size inputs. To address these issues, we tackle the challenges of training and rendering 3DGS models on a budget. We use a guided, purely constructive densification process that steers densification toward Gaussians that raise the reconstruction quality. Model size continuously increases in a controlled manner towards an exact budget, using score-based densification of Gaussians with training-time priors that measure their contribution. We further address training speed obstacles: following a careful analysis of 3DGS’ original pipeline, we derive faster, numerically equivalent solutions for gradient computation and attribute updates, including an alternative parallelization for efficient backpropagation. We also propose quality-preserving approximations where suitable to reduce training time even further.Taken together, these enhancements yield a robust, scalable solution with reduced training times, lower compute and memory requirements, and high quality. Our evaluation shows that in a budgeted setting, we obtain competitive quality metrics with 3DGS while achieving a 4–5 \texttimes{} reduction in both model size and training time. With more generous budgets, our measured quality surpasses theirs. These advances open the door for novel-view synthesis in constrained environments, e.g., mobile devices.},
+booktitle = {SIGGRAPH Asia 2024 Conference Papers},
+articleno = {2},
+numpages = {11},
+keywords = {Radiance Fields, Gaussian Splatting},
+location = {Tokyo, Japan},
+series = {SA '24}
+}
+
+@InProceedings{mipsplatting,
+    author    = {Yu, Zehao and Chen, Anpei and Huang, Binbin and Sattler, Torsten and Geiger, Andreas},
+    title     = {Mip-Splatting: Alias-free 3D Gaussian Splatting},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2024},
+    pages     = {19447-19456}
+}
+
+@article{biggaussians,
+author = {Kerbl, Bernhard and Meuleman, Andreas and Kopanas, Georgios and Wimmer, Michael and Lanvin, Alexandre and Drettakis, George},
+title = {A Hierarchical 3D Gaussian Representation for Real-Time Rendering of Very Large Datasets},
+year = {2024},
+issue_date = {July 2024},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {43},
+number = {4},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3658160},
+doi = {10.1145/3658160},
+abstract = {Novel view synthesis has seen major advances in recent years, with 3D Gaussian splatting offering an excellent level of visual quality, fast training and real-time rendering. However, the resources needed for training and rendering inevitably limit the size of the captured scenes that can be represented with good visual quality. We introduce a hierarchy of 3D Gaussians that preserves visual quality for very large scenes, while offering an efficient Level-of-Detail (LOD) solution for efficient rendering of distant content with effective level selection and smooth transitions between levels. We introduce a divide-and-conquer approach that allows us to train very large scenes in independent chunks. We consolidate the chunks into a hierarchy that can be optimized to further improve visual quality of Gaussians merged into intermediate nodes. Very large captures typically have sparse coverage of the scene, presenting many challenges to the original 3D Gaussian splatting training method; we adapt and regularize training to account for these issues. We present a complete solution, that enables real-time rendering of very large scenes and can adapt to available resources thanks to our LOD method. We show results for captured scenes with up to tens of thousands of images with a simple and affordable rig, covering trajectories of up to several kilometers and lasting up to one hour.},
+journal = {ACM Trans. Graph.},
+month = jul,
+articleno = {62},
+numpages = {15},
+keywords = {novel view synthesis, 3D gaussian splatting, large scenes, level-of-detail}
+}
+
+@InProceedings{scaffoldgs,
+    author    = {Lu, Tao and Yu, Mulin and Xu, Linning and Xiangli, Yuanbo and Wang, Limin and Lin, Dahua and Dai, Bo},
+    title     = {Scaffold-GS: Structured 3D Gaussians for View-Adaptive Rendering},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2024},
+    pages     = {20654-20664}
+}
+
+@article{malarz2025gaussian,
+  title={Gaussian splatting with NeRF-based color and opacity},
+  author={Malarz, Dawid and Smolak-Dy{\.z}ewska, Weronika and Tabor, Jacek and Tadeja, S{\l}awomir and Spurek, Przemys{\l}aw},
+  journal={Computer Vision and Image Understanding},
+  volume={251},
+  pages={104273},
+  year={2025},
+  publisher={Elsevier}
+}
+
+@inproceedings{specgaussian,
+ author = {Yang, Ziyi and Gao, Xinyu and Sun, Yang-Tian and Huang, Yi-Hua and Lyu, Xiaoyang and Zhou, Wen and Jiao, Shaohui and Qi, Xiaojuan and Jin, Xiaogang},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {A. Globerson and L. Mackey and D. Belgrave and A. Fan and U. Paquet and J. Tomczak and C. Zhang},
+ pages = {61192--61216},
+ publisher = {Curran Associates, Inc.},
+ title = {Spec-Gaussian: Anisotropic View-Dependent Appearance for 3D Gaussian Splatting},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2024/file/708e0d691a22212e1e373dc8779cbe53-Paper-Conference.pdf},
+ volume = {37},
+ year = {2024}
+}
+
+
+@article{yuksel2010mesh,
+  title={Mesh colors},
+  author={Yuksel, Cem and Keyser, John and House, Donald H},
+  journal={ACM Transactions on Graphics (TOG)},
+  volume={29},
+  number={2},
+  pages={1--11},
+  year={2010},
+  publisher={ACM New York, NY, USA}
+}
+
+@article{mildenhall2019local,
+  title={Local light field fusion: Practical view synthesis with prescriptive sampling guidelines},
+  author={Mildenhall, Ben and Srinivasan, Pratul P and Ortiz-Cayon, Rodrigo and Kalantari, Nima Khademi and Ramamoorthi, Ravi and Ng, Ren and Kar, Abhishek},
+  journal={ACM Transactions on Graphics (ToG)},
+  volume={38},
+  number={4},
+  pages={1--14},
+  year={2019},
+  publisher={ACM New York, NY, USA}
+}
+
+@article{zhou2018stereo,
+author = {Zhou, Tinghui and Tucker, Richard and Flynn, John and Fyffe, Graham and Snavely, Noah},
+title = {Stereo magnification: learning view synthesis using multiplane images},
+year = {2018},
+issue_date = {August 2018},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {37},
+number = {4},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3197517.3201323},
+doi = {10.1145/3197517.3201323},
+abstract = {The view synthesis problem---generating novel views of a scene from known imagery---has garnered recent attention due in part to compelling applications in virtual and augmented reality. In this paper, we explore an intriguing scenario for view synthesis: extrapolating views from imagery captured by narrow-baseline stereo cameras, including VR cameras and now-widespread dual-lens camera phones. We call this problem stereo magnification, and propose a learning framework that leverages a new layered representation that we call multiplane images (MPIs). Our method also uses a massive new data source for learning view extrapolation: online videos on YouTube. Using data mined from such videos, we train a deep network that predicts an MPI from an input stereo image pair. This inferred MPI can then be used to synthesize a range of novel views of the scene, including views that extrapolate significantly beyond the input baseline. We show that our method compares favorably with several recent view synthesis methods, and demonstrate applications in magnifying narrow-baseline stereo images.},
+journal = {ACM Trans. Graph.},
+month = jul,
+articleno = {65},
+numpages = {12},
+keywords = {view extrapolation, deep learning}
+}
+
+@article{li2018optcuts,
+  title={Optcuts: Joint optimization of surface cuts and parameterization},
+  author={Li, Minchen and Kaufman, Danny M and Kim, Vladimir G and Solomon, Justin and Sheffer, Alla},
+  journal={ACM transactions on graphics (TOG)},
+  volume={37},
+  number={6},
+  pages={1--13},
+  year={2018},
+  publisher={ACM New York, NY, USA}
+}
+
+@article{hormann2007mesh,
+  title={Mesh parameterization: Theory and practice},
+  author={Hormann, Kai and L{\'e}vy, Bruno and Sheffer, Alla},
+  year={2007}
+}
+
+@book{catmull1974subdivision,
+  title={A subdivision algorithm for computer display of curved surfaces},
+  author={Catmull, Edwin Earl},
+  year={1974},
+  publisher={The University of Utah}
+}
+
+@inproceedings{tewari2022advances,
+  title={Advances in neural rendering},
+  author={Tewari, Ayush and Thies, Justus and Mildenhall, Ben and Srinivasan, Pratul and Tretschk, Edgar and Yifan, Wang and Lassner, Christoph and Sitzmann, Vincent and Martin-Brualla, Ricardo and Lombardi, Stephen and others},
+  booktitle={Computer Graphics Forum},
+  volume={41},
+  number={2},
+  pages={703--735},
+  year={2022},
+  organization={Wiley Online Library}
+}
+
+@article{zhang2020nerf++,
+  title={Nerf++: Analyzing and improving neural radiance fields},
+  author={Zhang, Kai and Riegler, Gernot and Snavely, Noah and Koltun, Vladlen},
+  journal={arXiv preprint arXiv:2010.07492},
+  year={2020}
+}
+
+@inproceedings{sharma2024volumetric,
+  title={Volumetric rendering with baked quadrature fields},
+  author={Sharma, Gopal and Rebain, Daniel and Yi, Kwang Moo and Tagliasacchi, Andrea},
+  booktitle={European Conference on Computer Vision},
+  pages={275--292},
+  year={2024},
+  organization={Springer}
+}
+
+@inproceedings{yuksel2019rethinking,
+  title={Rethinking texture mapping},
+  author={Yuksel, Cem and Lefebvre, Sylvain and Tarini, Marco},
+  booktitle={Computer graphics forum},
+  volume={38},
+  number={2},
+  pages={535--551},
+  year={2019},
+  organization={Wiley Online Library}
+}
+
+@article{mallett2020patch,
+  title={Patch textures: Hardware support for mesh colors},
+  author={Mallett, Ian and Seiler, Larry and Yuksel, Cem},
+  journal={IEEE Transactions on Visualization and Computer Graphics},
+  volume={28},
+  number={7},
+  pages={2710--2721},
+  year={2020},
+  publisher={IEEE}
+}
+
+@inproceedings{srinivasan2024nuvo,
+  title={Nuvo: Neural uv mapping for unruly 3d representations},
+  author={Srinivasan, Pratul P and Garbin, Stephan J and Verbin, Dor and Barron, Jonathan T and Mildenhall, Ben},
+  booktitle={European Conference on Computer Vision},
+  pages={18--34},
+  year={2024},
+  organization={Springer}
+}
+
+@inproceedings{eagles,
+author = {Girish, Sharath and Gupta, Kamal and Shrivastava, Abhinav},
+title = {EAGLES: Efficient Accelerated 3D Gaussians with&nbsp;Lightweight EncodingS},
+year = {2024},
+isbn = {978-3-031-73035-1},
+publisher = {Springer-Verlag},
+address = {Berlin, Heidelberg},
+url = {https://doi.org/10.1007/978-3-031-73036-8_4},
+doi = {10.1007/978-3-031-73036-8_4},
+abstract = {Recently, 3D Gaussian splatting (3D-GS) has gained popularity in novel-view scene synthesis. It addresses the challenges of lengthy training times and slow rendering speeds associated with Neural Radiance Fields (NeRFs). Through rapid, differentiable rasterization of 3D Gaussians, 3D-GS achieves real-time rendering and accelerated training. They, however, demand substantial memory resources for both training and storage, as they require millions of Gaussians in their point cloud representation for each scene. We present a technique utilizing quantized embeddings to significantly reduce per-point memory storage requirements and a coarse-to-fine training strategy for a faster and more stable optimization of the Gaussian point clouds. Our approach develops a pruning stage which results in scene representations with fewer Gaussians, leading to faster training times and rendering speeds for real-time rendering of high resolution scenes. We reduce storage memory by more than an order of magnitude all while preserving the reconstruction quality. We validate the effectiveness of our approach on a variety of datasets and scenes preserving the visual quality while consuming 10–20\texttimes{} less memory and faster training/inference speed. Code is available .},
+booktitle = {Computer Vision – ECCV 2024: 18th European Conference, Milan, Italy, September 29–October 4, 2024, Proceedings, Part LXIII},
+pages = {54–71},
+numpages = {18},
+location = {Milan, Italy}
+}
+
+@inproceedings{uv3dgs,
+author = {Xu, Tian-Xing and Hu, Wenbo and Lai, Yu-Kun and Shan, Ying and Zhang, Song-Hai},
+title = {Texture-GS: Disentangling the Geometry and Texture for 3D Gaussian Splatting Editing},
+year = {2024},
+isbn = {978-3-031-72697-2},
+publisher = {Springer-Verlag},
+address = {Berlin, Heidelberg},
+url = {https://doi.org/10.1007/978-3-031-72698-9_3},
+doi = {10.1007/978-3-031-72698-9_3},
+abstract = {3D Gaussian splatting, emerging as a groundbreaking approach, has drawn increasing attention for its capabilities of high-fidelity reconstruction and real-time rendering. However, it couples the appearance and geometry of the scene within the Gaussian attributes, which hinders the flexibility of editing operations, such as texture swapping. To address this issue, we propose a novel approach, namely Texture-GS, to disentangle the appearance from the geometry by representing it as a 2D texture mapped onto the 3D surface, thereby facilitating appearance editing. Technically, the disentanglement is achieved by our proposed texture mapping module, which consists of a UV mapping MLP to learn the UV coordinates for the 3D Gaussian centers, a local Taylor expansion of the MLP to efficiently approximate the UV coordinates for the ray-Gaussian intersections, and a learnable texture to capture the fine-grained appearance. Extensive experiments on the DTU dataset demonstrate that our method not only facilitates high-fidelity appearance editing but also achieves real-time rendering on consumer-level devices, e.g.a single RTX 2080 Ti GPU.},
+booktitle = {Computer Vision – ECCV 2024: 18th European Conference, Milan, Italy, September 29–October 4, 2024, Proceedings, Part XXV},
+pages = {37–53},
+numpages = {17},
+keywords = {Neural rendering, Scene editing, Novel view synthesis, Gaussian splatting, Texture mapping, Disentanglement},
+location = {Milan, Italy}
+}
+
+@inproceedings{2dgs,
+author = {Huang, Binbin and Yu, Zehao and Chen, Anpei and Geiger, Andreas and Gao, Shenghua},
+title = {2D Gaussian Splatting for Geometrically Accurate Radiance Fields},
+year = {2024},
+isbn = {9798400705250},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3641519.3657428},
+doi = {10.1145/3641519.3657428},
+abstract = {3D Gaussian Splatting (3DGS) has recently revolutionized radiance field reconstruction, achieving high quality novel view synthesis and fast rendering speed. However, 3DGS fails to accurately represent surfaces due to the multi-view inconsistent nature of 3D Gaussians. We present 2D Gaussian Splatting (2DGS), a novel approach to model and reconstruct geometrically accurate radiance fields from multi-view images. Our key idea is to collapse the 3D volume into a set of 2D oriented planar Gaussian disks. Unlike 3D Gaussians, 2D Gaussians provide view-consistent geometry while modeling surfaces intrinsically. To accurately recover thin surfaces and achieve stable optimization, we introduce a perspective-accurate 2D splatting process utilizing ray-splat intersection and rasterization. Additionally, we incorporate depth distortion and normal consistency terms to further enhance the quality of the reconstructions. We demonstrate that our differentiable renderer allows for noise-free and detailed geometry reconstruction while maintaining competitive appearance quality, fast training speed, and real-time rendering. Project page at https://surfsplatting.github.io.},
+booktitle = {ACM SIGGRAPH 2024 Conference Papers},
+articleno = {32},
+numpages = {11},
+keywords = {Novel View Synthesis, Radiance Fields, Surface Reconstruction, Surface Splatting},
+location = {Denver, CO, USA},
+series = {SIGGRAPH '24}
+}
+
+@InProceedings{sugar,
+    author    = {Gu\'edon, Antoine and Lepetit, Vincent},
+    title     = {SuGaR: Surface-Aligned Gaussian Splatting for Efficient 3D Mesh Reconstruction and High-Quality Mesh Rendering},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2024},
+    pages     = {5354-5363}
+}
+
+@inproceedings{frosting,
+author = {Gu\'{e}don, Antoine and Lepetit, Vincent},
+title = {Gaussian Frosting: Editable Complex Radiance Fields with&nbsp;Real-Time Rendering},
+year = {2024},
+isbn = {978-3-031-73649-0},
+publisher = {Springer-Verlag},
+address = {Berlin, Heidelberg},
+url = {https://doi.org/10.1007/978-3-031-73650-6_24},
+doi = {10.1007/978-3-031-73650-6_24},
+abstract = {We propose Gaussian Frosting, a novel mesh-based representation for high-quality rendering and editing of complex 3D effects in real-time. Our approach builds on the recent 3D Gaussian Splatting framework, which optimizes a set of 3D Gaussians to approximate a radiance field from images. We propose first extracting a base mesh from Gaussians during optimization, then building and refining an adaptive layer of Gaussians with a variable thickness around the mesh to better capture the fine details and volumetric effects near the surface, such as hair or grass. We call this layer Gaussian Frosting, as it resembles a coating of frosting on a cake. The fuzzier the material, the thicker the frosting. We also introduce a parameterization of the Gaussians to enforce them to stay inside the frosting layer and automatically adjust their parameters when deforming, rescaling, editing or animating the mesh. Our representation allows for efficient rendering using Gaussian splatting, as well as editing and animation by modifying the base mesh. Additionally, the mesh can be used for occlusion culling on Gaussians, accelerating rendering during both optimization and inference. We demonstrate the effectiveness of our method on various synthetic and real scenes, and show that it outperforms existing surface-based approaches. We will release our code and a web-based viewer as additional contributions.},
+booktitle = {Computer Vision – ECCV 2024: 18th European Conference, Milan, Italy, September 29–October 4, 2024, Proceedings, Part LXV},
+pages = {413–430},
+numpages = {18},
+keywords = {Gaussian Splatting, Mesh, Differentiable rendering},
+location = {Milan, Italy}
+}
+
+@article{binaryopacitygrids,
+author = {Reiser, Christian and Garbin, Stephan and Srinivasan, Pratul and Verbin, Dor and Szeliski, Richard and Mildenhall, Ben and Barron, Jonathan and Hedman, Peter and Geiger, Andreas},
+title = {Binary Opacity Grids: Capturing Fine Geometric Detail for Mesh-Based View Synthesis},
+year = {2024},
+issue_date = {July 2024},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {43},
+number = {4},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3658130},
+doi = {10.1145/3658130},
+abstract = {While surface-based view synthesis algorithms are appealing due to their low computational requirements, they often struggle to reproduce thin structures. In contrast, more expensive methods that model the scene's geometry as a volumetric density field (e.g. NeRF) excel at reconstructing fine geometric detail. However, density fields often represent geometry in a "fuzzy" manner, which hinders exact localization of the surface. In this work, we modify density fields to encourage them to converge towards surfaces, without compromising their ability to reconstruct thin structures. First, we employ a discrete opacity grid representation instead of a continuous density field, which allows opacity values to discontinuously transition from zero to one at the surface. Second, we anti-alias by casting multiple rays per pixel, which allows occlusion boundaries and subpixel structures to be modelled without using semi-transparent voxels. Third, we minimize the binary entropy of the opacity values, which facilitates the extraction of surface geometry by encouraging opacity values to binarize towards the end of training. Lastly, we develop a fusion-based meshing strategy followed by mesh simplification and appearance model fitting. The compact meshes produced by our model can be rendered in real-time on mobile devices and achieve significantly higher view synthesis quality compared to existing mesh-based approaches. Our interactive webdemo is available at https://binary-opacity-grid.github.io.},
+journal = {ACM Trans. Graph.},
+month = jul,
+articleno = {149},
+numpages = {14},
+keywords = {novel view synthesis, differentiable rendering, neural radiance fields, multiview-to-3D, real-time rendering}
+}
+
+@article{gaussianopacityfields,
+author = {Yu, Zehao and Sattler, Torsten and Geiger, Andreas},
+title = {Gaussian Opacity Fields: Efficient Adaptive Surface Reconstruction in Unbounded Scenes},
+year = {2024},
+issue_date = {December 2024},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {43},
+number = {6},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3687937},
+doi = {10.1145/3687937},
+abstract = {Recently, 3D Gaussian Splatting (3DGS) has demonstrated impressive novel view synthesis results, while allowing the rendering of high-resolution images in real-time. However, leveraging 3D Gaussians for surface reconstruction poses significant challenges due to the explicit and disconnected nature of 3D Gaussians. In this work, we present Gaussian Opacity Fields (GOF), a novel approach for efficient, high-quality, and adaptive surface reconstruction in unbounded scenes. Our GOF is derived from ray-tracing-based volume rendering of 3D Gaussians, enabling direct geometry extraction from 3D Gaussians by identifying its levelset, without resorting to Poisson reconstruction or TSDF fusion as in previous work. We approximate the surface normal of Gaussians as the normal of the ray-Gaussian intersection plane, enabling the application of regularization that significantly enhances geometry. Furthermore, we develop an efficient geometry extraction method utilizing Marching Tetrahedra, where the tetrahedral grids are induced from 3D Gaussians and thus adapt to the scene's complexity. Our evaluations reveal that GOF surpasses existing 3DGS-based methods in surface reconstruction and novel view synthesis. Further, it compares favorably to or even outperforms, neural implicit methods in both quality and speed.},
+journal = {ACM Trans. Graph.},
+month = nov,
+articleno = {271},
+numpages = {13},
+keywords = {novel view synthesis, differentiable rendering, gaussian splatting, surface reconstruction, multi-view-to-3D}
+}
+
+@inproceedings{revising,
+author = {Rota Bul\`{o}, Samuel and Porzi, Lorenzo and Kontschieder, Peter},
+title = {Revising Densification in Gaussian Splatting},
+year = {2024},
+isbn = {978-3-031-73035-1},
+publisher = {Springer-Verlag},
+address = {Berlin, Heidelberg},
+url = {https://doi.org/10.1007/978-3-031-73036-8_20},
+doi = {10.1007/978-3-031-73036-8_20},
+abstract = {In this paper, we address the limitations of Adaptive Density Control (ADC) in 3D Gaussian Splatting (3DGS), a scene representation method achieving high-quality, photorealistic results for novel view synthesis. ADC has been introduced for automatic 3D point primitive management, controlling densification and pruning, however, with certain limitations in the densification logic. Our main contribution is a more principled, pixel-error driven formulation for density control in 3DGS, leveraging an auxiliary, per-pixel error function as the criterion for densification. We further introduce a mechanism to control the total number of primitives generated per scene and correct a bias in the current opacity handling strategy of ADC during cloning operations. Our approach leads to consistent quality improvements across a variety of benchmark scenes, without sacrificing the method’s efficiency.},
+booktitle = {Computer Vision – ECCV 2024: 18th European Conference, Milan, Italy, September 29–October 4, 2024, Proceedings, Part LXIII},
+pages = {347–362},
+numpages = {16},
+keywords = {Gaussian Splatting, 3D reconstruction, Novel View Synthesis},
+location = {Milan, Italy}
+}
+
+@inproceedings{3dgs-mcmc,
+ author = {Kheradmand, Shakiba and Rebain, Daniel and Sharma, Gopal and Sun, Weiwei and Tseng, Yang-Che and Isack, Hossam and Kar, Abhishek and Tagliasacchi, Andrea and Yi, Kwang Moo},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {A. Globerson and L. Mackey and D. Belgrave and A. Fan and U. Paquet and J. Tomczak and C. Zhang},
+ pages = {80965--80986},
+ publisher = {Curran Associates, Inc.},
+ title = {3D Gaussian Splatting as Markov Chain Monte Carlo},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2024/file/93be245fce00a9bb2333c17ceae4b732-Paper-Conference.pdf},
+ volume = {37},
+ year = {2024}
+}
+
+@INPROCEEDINGS{kilonerf,
+          author = {Christian Reiser and Songyou Peng and Yiyi Liao and Andreas Geiger},
+          title = {KiloNeRF: Speeding up Neural Radiance Fields with Thousands of Tiny MLPs},
+          booktitle = {International Conference on Computer Vision (ICCV)},
+          year = {2021}
+        }
+
+@inproceedings{dvxgo,
+  author    = {Cheng Sun and Min Sun and Hwann{-}Tzong Chen},
+  title     = {Direct Voxel Grid Optimization: Super-fast Convergence for Radiance Fields Reconstruction},
+  booktitle = {CVPR},
+  year      = {2022},
+}
+
+@inproceedings{plenoxels,
+      title={Plenoxels: Radiance Fields without Neural Networks}, 
+      author={Sara Fridovich-Keil and Alex Yu and Matthew Tancik and Qinhong Chen and Benjamin Recht and Angjoo Kanazawa},
+      year={2022},
+      booktitle={CVPR},
+}
+
+@misc{bbsplat,
+      title={BillBoard Splatting (BBSplat): Learnable Textured Primitives for Novel View Synthesis}, 
+      author={David Svitov and Pietro Morerio and Lourdes Agapito and Alessio Del Bue},
+      year={2025},
+      eprint={2411.08508},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2411.08508}, 
+}
+
+@inproceedings{textured3dgs,
+            title={Textured Gaussians for Enhanced 3D Scene Appearance Modeling},
+            author={Brian Chao and Hung-Yu Tseng and Lorenzo Porzi and Chen Gao and Tuotuo Li and Qinbo Li and Ayush Saraf and Jia-Bin Huang and Johannes Kopf and Gordon Wetzstein and Changil Kim},
+            year={2025},
+            booktitle={CVPR}
+}
+
+@misc{supergaussians,
+      title={SuperGaussians: Enhancing Gaussian Splatting Using Primitives with Spatially Varying Colors}, 
+      author={Xu, Rui and Chen, Wenyue and Wang, Jiepeng and Liu, Yuan and Wang, Peng and Gao, Lin and Xin, Shiqing and Komura, Taku and Li, Xin and Wang, Wenping},
+      year={2024},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+}
+
+@InProceedings{gstex,
+    author    = {Rong, Victor and Chen, Jingxiang and Bahmani, Sherwin and Kutulakos, Kiriakos and Lindell, David},
+    title     = {GStex: Per-Primitive Texturing of 2D Gaussian Splatting for Decoupled Appearance and Geometry Modeling},
+    booktitle = {Proceedings of the Winter Conference on Applications of Computer Vision (WACV)},
+    month     = {February},
+    year      = {2025},
+    pages     = {3508-3518}
+}
+
+
+@article{tnt,
+author = {Knapitsch, Arno and Park, Jaesik and Zhou, Qian-Yi and Koltun, Vladlen},
+title = {Tanks and temples: benchmarking large-scale scene reconstruction},
+year = {2017},
+issue_date = {August 2017},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {36},
+number = {4},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3072959.3073599},
+doi = {10.1145/3072959.3073599},
+abstract = {We present a benchmark for image-based 3D reconstruction. The benchmark sequences were acquired outside the lab, in realistic conditions. Ground-truth data was captured using an industrial laser scanner. The benchmark includes both outdoor scenes and indoor environments. High-resolution video sequences are provided as input, supporting the development of novel pipelines that take advantage of video input to increase reconstruction fidelity. We report the performance of many image-based 3D reconstruction pipelines on the new benchmark. The results point to exciting challenges and opportunities for future work.},
+journal = {ACM Trans. Graph.},
+month = jul,
+articleno = {78},
+numpages = {13},
+keywords = {structure from motion, multi-view stereo, large-scale scene reconstruction, image-based reconstruction}
+}
+
+@article{db,
+author = {Hedman, Peter and Philip, Julien and Price, True and Frahm, Jan-Michael and Drettakis, George and Brostow, Gabriel},
+title = {Deep blending for free-viewpoint image-based rendering},
+year = {2018},
+issue_date = {December 2018},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+volume = {37},
+number = {6},
+issn = {0730-0301},
+url = {https://doi.org/10.1145/3272127.3275084},
+doi = {10.1145/3272127.3275084},
+abstract = {Free-viewpoint image-based rendering (IBR) is a standing challenge. IBR methods combine warped versions of input photos to synthesize a novel view. The image quality of this combination is directly affected by geometric inaccuracies of multi-view stereo (MVS) reconstruction and by view- and image-dependent effects that produce artifacts when contributions from different input views are blended. We present a new deep learning approach to blending for IBR, in which we use held-out real image data to learn blending weights to combine input photo contributions. Our Deep Blending method requires us to address several challenges to achieve our goal of interactive free-viewpoint IBR navigation. We first need to provide sufficiently accurate geometry so the Convolutional Neural Network (CNN) can succeed in finding correct blending weights. We do this by combining two different MVS reconstructions with complementary accuracy vs. completeness tradeoffs. To tightly integrate learning in an interactive IBR system, we need to adapt our rendering algorithm to produce a fixed number of input layers that can then be blended by the CNN. We generate training data with a variety of captured scenes, using each input photo as ground truth in a held-out approach. We also design the network architecture and the training loss to provide high quality novel view synthesis, while reducing temporal flickering artifacts. Our results demonstrate free-viewpoint IBR in a wide variety of scenes, clearly surpassing previous methods in visual quality, especially when moving far from the input cameras.},
+journal = {ACM Trans. Graph.},
+month = dec,
+articleno = {257},
+numpages = {15},
+keywords = {image-based rendering, free-viewpoint, deep learning}
+}
+
+@InProceedings{lpips,
+author = {Zhang, Richard and Isola, Phillip and Efros, Alexei A. and Shechtman, Eli and Wang, Oliver},
+title = {The Unreasonable Effectiveness of Deep Features as a Perceptual Metric},
+booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+month = {June},
+year = {2018}
+}
+
+@article{3dgszip,
+    title={3DGS.zip: A survey on 3D Gaussian Splatting Compression Methods}, 
+    author={Milena T. Bagdasarian and Paul Knoll and Yi-Hsin Li and Florian Barthel and Anna Hilsmann and 
+            Peter Eisert and Wieland Morgenstern},
+    journal={arXiv preprint arXiv:2407.09510},
+    year={2024}, 
+} 
+
+@misc{webglviewer,
+    title={Splat Viewer},
+    url={https://github.com/antimatter15/splat?tab=readme-ov-file},
+    author={Kevin Kwok}
+}

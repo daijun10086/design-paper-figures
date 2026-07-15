@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1280" viewBox="0 0 1600 1280">
+  <defs>
+    <linearGradient id="f5-orange" x1="0" x2="1"><stop offset="0" stop-color="#DFB5A7"/><stop offset="1" stop-color="#D2AB9D"/></linearGradient>
+    <linearGradient id="f5-gray" x1="0" x2="1"><stop offset="0" stop-color="#F5F7F9"/><stop offset="0.5" stop-color="#E6E6E8"/><stop offset="1" stop-color="#CDCECF"/></linearGradient>
+    <linearGradient id="error-ramp" x1="0" x2="1">
+      <stop offset="0" stop-color="#251255"/><stop offset="0.125" stop-color="#4F127B"/><stop offset="0.25" stop-color="#752181"/><stop offset="0.375" stop-color="#9C2E7F"/><stop offset="0.5" stop-color="#C53C74"/><stop offset="0.625" stop-color="#E95462"/><stop offset="0.75" stop-color="#FA7D5E"/><stop offset="0.875" stop-color="#FEAA74"/><stop offset="1" stop-color="#FED89A"/>
+    </linearGradient>
+    <linearGradient id="eval-ramp" x1="0" x2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="0.125" stop-color="#FEF7F6"/><stop offset="0.25" stop-color="#FEEFEE"/><stop offset="0.375" stop-color="#FDE8E5"/><stop offset="0.5" stop-color="#FDE0DC"/><stop offset="0.625" stop-color="#FCC8B7"/><stop offset="0.75" stop-color="#FCAD90"/><stop offset="0.875" stop-color="#F67F64"/><stop offset="1" stop-color="#DE2D26"/>
+    </linearGradient>
+    <style>
+      .title { font: 700 38px Helvetica, Arial, sans-serif; fill: #202020; }
+      .subtitle { font: 400 21px Helvetica, Arial, sans-serif; fill: #666; }
+      .section { font: 700 27px Helvetica, Arial, sans-serif; fill: #222; }
+      .meta { font: 400 19px Helvetica, Arial, sans-serif; fill: #666; }
+      .label { font: 600 21px Helvetica, Arial, sans-serif; fill: #333; }
+      .hex { font: 400 16px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #555; }
+      .axis { font: 400 17px Helvetica, Arial, sans-serif; fill: #666; }
+      .rule { stroke: #D7D7D7; stroke-width: 2; }
+      .swatch { stroke: #B8B8B8; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <rect width="1600" height="1280" fill="#FFFFFF"/>
+  <text x="72" y="70" class="title">Color extraction review</text>
+  <text x="72" y="106" class="subtitle">The Antipodal Method · Figure 3, Figure 5, and Supplementary Figure 3</text>
+
+  <line x1="72" y1="140" x2="1528" y2="140" class="rule"/>
+  <text x="72" y="184" class="section">P11 · Figure 3 — mint + coral region set</text>
+  <text x="1528" y="184" text-anchor="end" class="meta">lossless raster anchors</text>
+  <g transform="translate(72 208)">
+    <rect x="0" y="0" width="472" height="136" rx="12" fill="#A6E2B4" class="swatch"/>
+    <rect x="492" y="0" width="472" height="136" rx="12" fill="#F9856A" class="swatch"/>
+    <rect x="984" y="0" width="472" height="136" rx="12" fill="#FACBBB" class="swatch"/>
+    <text x="236" y="173" text-anchor="middle" class="label">Mint green</text><text x="236" y="199" text-anchor="middle" class="hex">#A6E2B4</text>
+    <text x="728" y="173" text-anchor="middle" class="label">Coral orange</text><text x="728" y="199" text-anchor="middle" class="hex">#F9856A</text>
+    <text x="1220" y="173" text-anchor="middle" class="label">Pale peach companion</text><text x="1220" y="199" text-anchor="middle" class="hex">#FACBBB</text>
+  </g>
+
+  <line x1="72" y1="438" x2="1528" y2="438" class="rule"/>
+  <text x="72" y="482" class="section">P12 · Figure 5 — muted geometry extension</text>
+  <text x="1528" y="482" text-anchor="end" class="meta">surface color + shading + neutral sphere</text>
+  <g transform="translate(72 508)">
+    <text x="344" y="0" text-anchor="middle" class="label">Orange surface / deeper orange</text>
+    <rect x="0" y="22" width="688" height="112" rx="12" fill="url(#f5-orange)" class="swatch"/>
+    <text x="0" y="164" class="hex">#DFB5A7</text><text x="688" y="164" text-anchor="end" class="hex">#D2AB9D</text>
+    <text x="844" y="0" text-anchor="middle" class="label">Geometry green</text>
+    <rect x="718" y="22" width="252" height="112" rx="12" fill="#90C39C" class="swatch"/>
+    <text x="844" y="164" text-anchor="middle" class="hex">#90C39C</text>
+    <text x="1228" y="0" text-anchor="middle" class="label">Sphere gray ramp</text>
+    <rect x="1000" y="22" width="456" height="112" rx="12" fill="url(#f5-gray)" class="swatch"/>
+    <text x="1000" y="164" class="hex">#F5F7F9</text><text x="1228" y="164" text-anchor="middle" class="hex">#E6E6E8</text><text x="1456" y="164" text-anchor="end" class="hex">#CDCECF</text>
+  </g>
+
+  <line x1="72" y1="708" x2="1528" y2="708" class="rule"/>
+  <text x="72" y="752" class="section">P13 · Supplementary Figure 3 — violet → coral-orange error ramp</text>
+  <text x="1528" y="752" text-anchor="end" class="meta">exact colorbar samples</text>
+  <rect x="72" y="778" width="1456" height="88" rx="12" fill="url(#error-ramp)" class="swatch"/>
+  <g transform="translate(72 882)">
+    <text x="0" y="0" class="hex">#251255</text><text x="182" y="0" text-anchor="middle" class="hex">#4F127B</text><text x="364" y="0" text-anchor="middle" class="hex">#752181</text><text x="546" y="0" text-anchor="middle" class="hex">#9C2E7F</text><text x="728" y="0" text-anchor="middle" class="hex">#C53C74</text><text x="910" y="0" text-anchor="middle" class="hex">#E95462</text><text x="1092" y="0" text-anchor="middle" class="hex">#FA7D5E</text><text x="1274" y="0" text-anchor="middle" class="hex">#FEAA74</text><text x="1456" y="0" text-anchor="end" class="hex">#FED89A</text>
+  </g>
+  <text x="72" y="920" class="axis">low end</text><text x="1528" y="920" text-anchor="end" class="axis">high end</text>
+
+  <line x1="72" y1="950" x2="1528" y2="950" class="rule"/>
+  <text x="72" y="994" class="section">P14 · Supplementary Figure 3 — white → orange-red evaluation ramp</text>
+  <text x="1528" y="994" text-anchor="end" class="meta">exact colorbar samples · white reused from bank</text>
+  <rect x="72" y="1020" width="1456" height="88" rx="12" fill="url(#eval-ramp)" class="swatch"/>
+  <g transform="translate(72 1124)">
+    <text x="0" y="0" class="hex">#FFFFFF</text><text x="182" y="0" text-anchor="middle" class="hex">#FEF7F6</text><text x="364" y="0" text-anchor="middle" class="hex">#FEEFEE</text><text x="546" y="0" text-anchor="middle" class="hex">#FDE8E5</text><text x="728" y="0" text-anchor="middle" class="hex">#FDE0DC</text><text x="910" y="0" text-anchor="middle" class="hex">#FCC8B7</text><text x="1092" y="0" text-anchor="middle" class="hex">#FCAD90</text><text x="1274" y="0" text-anchor="middle" class="hex">#F67F64</text><text x="1456" y="0" text-anchor="end" class="hex">#DE2D26</text>
+  </g>
+  <text x="72" y="1162" class="axis">minimum / empty</text><text x="1528" y="1162" text-anchor="end" class="axis">maximum / dense</text>
+
+  <line x1="72" y1="1202" x2="1528" y2="1202" class="rule"/>
+  <text x="72" y="1244" class="subtitle">Bank merge: 26 new unique colors; #FFFFFF reused; 88 unique colors and 14 combinations total.</text>
+</svg>

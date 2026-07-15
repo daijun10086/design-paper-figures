@@ -1,0 +1,52 @@
+\begin{table}[t]
+\centering
+\begin{threeparttable}
+% \vspace{-1\baselineskip}
+\footnotesize            % <<— Increase font size here
+\setlength{\tabcolsep}{4pt}  % <<— Reduce column padding to prevent wide table
+
+% --- TABLE ---
+\begin{tabular}{lcccccc}   % <<— Use tabular (not tabular*) to shrink width
+\toprule
+
+& \multicolumn{3}{c}{\textbf{Encoder}}
+& \multicolumn{3}{c}{\textbf{Decoder}} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+
+\textbf{Params}
+& \textbf{dim} & \textbf{dim\_head} & \textbf{n\_layers}
+& \textbf{dim} & \textbf{dim\_head} & \textbf{n\_layers} \\
+\midrule
+
+% 15 & 384 & 64 & 3 & 384 & 64 & 3 \\
+% 27 & 384 & 64 & 6 & 384 & 64 & 6 \\
+% 35 & 384 & 64 & 8 & 384 & 64 & 8 \\
+% 62 & 512 & 64 & 8 & 384 & 64 & 8 \\
+% 79 & 512 & 64 & 8 & 512 & 64 & 12 \\
+% 145 & 640 & 64 & 10 & 640 & 64 & 14 \\
+% 226 & 768 & 64 & 10 & 768 & 64 & 16 \\
+% 316 & 768 & 64 & 12 & 768 & 64 & 24 \\
+% \hline
+% \textbf{420} & 768 & 64 & 16 & 768 & 64 & 32 \\
+% 740 & 1024 & 64 & 16 & 1024 & 64 & 32 \\
+
+15M & 384 & 64 & 3 & 384 & 64 & 3 \\
+27M & 384 & 64 & 6 & 384 & 64 & 6 \\
+35M & 384 & 64 & 8 & 384 & 64 & 8 \\
+62M & 512 & 64 & 8 & 384 & 64 & 8 \\
+79M & 512 & 64 & 8 & 512 & 64 & 12 \\
+145M & 640 & 64 & 10 & 640 & 64 & 14 \\
+226M & 768 & 64 & 10 & 768 & 64 & 16 \\
+316M & 768 & 64 & 12 & 768 & 64 & 24 \\
+\hline
+\textbf{420M} & 768 & 64 & 16 & 768 & 64 & 32 \\
+740M & 1024 & 64 & 16 & 1024 & 64 & 32 \\
+
+
+\bottomrule
+\end{tabular}
+
+\caption{\textbf{RealEstate10K $\boldsymbol{V_C}\mathbf{{=}2}$, SVSM Encoder-Decoder.} SVSM Encoder-Decoder model settings used to sweep scaling laws for the stereo ($V_C{=} 2$) novel view synthesis setting. \textbf{Bolded} is the row for the compute-matched, Pareto-optimal SVSM model compared against the 24-layer LVSM Decoder-only model.}
+\label{tab:svsm-re10k-details}
+\end{threeparttable}
+\end{table}

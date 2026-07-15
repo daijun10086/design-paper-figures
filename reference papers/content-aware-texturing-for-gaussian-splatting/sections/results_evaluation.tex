@@ -1,0 +1,221 @@
+
+\section{Results and Evaluation}
+
+We test our method on 13 indoor and outdoor scenes from three different standard datasets.
+We evaluate on all scenes of Mip-NeRF 360 \cite{mipnerf360},
+two scenes from Tanks \& Temples \cite{tnt},
+as well as two scenes from Deep Blending \cite{db}.
+Fig.~\ref{fig:default-eval} shows that our method faithfully reconstructs the input images.
+%\Fredo{Should we discuss how we normalize and keep comparison fair wrt number of primitives vs memory size?}
+% \begin{itemize}
+% \item Fig. \ref{fig:results} line showing our result and GT on 2 scenes
+% \item Show that quality is good
+% \item Give Speed, memory etc.
+% \end{itemize}
+
+\subsection{Evaluation}
+\label{sec:eval}
+
+We compare our method against 2DGS \cite{2dgs} as a baseline,
+and two 2DGS texturing methods,
+namely (unpublished) BBSplat~\cite{bbsplat} and GStex \cite{gstex},
+for which the code was available at the time of submission.
+\revision{rev9584 2866 comparison to textured-3dgs 3dgs-mcmc}
+{
+Directly comparing to 3DGS-based models is not straightforward and might lead to misleading conclusions,
+since these models have different properties and consistently perform better for NVS but worse in geometry reconstruction,
+compared to 2DGS-based solutions~\cite{2dgs}.
+For the same reason,
+and because the code was not available at the time of submission,
+we do not compare against \cite{textured3dgs},
+which is a 3DGS-based method with textured primitives.
+This model uses a pretrained 3DGS-MCMC model as initialization,
+similar to GStex,
+and includes RGBA textures,
+similar to BBSplat.
+We thus expect it to suffer from the disadvantages of both these two models (see discussion of the second experiment).
+}
+We ran these methods on all scenes using our machines to ensure fair comparison.
+For 2DGS,
+the normal consistency and depth distortion regularization terms were disabled,
+as they are designed to enhance the geometric reconstruction
+but often result in lower novel view synthesis (NVS) quality.
+
+\begin{figure*}[!h]
+\centering
+\setlength{\tabcolsep}{1.5pt}
+
+    \newcommand{\resultfigwidth}{.24\textwidth}
+
+\begin{tabular}{cc|ccc}
+    & Ground Truth & BBSplat & GStex & Ours \\
+    \raisebox{0.4\height}{\rotatebox{90}{\small Mip-Nerf360}} &
+    \spyimage{red}{\resultfigwidth}{images/table2/m360_gt.jpg}{1.4, 2.5}{1.1, 0.7} &
+    \spyimage{red}{\resultfigwidth}{images/table2/m360_bbsplat_same_params_.jpg}{1.4, 2.5}{1.1, 0.7} &
+    \spyimage{red}{\resultfigwidth}{images/table2/m360_gstex_output_same_params.jpg}{1.4, 2.5}{1.1, 0.7} &
+    \spyimage{red}{\resultfigwidth}{images/table2/m360_texture-proj_final_new_downscale_threshold_0.02.jpg}{1.4, 2.5}{1.1, 0.7} \\
+    
+    \raisebox{0.3\height}{\rotatebox{90}{\small Deep Blending}} &
+    \spyimage{red}{\resultfigwidth}{images/table2/db_gt.jpg}{2.5, 0.3}{4, 0.7} &
+    \spyimage{red}{\resultfigwidth}{images/table2/db_bbsplat_same_params_.jpg}{2.5, 0.3}{4, 0.7} &
+    \spyimage{red}{\resultfigwidth}{images/table2/db_gstex_output_same_params.jpg}{2.5, 0.3}{4, 0.7} &
+    \spyimage{red}{\resultfigwidth}{images/table2/db_texture-proj_final_new_downscale_threshold_0.02.jpg}{2.5, 0.3}{4, 0.7} \\
+
+    \raisebox{0.15\height}{\rotatebox{90}{\small Tanks\&Temples}} &
+    \spyimage{red}{\resultfigwidth}{images/table2/tnt_gt.jpg}{2.1, 0.1}{1.1, 0.7} &
+    \spyimage{red}{\resultfigwidth}{images/table2/tnt_bbsplat_same_params_.jpg}{2.1, 0.1}{1.1, 0.7} &
+    \spyimage{red}{\resultfigwidth}{images/table2/tnt_gstex_output_same_params.jpg}{2.1, 0.1}{1.1, 0.7} &
+    \spyimage{red}{\resultfigwidth}{images/table2/tnt_texture-proj_final_new_downscale_threshold_0.02.jpg}{2.1, 0.1}{1.1, 0.7} \\
+\end{tabular}
+
+\caption{
+\label{fig:same-param-eval}
+Adjusting BBSplat and GSTex to use the same budget as our method, results in significant visual degradation.}
+\end{figure*}
+
+\textbf{Qualitative Evaluation.}
+%\Fredo{Sentence hard to parse. Simplify. Check I didn't break it. Is the end of the sentence useful?} 
+In Figure~\ref{fig:default-eval},
+we show visual results for the different models. We show
+test views (i.e., not used for training) from one scene of each dataset.
+Our method succeeds in reconstructing high-frequency details with high fidelity,
+even with fewer parameters.
+Similarly, Figure~\ref{fig:same-param-eval} displays visual results from the second experiment,
+which highlight that other texturing methods struggle when constrained to the same parameter budget as ours.
+GSTex uses a point cloud that is not trained with textured primitives in mind
+and a static heuristic distribution of texels, which causes it to
+not reconstruct well large parts of the scene.
+BBSplat succeeds in geometrically reconstructing the scene, but exhibits texture stretching, which appears as blurriness.
+This is due to the choice of mapping between intersection points and UV coordinates. 
+%\Fredo{Hard to parse, long winded, rephrase}
+
+%\subsection{Evaluation}
+\textbf{Quantitative Evaluation.}
+For our quantitative comparisons,
+we present results for three error metrics, SSIM, PSNR, and LPIPS \cite{lpips},
+that are typically used to evaluate NVS.
+Additionally,
+we report the number of primitives and
+texels used,
+which provides a precise measure of the resources required for each method
+and demonstrates whether and how much textures contribute to the scene reconstruction.
+\revision{rev9584 scope of the paper, primitive vs parameters}{
+Finally,
+since the models' capacity is directly tied to the number of parameters used,
+we include the relevant column so that we can make fair comparisons and draw meaningful conclusions.
+}
+
+\revision{rev4160}{
+The formula for the number of parameters differs slightly among the models.
+}
+For 2DGS, GSTex each primitive has 58 parameters (3 for position, 2 for scale, 4 for rotation, 1 for opacity, 48 for color),
+while for BBSplat this number is 57,
+as it lacks opacity.
+In our method,
+in addition to the parameters of 2DGS,
+we include one additional per primitive for the texel size,
+pushing the number to 59 parameters.
+Regarding the parameters coming from texels,
+GSTex and our method have 3 per texel,
+while BBSplat has one additional,
+corresponding to the alpha channel.
+
+
+\begin{table*}[!ht]
+\footnotesize
+\setlength\tabcolsep{2pt}
+\centering
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.3cm}|>{\centering\arraybackslash}p{0.8cm}>{\centering\arraybackslash}p{0.8cm}>{\centering\arraybackslash}p{0.8cm}>{\raggedleft\arraybackslash}p{0.7cm}>{\centering\arraybackslash}p{0.9cm}>{\centering\arraybackslash}p{0.6cm}|>{\centering\arraybackslash}p{0.8cm}>{\centering\arraybackslash}p{0.8cm}>{\centering\arraybackslash}p{0.8cm}>{\raggedleft\arraybackslash}p{0.7cm}>{\centering\arraybackslash}p{0.9cm}>{\centering\arraybackslash}p{0.6cm}|>{\centering\arraybackslash}p{0.8cm}>{\centering\arraybackslash}p{0.8cm}>{\centering\arraybackslash}p{0.8cm}>{\raggedleft\arraybackslash}p{0.7cm}>{\centering\arraybackslash}p{0.9cm}>{\centering\arraybackslash}p{0.6cm}}
+ & \multicolumn{6}{c|}{DeepBlending} & \multicolumn{6}{c|}{Mip-Nerf-360} & \multicolumn{6}{c}{Tanks\&Temples} \\
+ & SSIM$\uparrow$ & PSNR$\uparrow$ & LPIPS$\downarrow$ & Texels & Params & FPS & SSIM$\uparrow$ & PSNR$\uparrow$ & LPIPS$\downarrow$ & Texels & Params & FPS & SSIM$\uparrow$ & PSNR$\uparrow$ & LPIPS$\downarrow$ & Texels & Params & FPS \\
+\midrule
+Points40k & 0.890 & 28.78 & 0.346 & 13.2M & 41.9M & 121 & 0.758 & 25.80 & 0.304 & 42.2M & 128.9M & 97 & 0.809 & 22.74 & 0.246 & 15.4M & 48.4M & 162 \\
+Points80k & {\cellcolor{tabthird}} 0.898 & {\cellcolor{tabthird}} 29.56 & {\cellcolor{tabthird}} 0.328 & 15.5M & 51.2M & 88 & {\cellcolor{tabthird}} 0.777 & {\cellcolor{tabthird}} 26.39 & {\cellcolor{tabthird}} 0.285 & 43.9M & 136.5M & 79 & {\cellcolor{tabthird}} 0.823 & {\cellcolor{tabthird}} 23.25 & {\cellcolor{tabthird}} 0.235 & 12.3M & 41.7M & 108 \\
+Points120k & {\cellcolor{tabsecond}} 0.903 & {\cellcolor{tabsecond}} 29.88 & {\cellcolor{tabsecond}} 0.315 & 17.9M & 60.7M & 75 & {\cellcolor{tabsecond}} 0.785 & {\cellcolor{tabsecond}} 26.68 & {\cellcolor{tabsecond}} 0.275 & 45.0M & 142.0M & 68 & {\cellcolor{tabsecond}} 0.830 & {\cellcolor{tabsecond}} 23.34 & {\cellcolor{tabsecond}} 0.232 & 10.9M & 39.6M & 96 \\
+Points160k & {\cellcolor{tabfirst}} 0.905 & {\cellcolor{tabfirst}} 29.98 & {\cellcolor{tabfirst}} 0.308 & 19.9M & 69.1M & 56 & {\cellcolor{tabfirst}} 0.791 & {\cellcolor{tabfirst}} 26.88 & {\cellcolor{tabfirst}} 0.269 & 45.7M & 146.6M & 46 & {\cellcolor{tabfirst}} 0.833 & {\cellcolor{tabfirst}} 23.44 & {\cellcolor{tabfirst}} 0.227 & 10.5M & 40.8M & 88 \\
+\end{tabular}
+
+\caption{\label{tab:point-budget}
+We run our technique with a limited primitive budget.
+An increased primitive count increases quality,
+without proportionally increasing the number of texels and parameters.
+}
+\end{table*}
+
+
+
+In Table~\ref{tab:default-eval},
+we compare methods trained with default settings.
+In most cases,
+our approach achieves competitive or superior quality across all three metrics,
+while requiring a lower number of trainable parameters. %\TODO{Except for MipNerf -- say something}
+Focusing on the composition of these parameters,
+our converged models have significantly fewer,
+but more expressive primitives than the baseline as illustrated in Fig.~\ref{fig:teaser} (left).
+This highlights the ability of our model to account for the difference in complexity between geometry and appearance.
+In contrast, GSTex uses a pretrained 2DGS point cloud and has a fixed budget of texels, distributed at initialization time; this results in limited usage of texture. 
+This is in part because it starts with a converged set of primitives from 2DGS that is not well adapted to a solution with texture.
+On the contrary, we optimize both primitives and textures from scratch.
+
+Moreover,
+while our primitive count is close to BBSplat's,
+the total number of parameters used is significantly lower than theirs.
+This can be attributed to our content-aware texel size determination,
+which dynamically allocates model capacity to regions according to their needs,
+as opposed to the fixed texel to primitive ratio that BBSplat imposes.
+%\Fredo{Check that vs. which in English. }
+
+To emphasize the importance of our content-aware texturing approach,
+we next compare the other texturing methods by fixing both the primitive and texel budgets to ours.
+In GSTex this is feasible,
+because it allows the distribution of a given texel budget over a pretrained 2DGS point cloud.
+We first trained 2DGS with the specified primitive budget and then gave the texel budget as input to GSTex.
+However,
+in BBSplat, controlling both the primitive and texel budgets is not possible,
+as the method imposes a fixed ratio between the two,
+determined by the texture resolution (16x16).
+Therefore,
+we calculated the number of primitives that would result in the same number of trainable parameters.
+Table~\ref{tab:same-param-eval},
+reports these results under these fixed parameters.
+Note that BBSplat uses a skybox to model background and distant objects in outdoor scenes,
+which was not taken into consideration when calculating the number of primitives.
+This accounts for the slight discrepancy in the number of parameters.
+Both the other methods observe a noticeable to significant drop in performance.
+This is possibly due to the fact that model capacity is not distributed efficiently both across primitives and across parts of the scene.
+In this setup, our method performs consistently better on average than previous solutions.
+%\Fredo{Conclusion of the experiment?}
+
+As a third experiment,
+we run our method with a low, fixed primitive budget,
+by skipping the splitting procedure whenever the model exceeds it.
+The adaptive texel size strategies were left unchanged.
+Table~\ref{tab:point-budget} shows the results.
+As expected,
+the performance gets better with an increasing primitive count,
+as the use of primitives with a fixed gaussian falloff prevents faithfully reconstructing sharp edges with sparser point clouds.
+However,
+we note that the number of texels does not grow proportionally to the number of primitives
+or even diminishes, in the case of Tanks~\&~Temples.
+This is a direct result of our choice of texture coordinate mapping function and the adaptive texel size determination strategy.
+Our separation of geometric and appearance parameters allows our models to automatically achieve a balance between the two that is appropriate for the scene.
+\TODO{add BBSplat to show the proportional rise of parameters. Add the matplot graph}
+
+% \begin{itemize}
+% \item Compare to (3DGS), 2DGS* (no regul), GSTex, BBSplat, Ours 
+% \item Methodology: left out, parameters for others etc.
+% \end{itemize}
+
+
+% \begin{itemize}
+% \item On average same or better quality numbers and much lower number of parameters
+% \item M360: low number of points, lower quality; discuss this
+% \item However, BBsplat in this scene...
+% \end{itemize}
+
+
+
+% \begin{itemize}
+% \item We are amazing with same memory
+% \item explain how we did this for BBsplat, GSTex
+% \end{itemize}

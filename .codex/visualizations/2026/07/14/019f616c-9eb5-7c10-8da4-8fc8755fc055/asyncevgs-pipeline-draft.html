@@ -1,0 +1,299 @@
+<section id="asyncevgs-pipeline-draft">
+  <style>
+    #asyncevgs-pipeline-draft {
+      --p-red: #B1001C;
+      --p-blue: #003776;
+      --p-purple: #310067;
+      --p-purple-soft: #907CBB;
+      --p-gray: #666666;
+      --p-mid: #A5A5A5;
+      --p-light: #D9D9D9;
+      width: 100%;
+      max-width: 100vw;
+      box-sizing: border-box;
+      overflow: hidden;
+      color: var(--foreground);
+      font-family: Optima, Candara, "Avenir Next", Arial, sans-serif;
+    }
+    #asyncevgs-pipeline-draft .wide {
+      display: block;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+    #asyncevgs-pipeline-draft .scope {
+      fill: color-mix(in srgb, var(--card) 96%, transparent);
+      stroke: var(--p-mid);
+      stroke-width: 1;
+      stroke-dasharray: 4 4;
+    }
+    #asyncevgs-pipeline-draft .scope-blue {
+      fill: color-mix(in srgb, var(--p-blue) 4%, var(--card));
+      stroke: color-mix(in srgb, var(--p-blue) 48%, var(--p-mid));
+    }
+    #asyncevgs-pipeline-draft .scope-purple {
+      fill: color-mix(in srgb, var(--p-purple-soft) 7%, var(--card));
+      stroke: var(--p-purple-soft);
+    }
+    #asyncevgs-pipeline-draft .card-fill {
+      fill: var(--card);
+      stroke: var(--p-mid);
+      stroke-width: 1;
+    }
+    #asyncevgs-pipeline-draft .shadow {
+      filter: drop-shadow(0 2px 2px color-mix(in srgb, var(--foreground) 18%, transparent));
+    }
+    #asyncevgs-pipeline-draft .rgb-soft {
+      fill: color-mix(in srgb, var(--p-red) 7%, var(--card));
+      stroke: color-mix(in srgb, var(--p-red) 55%, var(--p-mid));
+    }
+    #asyncevgs-pipeline-draft .event-soft {
+      fill: color-mix(in srgb, var(--p-blue) 7%, var(--card));
+      stroke: color-mix(in srgb, var(--p-blue) 55%, var(--p-mid));
+    }
+    #asyncevgs-pipeline-draft .purple-soft {
+      fill: color-mix(in srgb, var(--p-purple-soft) 11%, var(--card));
+      stroke: var(--p-purple-soft);
+    }
+    #asyncevgs-pipeline-draft text {
+      font-size: var(--font-size-base);
+      font-weight: 400;
+      fill: var(--foreground);
+    }
+    #asyncevgs-pipeline-draft .strong { font-weight: 500; }
+    #asyncevgs-pipeline-draft .small { font-size: calc(var(--font-size-base) * .78); }
+    #asyncevgs-pipeline-draft .tiny { font-size: calc(var(--font-size-base) * .68); }
+    #asyncevgs-pipeline-draft .muted { fill: var(--p-gray); }
+    #asyncevgs-pipeline-draft .red { fill: var(--p-red); }
+    #asyncevgs-pipeline-draft .blue { fill: var(--p-blue); }
+    #asyncevgs-pipeline-draft .purple { fill: var(--p-purple); }
+    #asyncevgs-pipeline-draft .on-dark { fill: #FFFFFF; }
+    #asyncevgs-pipeline-draft .main-arrow,
+    #asyncevgs-pipeline-draft .red-arrow,
+    #asyncevgs-pipeline-draft .blue-arrow,
+    #asyncevgs-pipeline-draft .purple-arrow,
+    #asyncevgs-pipeline-draft .loss-arrow {
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 1.4;
+    }
+    #asyncevgs-pipeline-draft .main-arrow { stroke: var(--p-gray); marker-end: url(#arrow-gray); }
+    #asyncevgs-pipeline-draft .red-arrow { stroke: var(--p-red); marker-end: url(#arrow-red); }
+    #asyncevgs-pipeline-draft .blue-arrow { stroke: var(--p-blue); marker-end: url(#arrow-blue); }
+    #asyncevgs-pipeline-draft .purple-arrow { stroke: var(--p-purple); marker-end: url(#arrow-purple); }
+    #asyncevgs-pipeline-draft .loss-arrow { stroke-dasharray: 4 3; }
+    #asyncevgs-pipeline-draft .pill {
+      fill: var(--card);
+      stroke-width: 1;
+    }
+    #asyncevgs-pipeline-draft .narrow { display: none; }
+    @media (max-width: 520px) {
+      #asyncevgs-pipeline-draft .wide { display: none; }
+      #asyncevgs-pipeline-draft .narrow {
+        display: grid;
+        gap: .65rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        width: 100%;
+        overflow-wrap: anywhere;
+      }
+      #asyncevgs-pipeline-draft .narrow li {
+        border-left: 3px solid var(--p-mid);
+        padding: .45rem .65rem;
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+      #asyncevgs-pipeline-draft .narrow li:nth-child(1) { border-left-color: var(--p-red); }
+      #asyncevgs-pipeline-draft .narrow li:nth-child(2) { border-left-color: var(--p-blue); }
+      #asyncevgs-pipeline-draft .narrow li:nth-child(3),
+      #asyncevgs-pipeline-draft .narrow li:nth-child(4) { border-left-color: var(--p-purple-soft); }
+      #asyncevgs-pipeline-draft .narrow strong { font-weight: 500; }
+    }
+  </style>
+
+  <svg class="wide" viewBox="0 0 736 520" role="img" aria-labelledby="asyncevgs-title asyncevgs-desc" preserveAspectRatio="xMidYMin meet">
+    <title id="asyncevgs-title">Draft pipeline for AsyncEvGS</title>
+    <desc id="asyncevgs-desc">A left-to-right concept diagram showing asynchronous RGB and event capture, E2VID preprocessing, VGGT cross-domain initialization, two-stage Gaussian Splatting optimization with five losses, and sharp novel-view output. Hatched boxes mark images the author should provide.</desc>
+    <defs>
+      <linearGradient id="blue-card" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#0C2734"/>
+        <stop offset="1" stop-color="#92BFFF"/>
+      </linearGradient>
+      <linearGradient id="red-card" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#901113"/>
+        <stop offset="1" stop-color="#DFBCB7"/>
+      </linearGradient>
+      <linearGradient id="neutral-card" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="var(--card)"/>
+        <stop offset="1" stop-color="#DADADA"/>
+      </linearGradient>
+      <pattern id="placeholder-hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+        <rect width="8" height="8" fill="var(--card)"/>
+        <line x1="0" y1="0" x2="0" y2="8" stroke="var(--p-light)" stroke-width="3"/>
+      </pattern>
+      <marker id="arrow-gray" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+        <path d="M0,0 L7,3.5 L0,7 Z" fill="#666666"/>
+      </marker>
+      <marker id="arrow-red" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+        <path d="M0,0 L7,3.5 L0,7 Z" fill="#B1001C"/>
+      </marker>
+      <marker id="arrow-blue" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+        <path d="M0,0 L7,3.5 L0,7 Z" fill="#003776"/>
+      </marker>
+      <marker id="arrow-purple" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+        <path d="M0,0 L7,3.5 L0,7 Z" fill="#310067"/>
+      </marker>
+    </defs>
+
+    <rect x="8" y="8" width="105" height="24" rx="12" fill="color-mix(in srgb, var(--p-purple-soft) 14%, var(--card))" stroke="var(--p-purple-soft)"/>
+    <text x="60.5" y="25" text-anchor="middle" class="small strong purple">DRAFT · CONCEPT</text>
+
+    <rect x="8" y="48" width="112" height="412" rx="14" class="scope"/>
+    <text x="64" y="70" text-anchor="middle" class="small strong muted">ASYNC CAPTURE</text>
+
+    <rect x="20" y="91" width="88" height="88" rx="10" class="rgb-soft shadow"/>
+    <text x="64" y="111" text-anchor="middle" class="small strong red">Blurred RGB</text>
+    <rect x="29" y="120" width="70" height="47" rx="6" fill="url(#placeholder-hatch)" stroke="var(--p-red)"/>
+    <text x="64" y="147" text-anchor="middle" class="tiny muted">[add RGB frame]</text>
+
+    <rect x="20" y="204" width="88" height="88" rx="10" class="event-soft shadow"/>
+    <text x="64" y="224" text-anchor="middle" class="small strong blue">Raw events</text>
+    <rect x="29" y="233" width="70" height="47" rx="6" fill="url(#placeholder-hatch)" stroke="var(--p-blue)"/>
+    <text x="64" y="260" text-anchor="middle" class="tiny muted">[add event view]</text>
+
+    <rect x="20" y="320" width="88" height="92" rx="10" class="card-fill"/>
+    <text x="64" y="342" text-anchor="middle" class="small strong">Dual camera</text>
+    <text x="64" y="363" text-anchor="middle" class="tiny muted">1280 × 720</text>
+    <text x="64" y="382" text-anchor="middle" class="tiny muted">rigid bracket</text>
+    <text x="64" y="401" text-anchor="middle" class="tiny strong purple">no HW sync</text>
+
+    <rect x="132" y="125" width="112" height="230" rx="14" class="scope scope-blue"/>
+    <text x="188" y="146" text-anchor="middle" class="small strong blue">EVENT BRIDGE</text>
+
+    <rect x="146" y="160" width="84" height="44" rx="9" fill="url(#blue-card)" class="shadow"/>
+    <text x="188" y="187" text-anchor="middle" class="strong on-dark">E2VID</text>
+
+    <path d="M188 204 V218" class="blue-arrow"/>
+    <rect x="146" y="220" width="84" height="52" rx="9" class="card-fill shadow"/>
+    <text x="188" y="241" text-anchor="middle" class="small strong blue">Bilateral denoise</text>
+    <text x="188" y="259" text-anchor="middle" class="tiny muted">+ brightness balance</text>
+
+    <path d="M188 272 V286" class="blue-arrow"/>
+    <rect x="146" y="288" width="84" height="52" rx="9" fill="url(#placeholder-hatch)" stroke="var(--p-blue)"/>
+    <text x="188" y="308" text-anchor="middle" class="tiny strong blue">Sharp grayscale</text>
+    <text x="188" y="327" text-anchor="middle" class="tiny muted">[add E2VID frame]</text>
+
+    <rect x="258" y="86" width="140" height="266" rx="14" class="scope scope-purple"/>
+    <text x="328" y="108" text-anchor="middle" class="small strong purple">CROSS-DOMAIN INIT.</text>
+
+    <rect x="275" y="131" width="106" height="68" rx="11" class="card-fill shadow" stroke="var(--p-purple-soft)"/>
+    <text x="328" y="156" text-anchor="middle" class="strong purple">VGGT</text>
+    <text x="328" y="176" text-anchor="middle" class="small muted">joint calibration</text>
+    <text x="328" y="191" text-anchor="middle" class="tiny muted">RGB + event frames</text>
+
+    <rect x="270" y="224" width="54" height="82" rx="9" class="purple-soft shadow"/>
+    <text x="297" y="247" text-anchor="middle" class="small strong purple">All poses</text>
+    <text x="297" y="268" text-anchor="middle" class="tiny muted">RGB + event</text>
+    <text x="297" y="289" text-anchor="middle" class="tiny muted">refine later</text>
+
+    <rect x="332" y="224" width="54" height="82" rx="9" class="purple-soft shadow"/>
+    <text x="359" y="247" text-anchor="middle" class="small strong purple">Dense</text>
+    <text x="359" y="264" text-anchor="middle" class="small strong purple">points</text>
+    <text x="359" y="287" text-anchor="middle" class="tiny muted">conf. &gt; 50%</text>
+
+    <path d="M328 199 V215 Q328 220 323 220 H302 Q297 220 297 224" class="main-arrow"/>
+    <path d="M328 199 V215 Q328 220 333 220 H354 Q359 220 359 224" class="main-arrow"/>
+
+    <path d="M108 135 H244 Q252 135 252 143 V155 Q252 164 261 164 H275" class="red-arrow"/>
+    <path d="M108 248 H124 Q132 248 132 240 V182 Q132 182 146 182" class="blue-arrow"/>
+    <path d="M230 314 H246 Q254 314 254 306 V188 Q254 176 266 176 H275" class="blue-arrow"/>
+
+    <rect x="410" y="36" width="232" height="457" rx="15" class="scope scope-purple"/>
+    <text x="526" y="59" text-anchor="middle" class="small strong purple">TWO-STAGE 3DGS OPTIMIZATION</text>
+
+    <rect x="426" y="75" width="200" height="77" rx="11" class="card-fill shadow"/>
+    <text x="442" y="96" class="small strong muted">STAGE 1 · RGB ONLY · 10K</text>
+    <text x="442" y="119" class="strong">Coarse 3DGS  G<tspan baseline-shift="sub" class="tiny">ref</tspan></text>
+    <text x="442" y="140" class="small muted">VGGT init · L<tspan baseline-shift="sub" class="tiny">blur</tspan></text>
+    <rect x="565" y="110" width="49" height="26" rx="13" fill="var(--p-gray)"/>
+    <text x="589.5" y="128" text-anchor="middle" class="tiny strong on-dark">FROZEN</text>
+
+    <path d="M398 170 H418 Q426 170 426 162 V116" class="main-arrow"/>
+
+    <rect x="426" y="206" width="200" height="102" rx="12" fill="url(#neutral-card)" stroke="var(--p-purple-soft)" stroke-width="1.4" class="shadow"/>
+    <text x="442" y="229" class="small strong purple">STAGE 2 · RGB + EVENT · 30K</text>
+    <text x="526" y="261" text-anchor="middle" class="strong">Joint 3DGS</text>
+    <text x="526" y="282" text-anchor="middle" class="small muted">new VGGT init + joint pose refinement</text>
+    <text x="526" y="299" text-anchor="middle" class="tiny muted">five-objective optimization</text>
+
+    <path d="M398 270 H426" class="main-arrow"/>
+    <path d="M594 152 V169 Q594 177 586 177 H566 Q558 177 558 185 V206" class="purple-arrow loss-arrow"/>
+    <rect x="482" y="164" width="72" height="26" rx="13" class="pill" stroke="var(--p-purple-soft)"/>
+    <text x="518" y="182" text-anchor="middle" class="tiny strong purple">Lreg-e · color</text>
+
+    <rect x="426" y="346" width="92" height="108" rx="11" class="rgb-soft"/>
+    <text x="472" y="368" text-anchor="middle" class="small strong red">RGB / DEBLUR</text>
+    <text x="472" y="390" text-anchor="middle" class="tiny muted">MLP → N=5 → avg.</text>
+    <rect x="438" y="401" width="68" height="20" rx="10" class="pill" stroke="var(--p-red)"/>
+    <text x="472" y="416" text-anchor="middle" class="tiny strong red">Lblur</text>
+    <rect x="438" y="426" width="68" height="20" rx="10" class="pill" stroke="var(--p-red)"/>
+    <text x="472" y="441" text-anchor="middle" class="tiny strong red">Lreg-r</text>
+
+    <rect x="534" y="346" width="92" height="108" rx="11" class="event-soft"/>
+    <text x="580" y="368" text-anchor="middle" class="small strong blue">EVENT-GUIDED</text>
+    <text x="580" y="390" text-anchor="middle" class="tiny muted">temporal + structure</text>
+    <rect x="546" y="401" width="68" height="20" rx="10" class="pill" stroke="var(--p-blue)"/>
+    <text x="580" y="416" text-anchor="middle" class="tiny strong blue">Levs</text>
+    <rect x="546" y="426" width="68" height="20" rx="10" class="pill" stroke="var(--p-blue)"/>
+    <text x="580" y="441" text-anchor="middle" class="tiny strong blue">Lstruct</text>
+
+    <path d="M472 346 V330 Q472 320 482 320 H496 Q506 320 506 308" class="red-arrow loss-arrow"/>
+    <path d="M580 346 V330 Q580 320 570 320 H556 Q546 320 546 308" class="blue-arrow loss-arrow"/>
+
+    <rect x="132" y="375" width="266" height="118" rx="14" class="scope scope-blue"/>
+    <text x="145" y="397" class="small strong blue">EVENT STRUCTURE LOSS · KEY NOVELTY</text>
+    <rect x="146" y="416" width="50" height="45" rx="8" class="card-fill shadow"/>
+    <text x="171" y="437" text-anchor="middle" class="small strong blue">S(·)</text>
+    <text x="171" y="452" text-anchor="middle" class="tiny muted">structure</text>
+    <rect x="210" y="416" width="72" height="45" rx="8" class="card-fill shadow"/>
+    <text x="246" y="435" text-anchor="middle" class="small strong blue">Multi-scale W</text>
+    <text x="246" y="452" text-anchor="middle" class="tiny muted">confidence</text>
+    <rect x="296" y="416" width="88" height="45" rx="8" fill="url(#blue-card)" class="shadow"/>
+    <text x="340" y="435" text-anchor="middle" class="small strong on-dark">Weighted SSIM</text>
+    <text x="340" y="452" text-anchor="middle" class="tiny on-dark">no luminance</text>
+    <path d="M196 438 H210" class="blue-arrow"/>
+    <path d="M282 438 H296" class="blue-arrow"/>
+    <text x="146" y="480" class="tiny muted">E2VID target + event-view rendering → structural supervision</text>
+    <path d="M188 340 V375" class="blue-arrow"/>
+    <path d="M384 438 V470 Q384 476 390 476 H520 Q528 476 528 468 V420 Q528 412 534 412" class="blue-arrow loss-arrow"/>
+
+    <rect x="654" y="124" width="74" height="300" rx="14" class="scope"/>
+    <text x="691" y="147" text-anchor="middle" class="small strong muted">OUTPUT</text>
+    <rect x="663" y="167" width="56" height="76" rx="11" fill="var(--p-purple)" class="shadow"/>
+    <text x="691" y="193" text-anchor="middle" class="small strong on-dark">Optimized</text>
+    <text x="691" y="214" text-anchor="middle" class="small strong on-dark">3DGS</text>
+    <text x="691" y="232" text-anchor="middle" class="tiny on-dark">sharp + color</text>
+    <path d="M626 257 H642 Q650 257 650 249 V211 Q650 205 663 205" class="purple-arrow"/>
+
+    <rect x="663" y="273" width="56" height="91" rx="9" fill="url(#placeholder-hatch)" stroke="var(--p-purple)"/>
+    <text x="691" y="306" text-anchor="middle" class="tiny strong purple">[add novel</text>
+    <text x="691" y="322" text-anchor="middle" class="tiny strong purple">view / point</text>
+    <text x="691" y="338" text-anchor="middle" class="tiny strong purple">cloud]</text>
+    <path d="M691 243 V273" class="purple-arrow"/>
+
+    <line x1="664" y1="389" x2="681" y2="389" stroke="var(--p-gray)" stroke-width="1.4"/>
+    <text x="686" y="393" class="tiny muted">data</text>
+    <line x1="664" y1="408" x2="681" y2="408" stroke="var(--p-purple)" stroke-width="1.4" stroke-dasharray="4 3"/>
+    <text x="686" y="412" class="tiny muted">loss</text>
+  </svg>
+
+  <ol class="narrow" aria-label="AsyncEvGS draft pipeline in compact vertical form">
+    <li><strong>Asynchronous capture:</strong> blurred 1280×720 RGB frames plus raw 1280×720 event streams, without hardware synchronization.</li>
+    <li><strong>Event bridge:</strong> E2VID reconstruction, bilateral denoising, and multi-frame brightness balancing produce sharp grayscale frames.</li>
+    <li><strong>Cross-domain initialization:</strong> VGGT jointly processes RGB and event-derived frames to estimate all poses and a dense confidence-filtered point cloud.</li>
+    <li><strong>Two-stage optimization:</strong> Stage 1 trains an RGB-only coarse color reference; Stage 2 jointly refines 3DGS and poses with Lblur, Lreg-r, Levs, Lstruct, and Lreg-e.</li>
+    <li><strong>Output:</strong> an optimized, color-faithful 3DGS with sharp novel views; real input, structure-map, confidence-map, and output examples remain to be inserted.</li>
+  </ol>
+</section>

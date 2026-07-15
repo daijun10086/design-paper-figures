@@ -1,0 +1,83 @@
+\section{Scaling Laws for Multiview \boldmath\texorpdfstring{$\left(V_C{>}2\right)$}{(Vc>2)} NVS}
+% \input{figures/mv_scale_prope}
+\label{sec:scaling-mv}
+
+\paragraph{Analysis Setup.}
+%
+We continue to experiment in the multiview paradigm ($V_C{>}2$), which necessitates the reconciliation of scene information across many views to produce quality renderings. Specifically, we focus on $V_C = 4$ regime. For training and evaluation, we choose DL3DV~\citep{ling2024dl3dv}, a real-world dataset with wider baselines and more complex camera trajectories and subject matter, making it more suitable for multiview experiments. We follow the official test-train split and use $V_T{=}4$, and scene batch size of $64$ for all experiments to save resources. %with an internal set of evaluation frames. 
+ All other settings follow those described in Sec.~\ref{sec:scaling-two-view} and \suppref{supp:exp-details}.
+\input{tables/mv_result}
+\input{figures/qualitative_multiview}
+
+\paragraph{Scaling Law Does Not Hold.}
+%
+Unfortunately, we find that naively extending our SVSM architecture to the multiview scenario does not result in a similar scaling trend. As can be seen from Figure~\ref{fig:mv_scale}a, the Pareto frontier of our unidirectional model saturates much quicker than bidirectional LVSM as we increase the train compute. 
+% Unlike the decoder-only model which has early access to the target camera pose, our scene encoder cannot eliminate information that is irrelevant to the target view in advance. ...
+
+% As our unidirectional model scales identically as bidirectional LVSM for small view settings, and as small view prob
+% In the extreme case where we use monocular context views, absolute positional encoding and 
+
+
+\vspace{-1\baselineskip}
+\paragraph{Relative Camera Attention Re-establishes Scaling Law.}
+%
+We hypothesize that this is not a fundamental problem of encoder-decoder paradigm, but a problem caused by the way our model utilizes the pose information. Specifically, we find that adding a form of relative camera attention~\citep{miyato2023gta,kong2024eschernet,li2025cameras} resolves this issue. 
+
+% Let $\pose_i$ be the camera pose of the view that the $i$-th token belongs to. Relative camera attention models~\citep{miyato2023gta,kong2024eschernet,li2025cameras} in this context is defined as a 
+
+% Let $\left(\pose_i,f_i\right)$ be the pose--feature pair of the $i$-th token where $g_i$ is the camera pose of the view this token belongs to. Relative camera attention models~\citep{miyato2023gta,kong2024eschernet,li2025cameras} perform 
+% A relative attention in this context is defined as
+% \begin{equation}
+%     \mathrm{Attn}(f_i, g_i, g_j) = \mathrm{Attn}(f_i, g_j)
+% \end{equation}
+
+
+% Let $\left(\pose_i,f_i\right)$ be the pose--feature pair of the $i$-th token where $g_i$ is the absolute camera pose of the view this token belongs to. Relative camera attention~\citep{miyato2023gta,kong2024eschernet,li2025cameras} in this context is defined as an operation of the following form
+% \begin{align*}
+%     f^{\mathrm{(out)}}_i&=\sum_{j}\frac{e^{l(g_i,g_j,f_i,f_j)}}{\sum_{k}e^{l(g_i,g_k,f_i, f_k)}}v(g_i,g_j,f_j)
+% \end{align*}
+% subject to relativity constraint
+% \begin{align*}
+%     l(g_i,g_j,f_i,f_j) &= l(g_{ij},f_i,f_j)
+%     \\
+%     v(g_i,g_j,f_j) &= v(g_{ij},f_j)
+% \end{align*}
+% where $g_{ij}=g_{i}^{-1}g_{j}$ is the relative camera pose. Projective RoPE~\citep{li2025cameras} additionally injects information about the camera intrinsic to the attention. This relativity constraint is typically achieved by transforming the query-key-value vectors from the local frames to an arbitrary absolute frame, and then canonicalizing the aggregated features back to the original local frame:
+% \begin{align*}
+%     l(g_i,g_j,f_i,f_j)&=\big(\rho(g_i) q_i\big)^T \big(\rho(g_j) k_j\big)
+%     \\
+%     v(g_i,g_j,f_j)&=\rho(g_i^{-1}g_j) v_j
+%     \\
+%     q_i=W_q f_i,\quad k_j &= W_k f_j, \quad v_j = W_v f_j
+% \end{align*}
+% where orthogonality 
+
+
+
+\looseness=-1
+Let $\pose_i$ be the camera pose of the view that the $i$-th token belongs to. Relative camera attention models leverage attention mechanisms that only depend on the relative camera poses $\pose_{ij}{=}\pose_i^{-1}\pose_j$. 
+This is typically achieved by 1)~mapping the query, key, and value vectors to an arbitrary global reference frame, 2)~performing attention there, and then 3)~mapping back the results to each token's own reference frame. This mechanism embeds the pose information directly into the attention layers, ensuring that it isn't lost after the initial embedding. This potentially explains the efficacy of the method for our model, which may lose the pose information through the bottleneck otherwise.
+%
+% This mechanism offers several benefits in our case. 
+
+% Lastly, bringing pose information through positional embedding ensures that the model has access to the pose information through all layers -- from the encoder all the way to the decoder.
+
+% First, the model is relieved from the burden of performing internal transformations. As the features are always canonicalized in the token's reference frame, the token-wise operations such as MLP and QKV projection can be agnostic to the token's pose, resulting in better weight sharing. The attention is also invariant to both the number of views and the choice of reference frame up to softmax normalization. As a result, our model's $V_C=2$ scalability can be easily extrapolated to $V_C>2$.
+
+For our model, we adopt the recently proposed PRoPE~\citep{li2025cameras} embedding as the relative camera attention mechanism. We illustrate SVSM's architecture with the incorporation of PRoPE embeddings in \figref{fig:prope}. After adding PRoPE embeddings to both LVSM and SVSM, we retrain all models. Results are shown in \figref{fig:mv_scale}. The equivalent scaling is re-established, and SVSM again maintains a tighter Pareto-frontier. Qualitative scaling results for both models are shown in \figref{fig:qualitative-multiview}.
+Note that while both models benefit from PRoPE embeddings, the advantage is far more pronounced in our encoder-decoder SVSM. 
+% We hypothesize that this is due to the decoder-only model always having access to the raw pose information of the contexts, while our decoder does not have access to such information in the absence of PRoPE. 
+\vspace{-1\baselineskip}
+
+\paragraph{Final Models.}
+
+Equipped with PRoPE embeddings, we again train larger models to compare directly against the 24-layer LVSM Decoder-only model, also equipped with PRoPE. As we did in the stereo case, we train a naive forward pass-matched model along with a Pareto-optimal model from a $N(\compute{})$ fit to the data. The performance of both models are listed in \tabref{tab:multiview-result} and their test loss curves are plotted in \figref{fig:mv_scale}. Again, the version of SVSM which follows the scaling laws outperforms both models, with significant $0.7$ PSNR and $-0.016$ LPIPS gaps. Beyond the superior reconstruction quality, the efficiency of SVSM becomes clear in the multi-view case, with a rendering FPS that is $4\times$ that of the decoder-only model, increasing to $14\times$ when extrapolated to larger context view counts.
+
+
+% \paragraph{Object-centric Experiments.} We additionally perform the scaling law analysis on the object-centric, synthetic setting. We use Objaverse~\citep{objaverse} with an internal train-test split. We use $V_T{=}8$ and scene batch size $64$. As with all previous experiments, SVSM scales equally as LVSM decoder-only while being around $5\times$ more compute-optimal in this case, as seen in \figref{fig:obj_scale}a. Qualitative results are available in \suppref{supp:qual}.
+
+
+
+
+
+
