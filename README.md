@@ -52,7 +52,7 @@ Clone this repository and unpack the portable Skill archive:
 ```bash
 git clone https://github.com/daijun10086/design-paper-figures.git
 cd design-paper-figures
-unzip design-paper-figures.zip
+unzip dist/design-paper-figures.zip
 ```
 
 ### Codex
@@ -110,12 +110,12 @@ Codex can also be prompted explicitly with `$design-paper-figures`. In Claude Co
 
 ## Repository contents
 
-- `design-paper-figures.zip`: portable Skill package;
+- `dist/design-paper-figures.zip`: portable Skill package;
 - `graphics-color-library.yaml`: collected color definitions and combinations;
 - `paper-aesthetic-observations.md`: distilled figure-design observations;
 - `output/`: palettes and visual tests produced while developing the Skill;
 - `reference papers/`: reference source material used during the aesthetic study;
-- `dist/`: distributable archive copy.
+- `dist/`: distributable Skill package.
 
 ## Notes
 
