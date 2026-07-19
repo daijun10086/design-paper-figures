@@ -76,6 +76,23 @@ cp -R design-paper-figures "$HOME/.claude/skills/"
 
 For project-only use, copy the extracted directory to `.claude/skills/design-paper-figures/` inside that project.
 
+### Portable fonts for Linux servers
+
+macOS system fonts such as Optima, Futura, Gill Sans, Helvetica Neue, Avenir,
+and Arial are not redistributed by this repository. A separate package of
+open-source stylistic alternatives is available for servers:
+
+```bash
+unzip dist/design-paper-server-fonts.zip
+python3 server-fonts/install_fonts.py
+```
+
+The package includes Belleza, Jost, Cabin, Source Sans 3, Lato, and Arimo,
+together with their SIL Open Font License files. It can also register fonts
+directly with Matplotlib without a system-wide installation. See
+[`server-fonts/README.md`](server-fonts/README.md) and the
+[`server font comparison`](output/server-font-comparison/server-font-comparison-board.png).
+
 ## Use
 
 Ask the agent to use the Skill while describing the scientific message, target figure type, paper width, available data or image assets, and preferred output format.
@@ -111,6 +128,7 @@ Codex can also be prompted explicitly with `$design-paper-figures`. In Claude Co
 ## Repository contents
 
 - `dist/design-paper-figures.zip`: portable Skill package;
+- `dist/design-paper-server-fonts.zip`: redistributable Linux/server font candidates and installer;
 - `graphics-color-library.yaml`: collected color definitions and combinations;
 - `paper-aesthetic-observations.md`: distilled figure-design observations;
 - `output/`: palettes and visual tests produced while developing the Skill;

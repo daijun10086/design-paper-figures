@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "repository": "https://github.com/google/fonts",
+      "commit": "389b770410cc0b7c21c85673bfa2077420fe7f65"
+    },
+    {
+      "repository": "https://github.com/adobe-fonts/source-sans",
+      "release": "3.052R",
+      "asset": "TTF-source-sans-3.052R.zip"
+    }
+  ],
+  "license": "See each families/<family>/OFL.txt",
+  "families": [
+    {
+      "family": "Belleza",
+      "directory": "families/belleza",
+      "role": "portable humanist/editorial alternative for the Optima preference"
+    },
+    {
+      "family": "Jost",
+      "directory": "families/jost",
+      "role": "portable geometric alternative for the Futura preference"
+    },
+    {
+      "family": "Cabin",
+      "directory": "families/cabin",
+      "role": "portable humanist alternative for the Gill Sans preference"
+    },
+    {
+      "family": "Source Sans 3",
+      "directory": "families/source-sans-3",
+      "role": "portable neutral alternative for the Helvetica Neue preference"
+    },
+    {
+      "family": "Lato",
+      "directory": "families/lato",
+      "role": "portable modern humanist alternative for the Avenir preference"
+    },
+    {
+      "family": "Arimo",
+      "directory": "families/arimo",
+      "role": "portable Arial-compatible conservative fallback"
+    }
+  ]
+}
