@@ -1,0 +1,25 @@
+compute_gflops,method,fid,lower,upper
+8,Baseline A,19.00,17.86,20.14
+16,Baseline A,14.60,13.72,15.48
+32,Baseline A,10.80,10.15,11.45
+64,Baseline A,8.10,7.61,8.59
+128,Baseline A,6.30,5.92,6.68
+256,Baseline A,5.25,4.94,5.57
+8,Baseline B,17.20,16.17,18.23
+16,Baseline B,12.80,12.03,13.57
+32,Baseline B,9.10,8.55,9.65
+64,Baseline B,6.65,6.25,7.05
+128,Baseline B,5.00,4.70,5.30
+256,Baseline B,4.05,3.81,4.29
+8,Large model,15.50,14.57,16.43
+16,Large model,11.30,10.62,11.98
+32,Large model,7.65,7.19,8.11
+64,Large model,5.35,5.03,5.67
+128,Large model,3.85,3.62,4.08
+256,Large model,3.05,2.87,3.23
+8,Ours,13.80,12.97,14.63
+16,Ours,9.40,8.84,9.96
+32,Ours,6.15,5.78,6.52
+64,Ours,4.15,3.90,4.40
+128,Ours,2.95,2.77,3.13
+256,Ours,2.28,2.14,2.42
